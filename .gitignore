@@ -1,0 +1,56 @@
+# Archivos generados por el entorno de desarrollo
+## Directorios de compilación
+**/bin/
+**/obj/
+
+# Archivos de configuración de usuario de Visual Studio
+*.user
+*.suo
+*.sln.docstates
+
+# Ignorar el directorio de dependencias locales de paquetes NuGet
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Archivos generados por el compilador y depurador
+*.dll
+*.exe
+*.pdb
+*.mdb
+
+# Archivos de log y backup
+*.log
+*.bak
+*.tmp
+
+# Archivos de bases de datos locales
+*.sqlite
+*.dbmdl
+
+# Archivos de lock y temporales
+.lock.json
+.lock
+*.pid
+*.cache
+
+# Directorio de configuración y archivos de IDE
+*/Peliculas.API/.vscode
+*/Peliculas.API/.idea
+.vs/
+**/.vs/
+
+# Ignorar archivos generados por Rider o Resharper (JetBrains)
+*.DotSettings.user
+_ReSharper.Caches/
+
+# Configuración y salidas de Test Results
+TestResults/
+.trx
+.coverage
+
+# Ignorar el directorio de publicaciones
+publish/
+/Peliculas.API/.vs
+/Peliculas.API/.vs
