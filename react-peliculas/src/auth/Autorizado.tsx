@@ -6,15 +6,15 @@ export default function Autorizado(props: AutorizadoProps) {
   const { claims } = useContext(AutenticacionContext);
 
   useEffect(() => {
-    if (props.rol) {
+    if (props.role) {
       const indice = claims.findIndex(
-        (claim) => claim.nombre === "rol" && claim.valor === props.rol
+        (claim) => claim.nombre === "role" && claim.valor === props.role
       );
       setEstaAutorizado(indice > -1);
     } else {
       setEstaAutorizado(claims.length > 0);
     }
-  }, [claims, props.rol]);
+  }, [claims, props.role]);
 
   return <>{estaAutorizado ? props.autorizado : props.noAutorizado}</>;
 }
@@ -22,5 +22,5 @@ export default function Autorizado(props: AutorizadoProps) {
 interface AutorizadoProps {
   autorizado: ReactElement;
   noAutorizado?: ReactElement;
-  rol?: string;
+  role?: string;
 }

@@ -44,7 +44,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization(opciones =>
-    opciones.AddPolicy("EsAdmin", policy => policy.RequireClaim("rol", "admin")));
+    opciones.AddPolicy("EsAdmin", policy => policy.RequireClaim("role", "admin")));
 
 builder.Services.AddControllers(options =>
 {

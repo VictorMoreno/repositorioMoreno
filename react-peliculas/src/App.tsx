@@ -24,7 +24,7 @@ function App() {
   function esAdmin() {
     return (
       claims.findIndex(
-        (claim) => claim.nombre === "rol" && claim.valor === "admin"
+        (claim) => claim.nombre === "role" && claim.valor === "admin"
       ) > -1
     );
   }

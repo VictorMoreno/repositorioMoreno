@@ -28,7 +28,7 @@ export default function PeliculaIndividual(props: peliculaIndividualProps) {
         <Link to={construirLick()}>{props.pelicula.titulo}</Link>
       </p>
       <Autorizado
-        rol="admin"
+        role="admin"
         autorizado={
           <div>
             <Link

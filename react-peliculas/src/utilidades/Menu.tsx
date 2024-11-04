@@ -40,7 +40,7 @@ export default function Menu() {
             </li>
 
             <Autorizado
-              rol="admin"
+              role="admin"
               autorizado={
                 <>
                   <li className="nav-item">

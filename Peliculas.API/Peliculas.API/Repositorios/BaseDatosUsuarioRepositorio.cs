@@ -32,12 +32,12 @@ public class BaseDatosUsuarioRepositorio : IUsuarioRepositorio
     public async Task HacerAdministrador(string idUsuario)
     {
         var usuario = await this._userManager.FindByIdAsync(idUsuario);
-        await this._userManager.AddClaimAsync(usuario, new Claim("rol", "admin"));
+        await this._userManager.AddClaimAsync(usuario, new Claim("role", "admin"));
     }
 
     public async Task QuitarAdministrador(string idUsuario)
     {
         var usuario = await this._userManager.FindByIdAsync(idUsuario);
-        await this._userManager.RemoveClaimAsync(usuario, new Claim("rol", "admin"));
+        await this._userManager.RemoveClaimAsync(usuario, new Claim("role", "admin"));
     }
 }
