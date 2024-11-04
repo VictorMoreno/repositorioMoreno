@@ -4,11 +4,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NetTopologySuite;
-using NetTopologySuite.Geometries;
 using Peliculas.API;
 using Peliculas.API.APIBehaviors;
 using Peliculas.API.Filtros;
-using Peliculas.API.Repositorios;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,15 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Limpiamos el mapeo automatico que hace Identity para el email.
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-builder.Services.AddTransient<IGeneroRepositorio, BaseDatosGeneroRepositorio>();
-builder.Services.AddTransient<IActorRepositorio, BaseDatosActorRepositorio>();
-builder.Services.AddTransient<ICineRepositorio, BaseDatosCineRepositorio>();
-builder.Services.AddTransient<IPeliculaRepositorio, BaseDatosPeliculaRepositorio>();
-builder.Services.AddTransient<IUsuarioRepositorio, BaseDatosUsuarioRepositorio>();
-builder.Services.AddTransient<IRatingRepositorio, BaseDatosRatingRepositorio>();
-builder.Services.AddTransient<IAlmacenadorArchivoRepositorio, AlmacenadorArchivoLocal>();
-builder.Services.AddTransient<IProveedorContenedor, ProveedorManualContenedor>();
-builder.Services.BindearCasosDeUso();
+builder.Services.BindearRepositorios()
+    .BindearCasosDeUso()
+    .BindearFuncionalidadesExtras();
 
 builder.Services.AddHttpContextAccessor();
 
@@ -39,7 +31,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         ValidateAudience = false,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwtKey"])),
+        IssuerSigningKey =
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwtKey"] ?? string.Empty)),
         ClockSkew = TimeSpan.Zero
     });
 
@@ -54,17 +47,23 @@ builder.Services.AddControllers(options =>
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-    sqlServer => sqlServer.UseNetTopologySuite()));
+        sqlServer => sqlServer.UseNetTopologySuite()));
 
-builder.Services.AddSingleton<GeometryFactory>(NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326));
+builder.Services.AddSingleton(NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326));
 
 builder.Services.AddCors(options =>
 {
     var frontendUrl = builder.Configuration.GetValue<string>("FrontendUrl");
-    options.AddDefaultPolicy(builder =>
+
+    if (string.IsNullOrEmpty(frontendUrl))
     {
-        builder.WithOrigins(frontendUrl).AllowAnyMethod().AllowAnyHeader()
-        .WithExposedHeaders(new string[] { "cantidadtotalregistros" });
+        throw new Exception("FrontendUrl is required");
+    }
+    
+    options.AddDefaultPolicy(policyBuilder =>
+    {
+        policyBuilder.WithOrigins(frontendUrl).AllowAnyMethod().AllowAnyHeader()
+            .WithExposedHeaders("cantidadtotalregistros");
     });
 });
 

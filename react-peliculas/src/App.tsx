@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { claim } from "./auth/auth.model";
 import AutenticacionContext from "./auth/AutenticacionContext";
 import { obtenerClaims } from "./auth/manejadorJwt";
-import { configurarIntercerptor as configurarInterceptor } from "./utilidades/interceptores";
+import { configurarInterceptor } from "./utilidades/interceptores";
 
 configurarValidaciones();
 configurarInterceptor()

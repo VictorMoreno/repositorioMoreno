@@ -18,11 +18,11 @@ namespace Peliculas.API.Dominio.Cuentas.Servicios
             this._configuration = configuration;
         }
 
-        public async Task<RespuestaAutenticacion> Generar(string email, string password)
+        public async Task<RespuestaAutenticacion> Generar(string email)
         {
-            var claims = new List<Claim>()
+            var claims = new List<Claim>
             {
-                new Claim("email", email)
+                new ("email", email)
             };
 
             IdentityUser? usuario = await this._userManager.FindByEmailAsync(email);

@@ -28,7 +28,7 @@ namespace Peliculas.API.Aplicacion.Cuentas
                 throw new LoginIncorrectoException();               
             }
 
-            return await this._creadorToken.Generar(email, password);
+            return await this._creadorToken.Generar(email);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Peliculas.API.Aplicacion;
+using Peliculas.API.Repositorios;
 
 namespace Peliculas.API
 {
@@ -16,6 +17,26 @@ namespace Peliculas.API
             {
                 services.AddTransient(implementation);
             }
+
+            return services;
+        }
+
+        public static IServiceCollection BindearRepositorios(this IServiceCollection services)
+        {
+            services.AddTransient<IGeneroRepositorio, BaseDatosGeneroRepositorio>();
+            services.AddTransient<IActorRepositorio, BaseDatosActorRepositorio>();
+            services.AddTransient<ICineRepositorio, BaseDatosCineRepositorio>();
+            services.AddTransient<IPeliculaRepositorio, BaseDatosPeliculaRepositorio>();
+            services.AddTransient<IUsuarioRepositorio, BaseDatosUsuarioRepositorio>();
+            services.AddTransient<IRatingRepositorio, BaseDatosRatingRepositorio>();
+            services.AddTransient<IAlmacenadorArchivoRepositorio, AlmacenadorArchivoLocal>();
+
+            return services;
+        }
+
+        public static IServiceCollection BindearFuncionalidadesExtras(this IServiceCollection services)
+        {
+            services.AddTransient<IProveedorContenedor, ProveedorManualContenedor>();
 
             return services;
         }
