@@ -1,6 +1,7 @@
 import CrearActores from "./actores/CrearActores";
 import EditarActores from "./actores/EditarActores";
 import IndiceActores from "./actores/IndiceActores";
+import IndiceUsuarios from "./auth/IndiceUsuarios";
 import Login from "./auth/Login";
 import Registro from "./auth/Registro";
 import CrearCines from "./cines/CrearCines";
@@ -36,6 +37,7 @@ const rutas = [
 
   { path: "/registro", componente: Registro },
   { path: "/login", componente: Login },
+  { path: "/usuarios", componente: IndiceUsuarios, esAdmin: true },
 
   { path: "/", componente: PaginaPrincipal },
 

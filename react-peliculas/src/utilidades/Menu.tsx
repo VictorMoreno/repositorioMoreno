@@ -35,8 +35,7 @@ export default function Menu() {
                 }
                 to="/peliculas/filtrar"
               >
-                {" "}
-                Filtrar Películas{" "}
+                Filtrar Películas
               </NavLink>
             </li>
 
@@ -51,8 +50,7 @@ export default function Menu() {
                       }
                       to="/generos"
                     >
-                      {" "}
-                      Géneros{" "}
+                      Géneros
                     </NavLink>
                   </li>
 
@@ -63,8 +61,7 @@ export default function Menu() {
                       }
                       to="/actores"
                     >
-                      {" "}
-                      Actores{" "}
+                      Actores
                     </NavLink>
                   </li>
 
@@ -75,8 +72,7 @@ export default function Menu() {
                       }
                       to="/cines"
                     >
-                      {" "}
-                      Cines{" "}
+                      Cines
                     </NavLink>
                   </li>
 
@@ -87,8 +83,18 @@ export default function Menu() {
                       }
                       to="/peliculas/crear"
                     >
-                      {" "}
-                      Crear Películas{" "}
+                      Crear Películas
+                    </NavLink>
+                  </li>
+
+                  <li className="nav-item">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
+                      to="/usuarios"
+                    >
+                      Usuarios
                     </NavLink>
                   </li>
                 </>
@@ -100,7 +106,9 @@ export default function Menu() {
             <Autorizado
               autorizado={
                 <>
-                  <span className="nav-link">Hola, {obtenerNombreUsuario()}</span>
+                  <span className="nav-link">
+                    Hola, {obtenerNombreUsuario()}
+                  </span>
                   <Boton
                     onClick={() => {
                       logout();

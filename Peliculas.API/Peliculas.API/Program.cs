@@ -20,6 +20,7 @@ builder.Services.AddTransient<IGeneroRepositorio, BaseDatosGeneroRepositorio>();
 builder.Services.AddTransient<IActorRepositorio, BaseDatosActorRepositorio>();
 builder.Services.AddTransient<ICineRepositorio, BaseDatosCineRepositorio>();
 builder.Services.AddTransient<IPeliculaRepositorio, BaseDatosPeliculaRepositorio>();
+builder.Services.AddTransient<IUsuarioRepositorio, BaseDatosUsuarioRepositorio>();
 builder.Services.AddTransient<IRatingRepositorio, BaseDatosRatingRepositorio>();
 builder.Services.AddTransient<IAlmacenadorArchivoRepositorio, AlmacenadorArchivoLocal>();
 builder.Services.AddTransient<IProveedorContenedor, ProveedorManualContenedor>();

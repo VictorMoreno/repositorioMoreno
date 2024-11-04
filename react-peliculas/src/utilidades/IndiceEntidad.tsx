@@ -58,9 +58,11 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
   return (
     <>
       <h3>{props.titulo}</h3>
-      <Link className="btn btn-primary" to={props.urlCrear}>
-        Crear {props.nombreEntidad}
-      </Link>
+      {props.urlCrear ? (
+        <Link className="btn btn-primary" to={props.urlCrear}>
+          Crear {props.nombreEntidad}
+        </Link>
+      ) : null}
 
       <div className="form-group" style={{ width: "150px" }}>
         <label>Registros por página</label>
@@ -83,13 +85,13 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
         cantidadTotalPaginas={totalPaginas}
         paginaActual={pagina}
         onChange={(nuevaPagina) => {
-          setPagina(nuevaPagina);          
+          setPagina(nuevaPagina);
         }}
       />
 
       <ListadoGenerico listado={entidades}>
         <table className="table table-striped">
-          {props.children(entidades!,botones)}
+          {props.children(entidades!, botones)}
         </table>
       </ListadoGenerico>
     </>
@@ -98,11 +100,11 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
 
 interface IndiceEntidadProps<T> {
   url: string;
-  urlCrear: string;
+  urlCrear?: string;
   children(
     entidades: T[],
     botones: (urlEditar: string, id: number) => ReactElement
   ): ReactElement;
   titulo: string;
-  nombreEntidad: string;
+  nombreEntidad?: string;
 }
