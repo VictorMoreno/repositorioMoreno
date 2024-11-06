@@ -7,7 +7,7 @@ export default function IndiceCines() {
     <>
       <IndiceEntidad<cineDTO>
         url={urlCines}
-        urlCrear="cines/crear"
+        urlCrear="crear"
         titulo="Cines"
         nombreEntidad="Cines"
       >

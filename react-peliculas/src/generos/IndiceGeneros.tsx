@@ -7,7 +7,7 @@ export default function IndiceGeneros() {
     <>
       <IndiceEntidad<generoDto>
         url={urlGeneros}
-        urlCrear="generos/crear"
+        urlCrear="crear"
         titulo="Géneros"
         nombreEntidad="Género"
       >

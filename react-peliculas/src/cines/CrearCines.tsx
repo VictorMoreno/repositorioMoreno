@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { urlCines } from "../utilidades/endpoints";
-import { cineCreacionDto } from "./cines.model";
-import FormularioCine from "./FomularioCine";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import FormularioCine from "./FomularioCine";
+import { cineCreacionDto } from "./cines.model";
+import { urlCines } from "../utilidades/endpoints";
+import { useNavigate } from "react-router-dom";
 import MostrarErrores from "../utilidades/MostrarErrores";
+import { useState } from "react";
 
 export default function CrearCines() {
   const navigate = useNavigate();
