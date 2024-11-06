@@ -21,6 +21,12 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\peliculas\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\actores\6268c349-69b3-49c6-a320-8aa77666cf44.jpg" />
+    <Content Remove="wwwroot\actores\69159d9b-d119-49c5-a9be-ed6345fa69f3.jpg" />
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,112 @@ public static class ModelConfigurationExtensions
         RellenarGeneros(modelBuilder);
         RellenarActores(modelBuilder);
         RellenarCines(modelBuilder);
+        RellenarPeliculas(modelBuilder);
+    }
+
+    private static void RellenarPeliculas(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Pelicula>().HasData(
+            new Pelicula
+            {
+                Id = 1,
+                Titulo = "Babylon",
+                EnCines = true,
+                Trailer = "https://www.youtube.com/watch?v=hf5faotVKmo",
+                FechaLanzamiento = new DateTime(2022, 12, 23),
+                Poster = "",
+                Resumen =
+                    "Una épica historia sobre el exceso, la decadencia y los sueños rotos en el Hollywood de los años 20, donde la transición del cine mudo al sonoro sacude a la industria.",
+                // PeliculasGeneros = new List<Genero>
+                // {
+                //     new Genero { Nombre = "Drama" }, new Genero { Nombre = "Comedia" },
+                //     new Genero { Nombre = "Histórica" }
+                // },
+                // PeliculasCines = new List<Cine>
+                //     { new Cine { Nombre = "Cine Capitol", Ubicacion = new Point(40.418974, -3.705269) } },
+                // PeliculasActores = new List<Actor>
+                // {
+                //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Margot Robbie" },
+                //     new Actor { Nombre = "Leonardo DiCaprio" }
+                // }
+            },
+            new Pelicula
+            {
+                Id = 2,
+                Titulo = "Once Upon a Time in Hollywood",
+                EnCines = true,
+                Trailer = "https://www.youtube.com/watch?v=ELeMaP8EPAA",
+                FechaLanzamiento = new DateTime(2019, 7, 26),
+                Poster = "",
+                Resumen =
+                    "Un actor de televisión y su doble de riesgo se encuentran con los eventos de 1969 en Hollywood mientras las estrellas de cine se enfrentan a un cambio cultural.",
+                // PeliculasGeneros = new List<Genero>
+                //     { new Genero { Nombre = "Drama" }, new Genero { Nombre = "Comedia" } },
+                // PeliculasCines = new List<Cine>
+                //     { new Cine { Nombre = "Cine Ideal", Ubicacion = new Point(40.424975, -3.705754) } },
+                // PeliculasActores = new List<Actor>
+                // {
+                //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Leonardo DiCaprio" },
+                //     new Actor { Nombre = "Margot Robbie" }
+                // }
+            },
+            new Pelicula
+            {
+                Id = 3,
+                Titulo = "Ad Astra",
+                EnCines = true,
+                Trailer = "https://www.youtube.com/watch?v=J5VAs99gJjY",
+                FechaLanzamiento = new DateTime(2019, 9, 20),
+                Poster = "",
+                Resumen =
+                    "Un astronauta viaja a los rincones más distantes del sistema solar para encontrar a su padre y resolver un misterio que amenaza la supervivencia de la Tierra.",
+                // PeliculasGeneros = new List<Genero>
+                //     { new Genero { Nombre = "Ciencia Ficción" }, new Genero { Nombre = "Drama" } },
+                // PeliculasCines = new List<Cine>
+                //     { new Cine { Nombre = "Cine Coliseum", Ubicacion = new Point(40.418314, -3.707091) } },
+                // PeliculasActores = new List<Actor>
+                // {
+                //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Tommy Lee Jones" },
+                //     new Actor { Nombre = "Ruth Negga" }
+                // }
+            },
+            new Pelicula
+            {
+                Id = 4,
+                Titulo = "The Lost City",
+                EnCines = true,
+                Trailer = "https://www.youtube.com/watch?v=mfjZHsWqL1g",
+                FechaLanzamiento = new DateTime(2022, 3, 25),
+                Poster = "",
+                Resumen =
+                    "Una escritora de novelas románticas es secuestrada por un millonario que busca un tesoro perdido en una isla remota, y es rescatada por su modelo de portada.",
+                // PeliculasGeneros = new List<Genero>
+                // {
+                //     new Genero { Nombre = "Aventura" }, new Genero { Nombre = "Comedia" },
+                //     new Genero { Nombre = "Acción" }
+                // },
+                // PeliculasCines = new List<Cine>
+                //     { new Cine { Nombre = "Cine ABC", Ubicacion = new Point(40.416775, -3.703790) } },
+                // PeliculasActores = new List<Actor>
+                // {
+                //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Sandra Bullock" },
+                //     new Actor { Nombre = "Channing Tatum" }
+                // }
+            },
+            new Pelicula
+            {
+                Id = 5,
+                Titulo = "Wolves",
+                EnCines = false,
+                Trailer = "https://www.youtube.com/watch?v=example",
+                FechaLanzamiento = new DateTime(2025, 6, 15),
+                Poster = "",
+                Resumen = "Dos solitarios se ven involucrados en el mismo trabajo, que pronto se convierte en una carrera por la supervivencia.",
+                // PeliculasGeneros = new List<Genero> { new Genero { Nombre = "Suspenso" }, new Genero { Nombre = "Acción" } },
+                // PeliculasCines = new List<Cine> { new Cine { Nombre = "Cine Yelmo", Ubicacion = new Point(40.416775, -3.703790) } },
+                // PeliculasActores = new List<Actor> { new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "George Clooney" } }
+            }
+        );
     }
 
     private static void RellenarActores(ModelBuilder modelBuilder)
