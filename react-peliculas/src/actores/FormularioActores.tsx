@@ -37,9 +37,14 @@ export default function FormularioActores(props: FormularioActoresProps) {
             imagenURL={props.modelo.fotoURL}
           />
 
-          <FormularioGrupoMarkdown campo="biografia" label="Biografia"/>
+          <FormularioGrupoMarkdown campo="biografia" label="Biografia" />
 
-          <Boton disable={formikProps.isSubmitting} type="submit">
+          <Boton
+            disable={formikProps.isSubmitting}
+            type="submit"            
+            className={"btn btn-primary"}
+            style={null}
+          >
             Salvar
           </Boton>
           <Link className="btn btn-secondary" to="/actores">

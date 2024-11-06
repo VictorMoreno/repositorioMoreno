@@ -41,6 +41,9 @@ export default function PeliculaIndividual(props: peliculaIndividualProps) {
             <Boton
               className="btn btn-danger"
               onClick={() => confirmar(() => borrarPelicula())}
+              type={"button"}
+              disable={false}
+              style={null}
             >
               Borrar
             </Boton>

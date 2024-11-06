@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Paginacion(props: paginacionProps) {
+
     const [listadoLinks, setListadoLinks] = useState<modeloLink[]>([]);
     useEffect(() => {
         const paginaAnteriorHabilitada = props.paginaActual !== 1;
@@ -86,8 +87,4 @@ interface paginacionProps {
     cantidadTotalPaginas: number;
     radio: number;
     onChange(pagina: number): void;
-}
-
-Paginacion.defaultProps = {
-    radio: 3
 }

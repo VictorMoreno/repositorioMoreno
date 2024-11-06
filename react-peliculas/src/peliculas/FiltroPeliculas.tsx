@@ -55,7 +55,7 @@ export default function FiltroPeliculas() {
     }
 
     buscarPeliculas(valorInicial);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function buscarPeliculas(valores: filtroPeliculasForm) {
@@ -165,6 +165,9 @@ export default function FiltroPeliculas() {
                 <Boton
                   className="btn btn-primary mb-2 mx-sm-3"
                   onClick={() => formikProps.submitForm()}
+                  type={"button"}
+                  disable={false}
+                  style={null}
                 >
                   Filtrar
                 </Boton>
@@ -174,6 +177,9 @@ export default function FiltroPeliculas() {
                     formikProps.setValues(valorInicial);
                     buscarPeliculas(valorInicial);
                   }}
+                  type={"button"}
+                  disable={false}
+                  style={null}
                 >
                   Limpiar
                 </Boton>
@@ -182,6 +188,7 @@ export default function FiltroPeliculas() {
 
             <PeliculaListado peliculas={peliculas} />
             <Paginacion
+              radio={3}
               cantidadTotalPaginas={totalPaginas}
               paginaActual={formikProps.values.pagina}
               onChange={(nuevaPagina) => {

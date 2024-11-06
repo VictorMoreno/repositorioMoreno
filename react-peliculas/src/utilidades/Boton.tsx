@@ -6,7 +6,7 @@ export default function Boton(props: botonProps) {
       type={props.type}
       className={props.className}
       onClick={props.onClick}
-      style={props.style}
+      style={props.style ? props.style : undefined}
       disabled={props.disable}
     >
       {props.children}
@@ -20,12 +20,5 @@ interface botonProps {
   type: "button" | "submit";
   disable: boolean;
   className: string;
-  style: CSSProperties
+  style: CSSProperties | null;
 }
-
-Boton.defaultProps = {
-  type: "button",
-  disable: false,
-  className: 'btn btn-primary',
-  style : null
-};

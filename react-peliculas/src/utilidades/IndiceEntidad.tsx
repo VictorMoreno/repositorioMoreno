@@ -48,8 +48,10 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
       </Link>
       <Boton
         className="btn btn-danger"
-        onClick={() => Confirmar(() => borrar(id))}
-      >
+        onClick={() => Confirmar(() => borrar(id))}         
+        type={"submit"} 
+        disable={false} 
+        style={null}>
         Borrar
       </Boton>
     </>
@@ -82,6 +84,7 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
       </div>
 
       <Paginacion
+        radio={3}
         cantidadTotalPaginas={totalPaginas}
         paginaActual={pagina}
         onChange={(nuevaPagina) => {

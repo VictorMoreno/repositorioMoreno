@@ -30,8 +30,9 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
   const [cinesNoSeleccionados, setCinesNoSeleccionados] = useState(
     mapear(props.cinesNoSeleccionados)
   );
-  const [actoresSeleccionados, setActoresSeleccionados] = 
-    useState<actorPeliculaDto[]>(props.actoresSeleccionados);
+  const [actoresSeleccionados, setActoresSeleccionados] = useState<
+    actorPeliculaDto[]
+  >(props.actoresSeleccionados);
 
   function mapear(
     arreglo: { id: number; nombre: string }[]
@@ -71,7 +72,7 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
             label="Poster"
             imagenURL={props.modelo.posterURL}
           />
-          <FormularioGrupoMarkdown campo="resumen" label="Resumen"/>
+          <FormularioGrupoMarkdown campo="resumen" label="Resumen" />
 
           <div className="form-group">
             <label>Géneros:</label>
@@ -129,7 +130,12 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
             />
           </div>
 
-          <Boton disable={formikProps.isSubmitting} type="submit">
+          <Boton
+            disable={formikProps.isSubmitting}
+            type="submit"
+            className={"btn btn-primary"}
+            style={null}
+          >
             Enviar
           </Boton>
           <Link className="btn btn-secondary" to="/">

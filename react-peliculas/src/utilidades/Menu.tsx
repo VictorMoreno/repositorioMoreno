@@ -110,11 +110,14 @@ export default function Menu() {
                     Hola, {obtenerNombreUsuario()}
                   </span>
                   <Boton
+                    type="button"
                     onClick={() => {
                       logout();
                       actualizar([]);
                     }}
                     className="btn btn-link"
+                    disable={false}
+                    style={null}
                   >
                     Log out
                   </Boton>

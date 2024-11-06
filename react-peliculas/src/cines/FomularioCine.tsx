@@ -15,7 +15,7 @@ export default function FormularioCine(props: formularioCineProps) {
         lng: props.modelo.longitud,
       };
 
-      return[respuesta];
+      return [respuesta];
     }
 
     return undefined;
@@ -43,7 +43,12 @@ export default function FormularioCine(props: formularioCineProps) {
             />
           </div>
 
-          <Boton disable={formikProps.isSubmitting} type="submit">
+          <Boton
+            disable={formikProps.isSubmitting}
+            type="submit"            
+            className={"btn btn-primary"}
+            style={null}
+          >
             Salvar
           </Boton>
           <Link className="btn btn-secondary" to="/cines">

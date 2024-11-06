@@ -25,10 +25,17 @@ export default function FormularioAuth(props: FormularioAuthProps) {
             campo="password"
             type="password"
           />
-          <Boton disable={formikProps.isSubmitting} type="submit">
+          <Boton
+            disable={formikProps.isSubmitting}
+            type="submit"            
+            className={"btn btn-primary"}
+            style={null}
+          >
             Enviar
           </Boton>
-          <Link className="btn btn-secondary" to="/">Cancelar</Link>
+          <Link className="btn btn-secondary" to="/">
+            Cancelar
+          </Link>
         </Form>
       )}
     </Formik>

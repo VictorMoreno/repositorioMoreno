@@ -51,18 +51,26 @@ export default function IndiceUsuarios() {
                         `¿Desea hacer a ${usuario.email} admin?`,
                         "Realizar"
                       )
-                    }
+                    }                    
+                    type={"submit"}
+                    disable={false}
+                    className={"btn btn-primary"}
+                    style={null}
                   >
                     Hacer Admin
                   </Boton>
                   <Boton
                     className="btn btn-danger"
                     style={{ marginLeft: "1rem" }}
-                    onClick={() => confirmar(
+                    onClick={() =>
+                      confirmar(
                         () => quitarAdmin(usuario.id),
                         `¿Desea quitar a ${usuario.email} como admin?`,
                         "Realizar"
-                      )}
+                      )
+                    }
+                    type={"submit"}
+                    disable={false}
                   >
                     Quitar Admin
                   </Boton>
