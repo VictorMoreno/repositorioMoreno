@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Peliculas.API.Dominio.Cuentas.Servicios;
 using Peliculas.API.DTOs;
 using Peliculas.API.Excepciones;
@@ -21,11 +20,12 @@ namespace Peliculas.API.Aplicacion.Cuentas
 
         public async Task<RespuestaAutenticacion> Ejecutar(string email, string password)
         {
-            var resultado = await _signInManager.PasswordSignInAsync(email, password, isPersistent: false, lockoutOnFailure: false);
+            var resultado =
+                await _signInManager.PasswordSignInAsync(email, password, isPersistent: false, lockoutOnFailure: false);
 
             if (!resultado.Succeeded)
             {
-                throw new LoginIncorrectoException();               
+                throw new LoginIncorrectoException();
             }
 
             return await this._creadorToken.Generar(email);

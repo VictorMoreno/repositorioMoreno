@@ -22,7 +22,7 @@ namespace Peliculas.API.Dominio.Cuentas.Servicios
         {
             var claims = new List<Claim>
             {
-                new ("email", email)
+                new("email", email)
             };
 
             IdentityUser? usuario = await this._userManager.FindByEmailAsync(email);
@@ -32,11 +32,9 @@ namespace Peliculas.API.Dominio.Cuentas.Servicios
 
             SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this._configuration["jwtKey"]));
             SigningCredentials credenciales = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            DateTime expiracion = DateTime.UtcNow.AddHours(1);
+            DateTime expiracion = DateTime.UtcNow.AddDays(3);
 
             JwtSecurityToken token = new JwtSecurityToken(
-                issuer: null,
-                audience: null,
                 claims: claims,
                 expires: expiracion,
                 signingCredentials: credenciales);

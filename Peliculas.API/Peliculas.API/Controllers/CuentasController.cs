@@ -8,10 +8,11 @@ using Peliculas.API.Excepciones;
 namespace Peliculas.API.Controllers
 {
     [Route("api/cuentas")]
+    [ApiController]
     public class CuentasController : ControllerBase
     {
         [HttpGet("listadoUsuarios")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,Policy = "EsAdmin")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
         public async Task<ActionResult<List<UsuarioDto>>> ListadoUsuarios([FromQuery] PaginacionDto paginacion,
             [FromServices] BuscadorCuentaPaginado buscador)
         {
@@ -19,7 +20,7 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpPost("HacerAdmin")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,Policy = "EsAdmin")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
         public async Task<ActionResult> HacerAdmin([FromBody] string idUsuario,
             [FromServices] AsignadorRolAdmin asignadorRolAdmin)
         {
@@ -28,7 +29,7 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpPost("QuitarAdmin")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,Policy = "EsAdmin")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
         public async Task<ActionResult> QuitarAdmin([FromBody] string idUsuario,
             [FromServices] EliminadorRolAdmin eliminadorRolAdmin)
         {

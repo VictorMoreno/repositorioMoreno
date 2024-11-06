@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Peliculas.API.Aplicacion.Actores;
 using Peliculas.API.Aplicacion.Cines;
 using Peliculas.API.Aplicacion.Generos;
 using Peliculas.API.Aplicacion.Peliculas;
@@ -11,7 +10,7 @@ namespace Peliculas.API.Controllers
 {
     [Route("api/peliculas")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,Policy = "EsAdmin")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
     public class PeliculasController : ControllerBase
     {
         // TODO: Comprobar que se puede borrar
@@ -29,25 +28,28 @@ namespace Peliculas.API.Controllers
 
         [HttpGet("filtrar")]
         [AllowAnonymous]
-        public async Task<ActionResult<List<PeliculaDTO>>> Filtrar([FromQuery] PeliculasFiltrarDto peliculasFiltrarDto, [FromServices] BuscadorPeliculas buscadorPeliculas)
+        public async Task<ActionResult<List<PeliculaDTO>>> Filtrar([FromQuery] PeliculasFiltrarDto peliculasFiltrarDto,
+            [FromServices] BuscadorPeliculas buscadorPeliculas)
         {
             return await buscadorPeliculas.Ejecutar(HttpContext,
-                peliculasFiltrarDto.PaginacionDto,               
-                peliculasFiltrarDto.Titulo, 
-                peliculasFiltrarDto.EnCines, 
+                peliculasFiltrarDto.PaginacionDto,
+                peliculasFiltrarDto.Titulo,
+                peliculasFiltrarDto.EnCines,
                 peliculasFiltrarDto.GeneroId,
                 peliculasFiltrarDto.ProximosEstrenos);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromForm] PeliculaCreacionDTO pelicula, [FromServices] CreadorPelicula creadorActor)
+        public async Task<ActionResult> Post([FromForm] PeliculaCreacionDTO pelicula,
+            [FromServices] CreadorPelicula creadorActor)
         {
             await creadorActor.Ejecutar(pelicula);
             return NoContent();
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Put(int id, [FromForm] PeliculaCreacionDTO pelicula, [FromServices] ModificadorPelicula modificadorPelicula)
+        public async Task<ActionResult> Put(int id, [FromForm] PeliculaCreacionDTO pelicula,
+            [FromServices] ModificadorPelicula modificadorPelicula)
         {
             await modificadorPelicula.Ejecutar(id, pelicula);
             return NoContent();
@@ -61,7 +63,8 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpGet("PostGet")]
-        public async Task<ActionResult<PeliculasPostGetDTO>> PostGet([FromServices] BuscadorCine buscadorCine, BuscadorGenero buscadorGenero)
+        public async Task<ActionResult<PeliculasPostGetDTO>> PostGet([FromServices] BuscadorCine buscadorCine,
+            BuscadorGenero buscadorGenero)
         {
             var generos = await buscadorGenero.Ejecutar();
             var cines = await buscadorCine.Ejecutar();
@@ -70,7 +73,8 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpGet("PutGet/{id:int}")]
-        public async Task<ActionResult<PeliculasPutGetDto>> PutGet(int id, [FromServices] BuscadorPeliculaParaEdicion buscadorPeliculaParaEdicion)
+        public async Task<ActionResult<PeliculasPutGetDto>> PutGet(int id,
+            [FromServices] BuscadorPeliculaParaEdicion buscadorPeliculaParaEdicion)
         {
             return await buscadorPeliculaParaEdicion.Ejecutar(id);
         }
@@ -78,7 +82,8 @@ namespace Peliculas.API.Controllers
 
         [HttpGet("landingFilms")]
         [AllowAnonymous]
-        public async Task<ActionResult<LandingPageDto>> GetLandingFilms([FromServices] BuscadorPeliculasPortada buscadorPeliculasPortada)
+        public async Task<ActionResult<LandingPageDto>> GetLandingFilms(
+            [FromServices] BuscadorPeliculasPortada buscadorPeliculasPortada)
         {
             return await buscadorPeliculasPortada.Ejecutar();
         }

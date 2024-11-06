@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Peliculas.API.DTOs;
 using Peliculas.API.Entidades;
-using Peliculas.API.Migrations;
 using Peliculas.API.Utilidades;
 
 namespace Peliculas.API.Repositorios

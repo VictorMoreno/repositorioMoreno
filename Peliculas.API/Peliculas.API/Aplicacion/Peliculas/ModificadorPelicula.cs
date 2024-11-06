@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Peliculas.API.DTOs;
-using Peliculas.API.Entidades;
+﻿using Peliculas.API.DTOs;
 using Peliculas.API.Repositorios;
 
 namespace Peliculas.API.Aplicacion.Peliculas

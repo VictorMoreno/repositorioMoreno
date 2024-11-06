@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace Peliculas.API.Excepciones
+﻿namespace Peliculas.API.Excepciones
 {
     public class LoginIncorrectoException : Exception
     {

@@ -1,5 +1,4 @@
-﻿using Azure;
-using Peliculas.API.DTOs;
+﻿using Peliculas.API.DTOs;
 using Peliculas.API.Entidades;
 using Peliculas.API.Repositorios;
 

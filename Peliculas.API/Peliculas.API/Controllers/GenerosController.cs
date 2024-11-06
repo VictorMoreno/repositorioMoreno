@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Peliculas.API.Aplicacion.Generos;
 using Peliculas.API.DTOs;
-using Peliculas.API.Repositorios;
 
 namespace Peliculas.API.Controllers
 {
@@ -12,15 +11,9 @@ namespace Peliculas.API.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,Policy = "EsAdmin")]
     public class GenerosController : ControllerBase
     {
-        private readonly IGeneroRepositorio _repositorio;
-
-        public GenerosController(IGeneroRepositorio repositorio)
-        {
-            this._repositorio = repositorio;
-        }
-
         [HttpGet]
-        public async Task<ActionResult<List<GeneroDto>>> Get([FromQuery] PaginacionDto paginacionDto, [FromServices] BuscadorGeneroPaginado buscador)
+        public async Task<ActionResult<List<GeneroDto>>> Get([FromQuery] PaginacionDto paginacionDto,
+            [FromServices] BuscadorGeneroPaginado buscador)
         {
             return await buscador.Ejecutar(paginacionDto, HttpContext);
         }
@@ -39,14 +32,16 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] GeneroCreacionDto genero, [FromServices] CreadorGenero generador)
+        public async Task<ActionResult> Post([FromBody] GeneroCreacionDto genero,
+            [FromServices] CreadorGenero generador)
         {
             await generador.Ejecutar(genero);
             return NoContent();
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Put(int id, [FromBody] GeneroCreacionDto genero, [FromServices] ModificadorGenero modificador)
+        public async Task<ActionResult> Put(int id, [FromBody] GeneroCreacionDto genero,
+            [FromServices] ModificadorGenero modificador)
         {
             await modificador.Ejecutar(id, genero);
             return NoContent();
