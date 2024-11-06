@@ -1,7 +1,7 @@
-import FormularioGeneros from "../generos/FormularioGeneros";
 import EditarEntidad from "../utilidades/EditarEntidad";
 import { urlCines } from "../utilidades/endpoints";
 import { cineCreacionDto, cineDTO } from './cines.model';
+import FormularioCine from "./FomularioCine";
 
 export default function EditarCines() {
   return (
@@ -11,7 +11,7 @@ export default function EditarCines() {
         nombreEntidad="Cines"
       >
         {(entidad, editar) => (
-          <FormularioGeneros
+          <FormularioCine
             modelo={entidad}
             onSubmit={async (valores) => {
               console.log(valores);

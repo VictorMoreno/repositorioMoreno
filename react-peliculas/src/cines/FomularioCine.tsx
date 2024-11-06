@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import FormularioMapa from "../utilidades/FormularioMapa";
 import { coordenadaDto } from "../utilidades/coordenada.module";
 
-export default function formularioCine(props: formularioCineProps) {
+export default function FormularioCine(props: formularioCineProps) {
   function transformarCoordenadas(): coordenadaDto[] | undefined {
     if (props.modelo.latitud && props.modelo.longitud) {
       const respuesta: coordenadaDto = {

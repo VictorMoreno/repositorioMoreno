@@ -27,8 +27,8 @@ export default function Mapa(props: MapaProps) {
 
   return (
     <MapContainer
-      center={[18.467455, -69.931242]}
-      zoom={14}
+      center={[40.4430227,-3.8066413]}
+      zoom={10}
       style={{ height: props.height }}
     >
       <TileLayer
