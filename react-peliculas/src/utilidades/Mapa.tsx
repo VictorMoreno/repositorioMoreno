@@ -27,7 +27,11 @@ export default function Mapa(props: MapaProps) {
 
   return (
     <MapContainer
-      center={[40.4430227,-3.8066413]}
+      center={
+        props.coordenadas
+          ? [props.coordenadas[0].lat, props.coordenadas[0].lng]
+          : [40.4430227, -3.8066413]
+      }
       zoom={10}
       style={{ height: props.height }}
     >
