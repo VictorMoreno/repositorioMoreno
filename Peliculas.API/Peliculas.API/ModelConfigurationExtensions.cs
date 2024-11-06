@@ -132,43 +132,43 @@ public static class ModelConfigurationExtensions
                 Id = 1,
                 Nombre = "Cines Callao",
                 Ubicacion = new Point(-3.705912, 40.419829)
+            },
+            new Cine
+            {
+                Id = 2,
+                Nombre = "Yelmo Cines Ideal",
+                Ubicacion = new Point(-3.7065112, 40.41357)
+            },
+            new Cine
+            {
+                Id = 3,
+                Nombre = "Cinesa Diagonal Mar",
+                Ubicacion = new Point(2.2140153, 41.4096507)
+            },
+            new Cine
+            {
+                Id = 4,
+                Nombre = "Cines Renoir Plaza de España",
+                Ubicacion = new Point(-3.7159609, 40.4243981)
+            },
+            new Cine
+            {
+                Id = 5,
+                Nombre = "Cines Verdi Barcelona",
+                Ubicacion = new Point(2.1542843, 41.4039621)
+            },
+            new Cine
+            {
+                Id = 6,
+                Nombre = "Ocine Granollers",
+                Ubicacion = new Point(2.2866108, 41.6067659)
+            },
+            new Cine
+            {
+                Id = 7,
+                Nombre = "Kinépolis Valencia",
+                Ubicacion = new Point(-0.4287164, 39.4778583)
             }
-            // new Cine
-            // {
-            //     Id = 2,
-            //     Nombre = "Yelmo Cines Ideal",
-            //     // Ubicacion = new Point(-3.7065112, 40.41357)
-            // },
-            // new Cine
-            // {
-            //     Id = 3,
-            //     Nombre = "Cinesa Diagonal Mar",
-            //     // Ubicacion = new Point(2.2140153, 41.4096507)
-            // },
-            // new Cine
-            // {
-            //     Id = 4,
-            //     Nombre = "Cines Renoir Plaza de España",
-            //     // Ubicacion = new Point(-3.7159609, 40.4243981)
-            // },
-            // new Cine
-            // {
-            //     Id = 5,
-            //     Nombre = "Cines Verdi Barcelona",
-            //     // Ubicacion = new Point(2.1542843, 41.4039621)
-            // },
-            // new Cine
-            // {
-            //     Id = 6,
-            //     Nombre = "Ocine Granollers",
-            //     // Ubicacion = new Point(2.2866108, 41.6067659)
-            // },
-            // new Cine
-            // {
-            //     Id = 7,
-            //     Nombre = "Kinépolis Valencia",
-            //     // Ubicacion = new Point(-0.4287164, 39.4778583)
-            // }
         );
     }
 }
