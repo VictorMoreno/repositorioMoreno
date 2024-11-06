@@ -24,7 +24,7 @@ export default function FormularioActores(props: FormularioActoresProps) {
     >
       {(formikProps) => (
         <Form>
-          <GrupoTextoFormulario campo="nombre" label="Nombre" />
+          <GrupoTextoFormulario campo="nombre" label="Nombre" type={"text"} />
 
           <FormularioGrupoFecha
             campo="fechaNacimiento"
@@ -34,14 +34,14 @@ export default function FormularioActores(props: FormularioActoresProps) {
           <FormularioGrupoImagen
             campo="foto"
             label="Foto"
-            imagenURL={props.modelo.fotoURL}
+            imagenURL={props.modelo.fotoURL ? props.modelo.fotoURL : ""}
           />
 
           <FormularioGrupoMarkdown campo="biografia" label="Biografia" />
 
           <Boton
             disable={formikProps.isSubmitting}
-            type="submit"            
+            type="submit"
             className={"btn btn-primary"}
             style={null}
           >

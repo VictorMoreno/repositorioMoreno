@@ -48,10 +48,11 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
       </Link>
       <Boton
         className="btn btn-danger"
-        onClick={() => Confirmar(() => borrar(id))}         
-        type={"submit"} 
-        disable={false} 
-        style={null}>
+        onClick={() => Confirmar(() => borrar(id))}
+        type={"submit"}
+        disable={false}
+        style={null}
+      >
         Borrar
       </Boton>
     </>
@@ -65,6 +66,21 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
           Crear {props.nombreEntidad}
         </Link>
       ) : null}
+
+      <ListadoGenerico listado={entidades}>
+        <table className="table table-striped">
+          {props.children(entidades!, botones)}
+        </table>
+      </ListadoGenerico>
+
+      <Paginacion
+        radio={3}
+        cantidadTotalPaginas={totalPaginas}
+        paginaActual={pagina}
+        onChange={(nuevaPagina) => {
+          setPagina(nuevaPagina);
+        }}
+      />
 
       <div className="form-group" style={{ width: "150px" }}>
         <label>Registros por página</label>
@@ -82,21 +98,6 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
           <option value={50}>50</option>
         </select>
       </div>
-
-      <Paginacion
-        radio={3}
-        cantidadTotalPaginas={totalPaginas}
-        paginaActual={pagina}
-        onChange={(nuevaPagina) => {
-          setPagina(nuevaPagina);
-        }}
-      />
-
-      <ListadoGenerico listado={entidades}>
-        <table className="table table-striped">
-          {props.children(entidades!, botones)}
-        </table>
-      </ListadoGenerico>
     </>
   );
 }

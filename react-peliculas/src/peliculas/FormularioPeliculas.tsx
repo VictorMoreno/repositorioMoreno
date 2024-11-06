@@ -60,9 +60,9 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
     >
       {(formikProps) => (
         <Form>
-          <GrupoTextoFormulario label="Título" campo="titulo" />
+          <GrupoTextoFormulario label="Título" campo="titulo" type={"text"} />
           <FormularioGrupoCheckbox label="En cines" campo="enCines" />
-          <GrupoTextoFormulario label="Trailer" campo="trailer" />
+          <GrupoTextoFormulario label="Trailer" campo="trailer" type={"text"} />
           <FormularioGrupoFecha
             campo="fechaLanzamiento"
             label="Fecha Lanzamiento"
@@ -70,7 +70,7 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
           <FormularioGrupoImagen
             campo="poster"
             label="Poster"
-            imagenURL={props.modelo.posterURL}
+            imagenURL={props.modelo.posterURL ? props.modelo.posterURL : ""}
           />
           <FormularioGrupoMarkdown campo="resumen" label="Resumen" />
 

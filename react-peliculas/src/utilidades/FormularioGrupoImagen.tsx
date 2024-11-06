@@ -72,7 +72,3 @@ interface FormularioGrupoImagenProps {
   label: string;
   imagenURL: string;
 }
-
-FormularioGrupoImagen.defaultProps = {
-  imagenURL: "",
-};

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Registro() {
   const [errores, setErrores] = useState<string[]>([]);
-  const {actualizar} = useContext(AutenticacionContext);
+  const { actualizar } = useContext(AutenticacionContext);
   const navigate = useNavigate();
 
   async function registrar(credenciales: credencialesUsuario) {
@@ -22,7 +22,6 @@ export default function Registro() {
       guardarTokenLocalStorage(respuesta.data);
       actualizar(obtenerClaims());
       navigate("/");
-      console.log(respuesta.data);
     } catch (error) {
       setErrores(error.response.data);
     }

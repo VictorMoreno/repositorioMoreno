@@ -33,13 +33,13 @@ export default function FormularioCine(props: formularioCineProps) {
     >
       {(formikProps) => (
         <Form>
-          <GrupoTextoFormulario label="Nombre" campo="nombre" />
+          <GrupoTextoFormulario label="Nombre" campo="nombre" type={"text"} />
 
           <div style={{ marginBottom: "1 rem" }}>
             <FormularioMapa
               campoLat="latitud"
               campoLng="longitud"
-              coordenadas={transformarCoordenadas()}
+              coordenadas={transformarCoordenadas() ?? []}
             />
           </div>
 

@@ -19,7 +19,7 @@ export default function FormularioAuth(props: FormularioAuthProps) {
     >
       {(formikProps) => (
         <Form>
-          <GrupoTextoFormulario label="Email" campo="email" />
+          <GrupoTextoFormulario label="Email" campo="email" type={"text"} />
           <GrupoTextoFormulario
             label="Password"
             campo="password"
@@ -27,7 +27,7 @@ export default function FormularioAuth(props: FormularioAuthProps) {
           />
           <Boton
             disable={formikProps.isSubmitting}
-            type="submit"            
+            type="submit"
             className={"btn btn-primary"}
             style={null}
           >

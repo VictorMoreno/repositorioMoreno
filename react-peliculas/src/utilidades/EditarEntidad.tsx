@@ -58,7 +58,3 @@ interface editarEntidadProps<TCreacion, TLectura> {
     transformar(entidad: TLectura): TCreacion;
     transformarFormData?(modelo: TCreacion): FormData
 }
-
-EditarEntidad.defaultProps = {
-    transformar: (entidad: any) => entidad
-}

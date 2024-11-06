@@ -83,9 +83,3 @@ interface MapaProps {
   manejarClickMapa(coordenadas: coordenadaDto): void;
   soloLectura: boolean;
 }
-
-Mapa.defaultProps = {
-  height: "500px",
-  soloLectura: false,
-  manejarClickMapa: () => {},
-};

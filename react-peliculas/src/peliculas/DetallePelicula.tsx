@@ -59,7 +59,7 @@ export default function DetallePelicula() {
 
   async function onVote(voto: number) {
     await axios.post(urlRatings, { puntuacion: voto, idPelicula: id });
-    Swal.fire({icon: 'success', title: 'Voto recibido'});
+    Swal.fire({ icon: "success", title: "Voto recibido" });
   }
 
   return pelicula ? (
@@ -78,9 +78,8 @@ export default function DetallePelicula() {
             {genero.nombre}
           </Link>
         ))}
-        | {pelicula.fechaLanzamiento.toDateString()}
-        | Voto promedio: {pelicula.promedioVoto}
-        | Tu voto:{" "}
+        | {pelicula.fechaLanzamiento.toDateString()}| Voto promedio:{" "}
+        {pelicula.promedioVoto}| Tu voto:{" "}
         <Rating
           maximoValor={5}
           valorSeleccionado={pelicula.votoUsuario!}
@@ -153,7 +152,12 @@ export default function DetallePelicula() {
         {pelicula.cines && pelicula.cines.length > 0 ? (
           <div>
             <h2>Mostrandose en los siguientes cines</h2>
-            <Mapa coordenadas={transformarCoordenadas()} soloLectura={true} />
+            <Mapa
+              coordenadas={transformarCoordenadas()}
+              soloLectura={true}
+              height={"500px"}
+              manejarClickMapa={(coordenadas: coordenadaDto) => {}}
+            />
           </div>
         ) : null}
       </div>

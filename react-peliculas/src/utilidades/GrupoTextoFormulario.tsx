@@ -24,7 +24,3 @@ interface GrupoTextoFormularioProps {
   placeholder?: string;
   type: "text" | "password";
 }
-
-GrupoTextoFormulario.defaultProps = {
-  type: "text",
-};

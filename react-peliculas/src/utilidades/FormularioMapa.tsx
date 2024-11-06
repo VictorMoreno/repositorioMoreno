@@ -10,7 +10,12 @@ export default function FormularioMapa(props: formularioMapaProps) {
   }
 
   return (
-    <Mapa coordenadas={props.coordenadas} manejarClickMapa={actualizarCampos} />
+    <Mapa
+      coordenadas={props.coordenadas}
+      manejarClickMapa={actualizarCampos}
+      height={"500px"}
+      soloLectura={false}
+    />
   );
 }
 
@@ -19,7 +24,3 @@ interface formularioMapaProps {
   campoLat: string;
   campoLng: string;
 }
-
-FormularioMapa.defaultProps = {
-  coordenadas: [],
-};

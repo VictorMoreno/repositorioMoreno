@@ -19,7 +19,7 @@ export default function FormularioGeneros(props: FormularioGenerosProps) {
     >
       {(formikProps) => (
         <Form>
-          <GrupoTextoFormulario campo="nombre" label="Nombre" />
+          <GrupoTextoFormulario campo="nombre" label="Nombre" type={"text"} />
 
           <Boton
             disable={formikProps.isSubmitting}
