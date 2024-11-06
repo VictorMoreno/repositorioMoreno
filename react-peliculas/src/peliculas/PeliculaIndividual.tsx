@@ -8,6 +8,7 @@ import { urlPeliculas } from "../utilidades/endpoints";
 import { useContext } from "react";
 import AlertaContext from "../utilidades/AlertaContext";
 import Autorizado from "../auth/Autorizado";
+import noDisponible from "../NoDisponible.jpg";
 
 export default function PeliculaIndividual(props: peliculaIndividualProps) {
   const construirLick = () => `peliculas/editar/${props.pelicula.id}`;
@@ -22,7 +23,7 @@ export default function PeliculaIndividual(props: peliculaIndividualProps) {
   return (
     <div className={css.div}>
       <Link to={construirLick()}>
-        <img src={props.pelicula.poster} alt="Poster" />
+        <img src={props.pelicula.poster ? props.pelicula.poster : noDisponible } alt="Poster" />
       </Link>
       <p>
         <Link to={construirLick()}>{props.pelicula.titulo}</Link>
