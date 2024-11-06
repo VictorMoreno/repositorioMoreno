@@ -23,6 +23,8 @@ namespace Peliculas.API
                 .HasKey(x => new { x.CineId, x.PeliculaId });
 
             base.OnModelCreating(modelBuilder);
+            
+            modelBuilder.Seed();
         }
 
         public DbSet<Genero> Generos { get; set; }

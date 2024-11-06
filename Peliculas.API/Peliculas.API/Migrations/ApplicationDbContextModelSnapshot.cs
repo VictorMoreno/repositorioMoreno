@@ -288,6 +288,58 @@ namespace Peliculas.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Generos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Acción"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Aventura"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Catástrofe"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Ciencia Ficción"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Comedia"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Nombre = "Documentales"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Nombre = "Drama"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Nombre = "Fantasia"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Nombre = "Terror"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Nombre = "Romantico"
+                        });
                 });
 
             modelBuilder.Entity("Peliculas.API.Entidades.Pelicula", b =>
