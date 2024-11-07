@@ -7,7 +7,7 @@ namespace Peliculas.API.Repositorios
 {
     public class BaseDatosPeliculaRepositorio : IPeliculaRepositorio
     {
-        private const int CANTIDAD_MOSTRAR = 6;
+        // private const int CANTIDAD_MOSTRAR = 6;
         private readonly ApplicationDbContext _context;
         private readonly IAlmacenadorArchivoRepositorio _almacenadorArchivo;
         private readonly IProveedorContenedor _proveedorContenedor;
@@ -119,7 +119,7 @@ namespace Peliculas.API.Repositorios
                 .Include(x => x.PeliculasActores).ThenInclude(x => x.Actor)
                 .Include(x => x.PeliculasCines).ThenInclude(x => x.Cine)
                 .OrderBy(pelicula => pelicula.FechaLanzamiento)
-                .Take(CANTIDAD_MOSTRAR)
+                // .Take(CANTIDAD_MOSTRAR)
                 .ToListAsync();
         }
 
@@ -141,7 +141,7 @@ namespace Peliculas.API.Repositorios
                 .Include(x => x.PeliculasActores).ThenInclude(x => x.Actor)
                 .Include(x => x.PeliculasCines).ThenInclude(x => x.Cine)
                 .OrderBy(pelicula => pelicula.FechaLanzamiento)
-                .Take(CANTIDAD_MOSTRAR)
+                // .Take(CANTIDAD_MOSTRAR)
                 .ToListAsync();
         }
 

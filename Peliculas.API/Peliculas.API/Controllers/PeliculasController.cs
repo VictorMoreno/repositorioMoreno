@@ -13,13 +13,6 @@ namespace Peliculas.API.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
     public class PeliculasController : ControllerBase
     {
-        // TODO: Comprobar que se puede borrar
-        // [HttpGet]
-        // public async Task<ActionResult<List<ActorDto>>> Get([FromQuery] PaginacionDto paginacionDto, [FromServices] BuscadorActor buscadorActores)
-        // {
-        //     return await buscadorActores.Ejecutar(paginacionDto, HttpContext);
-        // }
-
         [HttpGet("{id:int}")]
         public async Task<ActionResult<PeliculaDTO>> Get(int id, [FromServices] EncontradorPelicula encontradorPelicula)
         {

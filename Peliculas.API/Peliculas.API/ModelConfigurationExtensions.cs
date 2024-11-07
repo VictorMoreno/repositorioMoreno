@@ -124,7 +124,7 @@ public static class ModelConfigurationExtensions
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=6OmJF6VjKMA",
                 FechaLanzamiento = new DateTime(2024, 3, 15),
-                Poster = "https://localhost:7290/peliculas/dune_part_two.jpg",
+                Poster = "https://localhost:7290/peliculas/98e8356c-3214-454f-b6c5-81f82de778ff.jpg",
                 Resumen =
                     "La segunda parte de la épica adaptación de Dune, donde Paul Atreides busca venganza y un legado que cambiará el universo.",
             },
@@ -135,7 +135,7 @@ public static class ModelConfigurationExtensions
                 EnCines = false,
                 Trailer = "https://www.youtube.com/watch?v=YXtWPVFk5TQ",
                 FechaLanzamiento = new DateTime(2025, 12, 19),
-                Poster = "https://localhost:7290/peliculas/avatar_3.jpg",
+                Poster = "https://localhost:7290/peliculas/aad70b69-1dd1-4b5a-8e4a-1941c00fe96f.jpg",
                 Resumen =
                     "La siguiente entrega de la saga de ciencia ficción de Pandora, explorando nuevas regiones del planeta y enfrentándose a amenazas desconocidas.",
             },
@@ -146,7 +146,7 @@ public static class ModelConfigurationExtensions
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=8jRMVhGwy0M",
                 FechaLanzamiento = new DateTime(2024, 6, 28),
-                Poster = "https://localhost:7290/peliculas/mission_impossible_dead_reckoning_2.jpg",
+                Poster = "https://localhost:7290/peliculas/ec9ebb58-73f3-4a0e-ae57-2e7de11da751.jpg",
                 Resumen =
                     "Ethan Hunt continúa su lucha contra una nueva amenaza global en la segunda parte de esta entrega de alta tensión y acción.",
             },
@@ -157,7 +157,7 @@ public static class ModelConfigurationExtensions
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=gdSGIf8kbhg",
                 FechaLanzamiento = new DateTime(2024, 11, 8),
-                Poster = "https://localhost:7290/peliculas/the_marvels.jpg",
+                Poster = "https://localhost:7290/peliculas/c2eb8dbc-9a1f-4bbe-a8d5-346999a51022.jpg",
                 Resumen =
                     "Las heroínas del universo Marvel, Carol Danvers, Kamala Khan y Monica Rambeau, unen fuerzas para enfrentar una amenaza cósmica.",
             },
@@ -168,7 +168,7 @@ public static class ModelConfigurationExtensions
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=7SZfThvjt5I",
                 FechaLanzamiento = new DateTime(2024, 10, 4),
-                Poster = "https://localhost:7290/peliculas/joker_folie_a_deux.jpg",
+                Poster = "https://localhost:7290/peliculas/c900cffe-1828-46f1-9893-99b86ec064ab.png",
                 Resumen =
                     "Arthur Fleck regresa como el Joker en una secuela que explora su relación con Harley Quinn y el oscuro descenso de ambos.",
             }
