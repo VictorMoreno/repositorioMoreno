@@ -41,9 +41,9 @@ namespace Peliculas.API.Controllers
 
         [HttpPost]
         public async Task<ActionResult> Post([FromForm] PeliculaCreacionDTO pelicula,
-            [FromServices] CreadorPelicula creadorActor)
+            [FromServices] CreadorPelicula creadorPelicula)
         {
-            await creadorActor.Ejecutar(pelicula);
+            await creadorPelicula.Ejecutar(pelicula);
             return NoContent();
         }
 

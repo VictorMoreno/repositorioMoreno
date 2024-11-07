@@ -247,7 +247,7 @@ namespace Peliculas.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Actores");
+                    b.ToTable("Actores", (string)null);
 
                     b.HasData(
                         new
@@ -351,7 +351,7 @@ namespace Peliculas.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cines");
+                    b.ToTable("Cines", (string)null);
 
                     b.HasData(
                         new
@@ -413,7 +413,7 @@ namespace Peliculas.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Generos");
+                    b.ToTable("Generos", (string)null);
 
                     b.HasData(
                         new
@@ -501,59 +501,7 @@ namespace Peliculas.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Peliculas");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            EnCines = true,
-                            FechaLanzamiento = new DateTime(2022, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Poster = "",
-                            Resumen = "Una épica historia sobre el exceso, la decadencia y los sueños rotos en el Hollywood de los años 20, donde la transición del cine mudo al sonoro sacude a la industria.",
-                            Titulo = "Babylon",
-                            Trailer = "https://www.youtube.com/watch?v=hf5faotVKmo"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            EnCines = true,
-                            FechaLanzamiento = new DateTime(2019, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Poster = "",
-                            Resumen = "Un actor de televisión y su doble de riesgo se encuentran con los eventos de 1969 en Hollywood mientras las estrellas de cine se enfrentan a un cambio cultural.",
-                            Titulo = "Once Upon a Time in Hollywood",
-                            Trailer = "https://www.youtube.com/watch?v=ELeMaP8EPAA"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            EnCines = true,
-                            FechaLanzamiento = new DateTime(2019, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Poster = "",
-                            Resumen = "Un astronauta viaja a los rincones más distantes del sistema solar para encontrar a su padre y resolver un misterio que amenaza la supervivencia de la Tierra.",
-                            Titulo = "Ad Astra",
-                            Trailer = "https://www.youtube.com/watch?v=J5VAs99gJjY"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            EnCines = true,
-                            FechaLanzamiento = new DateTime(2022, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Poster = "",
-                            Resumen = "Una escritora de novelas románticas es secuestrada por un millonario que busca un tesoro perdido en una isla remota, y es rescatada por su modelo de portada.",
-                            Titulo = "The Lost City",
-                            Trailer = "https://www.youtube.com/watch?v=mfjZHsWqL1g"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            EnCines = false,
-                            FechaLanzamiento = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Poster = "",
-                            Resumen = "Dos solitarios se ven involucrados en el mismo trabajo, que pronto se convierte en una carrera por la supervivencia.",
-                            Titulo = "Wolves",
-                            Trailer = "https://www.youtube.com/watch?v=example"
-                        });
+                    b.ToTable("Peliculas", (string)null);
                 });
 
             modelBuilder.Entity("Peliculas.API.Entidades.PeliculasActores", b =>
@@ -576,7 +524,7 @@ namespace Peliculas.API.Migrations
 
                     b.HasIndex("PeliculaId");
 
-                    b.ToTable("PeliculasActores");
+                    b.ToTable("PeliculasActores", (string)null);
                 });
 
             modelBuilder.Entity("Peliculas.API.Entidades.PeliculasCines", b =>
@@ -591,7 +539,7 @@ namespace Peliculas.API.Migrations
 
                     b.HasIndex("PeliculaId");
 
-                    b.ToTable("PeliculasCines");
+                    b.ToTable("PeliculasCines", (string)null);
                 });
 
             modelBuilder.Entity("Peliculas.API.Entidades.PeliculasGeneros", b =>
@@ -606,7 +554,7 @@ namespace Peliculas.API.Migrations
 
                     b.HasIndex("PeliculaId");
 
-                    b.ToTable("PeliculasGeneros");
+                    b.ToTable("PeliculasGeneros", (string)null);
                 });
 
             modelBuilder.Entity("Peliculas.API.Entidades.Rating", b =>
@@ -633,7 +581,7 @@ namespace Peliculas.API.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("Ratings");
+                    b.ToTable("Ratings", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

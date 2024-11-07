@@ -22,9 +22,9 @@ public static class ModelConfigurationExtensions
                 Id = 1,
                 Titulo = "Babylon",
                 EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=hf5faotVKmo",
+                Trailer = "https://www.youtube.com/watch?v=gBil8RpweBE&pp=ygUYYmFieWxvbiB0cmFpbGVyIGVzcGHDsW9s",
                 FechaLanzamiento = new DateTime(2022, 12, 23),
-                Poster = "",
+                Poster = "https://localhost:7290/peliculas/ea9fd07a-1fb5-4eb7-a01a-1c27266c2309.png",
                 Resumen =
                     "Una épica historia sobre el exceso, la decadencia y los sueños rotos en el Hollywood de los años 20, donde la transición del cine mudo al sonoro sacude a la industria.",
                 // PeliculasGeneros = new List<Genero>
@@ -43,11 +43,11 @@ public static class ModelConfigurationExtensions
             new Pelicula
             {
                 Id = 2,
-                Titulo = "Once Upon a Time in Hollywood",
+                Titulo = "Érase una vez en… Hollywood",
                 EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=ELeMaP8EPAA",
+                Trailer = "https://www.youtube.com/watch?v=J0rFGJV3cYw",
                 FechaLanzamiento = new DateTime(2019, 7, 26),
-                Poster = "",
+                Poster = "https://localhost:7290/peliculas/14a89f1e-d997-46ec-ae77-37b43118b00c.jpg",
                 Resumen =
                     "Un actor de televisión y su doble de riesgo se encuentran con los eventos de 1969 en Hollywood mientras las estrellas de cine se enfrentan a un cambio cultural.",
                 // PeliculasGeneros = new List<Genero>
@@ -65,9 +65,9 @@ public static class ModelConfigurationExtensions
                 Id = 3,
                 Titulo = "Ad Astra",
                 EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=J5VAs99gJjY",
+                Trailer = "https://www.youtube.com/watch?v=2hy4clp3IMM",
                 FechaLanzamiento = new DateTime(2019, 9, 20),
-                Poster = "",
+                Poster = "https://localhost:7290/peliculas/eecfa05e-7968-474a-93c4-3f5b24e5cb66.jpg",
                 Resumen =
                     "Un astronauta viaja a los rincones más distantes del sistema solar para encontrar a su padre y resolver un misterio que amenaza la supervivencia de la Tierra.",
                 // PeliculasGeneros = new List<Genero>
@@ -83,11 +83,11 @@ public static class ModelConfigurationExtensions
             new Pelicula
             {
                 Id = 4,
-                Titulo = "The Lost City",
+                Titulo = "La ciudad perdida",
                 EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=mfjZHsWqL1g",
+                Trailer = "https://www.youtube.com/watch?v=DWq5cjkxEQQ",
                 FechaLanzamiento = new DateTime(2022, 3, 25),
-                Poster = "",
+                Poster = "https://localhost:7290/peliculas/0acee9d1-94df-4229-aab0-bf7c308e2933.jpg",
                 Resumen =
                     "Una escritora de novelas románticas es secuestrada por un millonario que busca un tesoro perdido en una isla remota, y es rescatada por su modelo de portada.",
                 // PeliculasGeneros = new List<Genero>
@@ -108,13 +108,69 @@ public static class ModelConfigurationExtensions
                 Id = 5,
                 Titulo = "Wolves",
                 EnCines = false,
-                Trailer = "https://www.youtube.com/watch?v=example",
+                Trailer = "https://www.youtube.com/watch?v=Ti_7suoHmRQ",
                 FechaLanzamiento = new DateTime(2025, 6, 15),
                 Poster = "",
-                Resumen = "Dos solitarios se ven involucrados en el mismo trabajo, que pronto se convierte en una carrera por la supervivencia.",
+                Resumen =
+                    "Dos solitarios se ven involucrados en el mismo trabajo, que pronto se convierte en una carrera por la supervivencia.",
                 // PeliculasGeneros = new List<Genero> { new Genero { Nombre = "Suspenso" }, new Genero { Nombre = "Acción" } },
                 // PeliculasCines = new List<Cine> { new Cine { Nombre = "Cine Yelmo", Ubicacion = new Point(40.416775, -3.703790) } },
                 // PeliculasActores = new List<Actor> { new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "George Clooney" } }
+            },
+            new Pelicula
+            {
+                Id = 6,
+                Titulo = "Dune: Parte dos",
+                EnCines = true,
+                Trailer = "https://www.youtube.com/watch?v=6OmJF6VjKMA",
+                FechaLanzamiento = new DateTime(2024, 3, 15),
+                Poster = "https://localhost:7290/peliculas/dune_part_two.jpg",
+                Resumen =
+                    "La segunda parte de la épica adaptación de Dune, donde Paul Atreides busca venganza y un legado que cambiará el universo.",
+            },
+            new Pelicula
+            {
+                Id = 7,
+                Titulo = "Avatar 3",
+                EnCines = false,
+                Trailer = "https://www.youtube.com/watch?v=YXtWPVFk5TQ",
+                FechaLanzamiento = new DateTime(2025, 12, 19),
+                Poster = "https://localhost:7290/peliculas/avatar_3.jpg",
+                Resumen =
+                    "La siguiente entrega de la saga de ciencia ficción de Pandora, explorando nuevas regiones del planeta y enfrentándose a amenazas desconocidas.",
+            },
+            new Pelicula
+            {
+                Id = 8,
+                Titulo = "Misión: Imposible - Sentencia Mortal Parte Dos",
+                EnCines = true,
+                Trailer = "https://www.youtube.com/watch?v=8jRMVhGwy0M",
+                FechaLanzamiento = new DateTime(2024, 6, 28),
+                Poster = "https://localhost:7290/peliculas/mission_impossible_dead_reckoning_2.jpg",
+                Resumen =
+                    "Ethan Hunt continúa su lucha contra una nueva amenaza global en la segunda parte de esta entrega de alta tensión y acción.",
+            },
+            new Pelicula
+            {
+                Id = 9,
+                Titulo = "The Marvels",
+                EnCines = true,
+                Trailer = "https://www.youtube.com/watch?v=gdSGIf8kbhg",
+                FechaLanzamiento = new DateTime(2024, 11, 8),
+                Poster = "https://localhost:7290/peliculas/the_marvels.jpg",
+                Resumen =
+                    "Las heroínas del universo Marvel, Carol Danvers, Kamala Khan y Monica Rambeau, unen fuerzas para enfrentar una amenaza cósmica.",
+            },
+            new Pelicula
+            {
+                Id = 10,
+                Titulo = "Joker: locura de a dos",
+                EnCines = true,
+                Trailer = "https://www.youtube.com/watch?v=7SZfThvjt5I",
+                FechaLanzamiento = new DateTime(2024, 10, 4),
+                Poster = "https://localhost:7290/peliculas/joker_folie_a_deux.jpg",
+                Resumen =
+                    "Arthur Fleck regresa como el Joker en una secuela que explora su relación con Harley Quinn y el oscuro descenso de ambos.",
             }
         );
     }

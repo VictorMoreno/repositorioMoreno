@@ -20,7 +20,7 @@ namespace Peliculas.API.Aplicacion.Peliculas
 
         public async Task Ejecutar(int id, PeliculaCreacionDTO input)
         {
-            this._repositorio.Actualizar(id,
+            await this._repositorio.Actualizar(id,
                 input.Titulo,
                 input.Resumen,
                 input.Trailer,

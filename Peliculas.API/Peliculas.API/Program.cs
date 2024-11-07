@@ -24,7 +24,11 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-        sqlServer => sqlServer.UseNetTopologySuite()));
+        sqlServer =>
+        {
+            sqlServer.UseNetTopologySuite();
+            // sqlServer.CommandTimeout(180);
+        }));
 
 builder.Services.AddCors(options =>
 {
