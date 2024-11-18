@@ -5,6 +5,12 @@ import Boton from "./Boton";
 import { logout } from "../auth/manejadorJwt";
 import { useContext } from "react";
 import AutenticacionContext from "../auth/AutenticacionContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faRightFromBracket,
+  faSignInAlt,
+  faUserPlus,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Menu() {
   const { actualizar, claims } = useContext(AutenticacionContext);
@@ -16,10 +22,7 @@ export default function Menu() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <NavLink
-          className="navbar-brand"
-          to="/"
-        >
+        <NavLink className="navbar-brand" to="/">
           Inicio
         </NavLink>
         <div
@@ -118,17 +121,20 @@ export default function Menu() {
                     disable={false}
                     style={null}
                   >
-                    Log out
+                    <FontAwesomeIcon
+                      icon={faRightFromBracket}
+                      title="Log out"
+                    />
                   </Boton>
                 </div>
               }
               noAutorizado={
                 <>
                   <Link to="/registro" className="btn btn-link">
-                    Registro
+                    <FontAwesomeIcon icon={faUserPlus} title="Registro" />
                   </Link>
                   <Link to="/login" className="btn btn-link">
-                    Login
+                    <FontAwesomeIcon icon={faSignInAlt} title="Login" />
                   </Link>
                 </>
               }
