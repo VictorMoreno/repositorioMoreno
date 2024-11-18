@@ -1,20 +1,49 @@
 import { Form, Formik, FormikHelpers } from "formik";
 import { credencialesUsuario } from "./auth.model";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
 import GrupoTextoFormulario from "../utilidades/GrupoTextoFormulario";
 import Boton from "../utilidades/Boton";
+import axios from "axios";
+import { urlCuentas } from "../utilidades/endpoints";
 
-export default function FormularioAuth(props: FormularioAuthProps) {
+export default function FormularioSolicitudRestablecerCredencial() {
+  async function solicitarRestablecimiento(email: string) {
+    try {
+      // await axios({
+      //   method: "post",
+      //   url: `${urlCuentas}/solicitarRestablecimiento`,
+      //   data: { Email: email },
+      //   headers: { "Content-Type": "multipart/form-data" },
+      // });
+
+      // await axios.post(
+      //   `${urlCuentas}/solicitarRestablecimiento`,
+      //   { Email: email }
+      // );
+
+      await axios.post(
+        `${urlCuentas}/solicitarRestablecimiento`,
+        { email }, // El objeto debe coincidir con el modelo del backend
+        {
+            headers: { "Content-Type": "application/json" }, // Formato JSON
+        }
+    );
+
+    } catch (error) {
+      setErrores(error.response.data);
+    }
+  }
+
   return (
     <Formik
-      initialValues={props.modelo}
-      onSubmit={props.onSubmit}
+      initialValues={{ email: "" }}
+      onSubmit={async (valores) =>
+        await solicitarRestablecimiento(valores.email)
+      }
       validationSchema={Yup.object({
         email: Yup.string()
           .required("Este campo es requerido")
           .email("Debe indicar un email válido"),
-        password: Yup.string().required("Este campo es requerido"),
       })}
     >
       {(formikProps) => (
@@ -23,17 +52,10 @@ export default function FormularioAuth(props: FormularioAuthProps) {
             className="card p-4 shadow"
             style={{ maxWidth: "400px", width: "100%" }}
           >
-            <h3 className="text-center mb-4">{props.titulo}</h3>
+            <h3 className="text-center mb-4">Restablecer contraseña</h3>
             <Form>
               <div className="mb-3">
                 <GrupoTextoFormulario label="Email" campo="email" type="text" />
-              </div>
-              <div className="mb-4">
-                <GrupoTextoFormulario
-                  label="Password"
-                  campo="password"
-                  type="password"
-                />
               </div>
               <div className="d-flex justify-content-between">
                 <Boton
@@ -42,23 +64,8 @@ export default function FormularioAuth(props: FormularioAuthProps) {
                   className="btn btn-primary"
                   style={{ width: "100%" }}
                 >
-                  {props.esLogin ? "Iniciar sesión" : "Crear"}
+                  Restablecer
                 </Boton>
-                {props.esLogin ? null : (
-                  <Link
-                    className="btn btn-secondary ms-2"
-                    to="/"
-                    style={{ width: "100%" }}
-                  >
-                    Cancelar
-                  </Link>
-                )}
-              </div>
-              <p></p>
-              <div className="text-center">
-                <Link to="/solicitudRestablecimiento" className="text-decoration-none">
-                  ¿Has olvidado la contraseña?
-                </Link>
               </div>
             </Form>
           </div>
@@ -68,12 +75,13 @@ export default function FormularioAuth(props: FormularioAuthProps) {
   );
 }
 
-interface FormularioAuthProps {
+interface FormularioSolicitudRestablecerCredencialProps {
   modelo: credencialesUsuario;
-  esLogin?: boolean;
-  titulo: string;
   onSubmit(
     valores: credencialesUsuario,
     acciones: FormikHelpers<credencialesUsuario>
   ): void;
+}
+function setErrores(data: any) {
+  throw new Error("Function not implemented.");
 }

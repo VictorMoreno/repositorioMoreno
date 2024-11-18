@@ -29,9 +29,9 @@ export default function Registro() {
 
   return (
     <>
-      <h3>Registro</h3>
       <MostrarErrores errores={errores} />
       <FormularioAuth
+        titulo="Crear cuenta"
         modelo={{ email: "", password: "" }}
         onSubmit={async (valores) => await registrar(valores)}
       />

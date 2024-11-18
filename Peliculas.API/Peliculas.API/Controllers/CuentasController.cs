@@ -19,7 +19,7 @@ namespace Peliculas.API.Controllers
             return await buscador.Ejecutar(paginacion, HttpContext);
         }
 
-        [HttpPost("HacerAdmin")]
+        [HttpPost("hacerAdmin")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
         public async Task<ActionResult> HacerAdmin([FromBody] string idUsuario,
             [FromServices] AsignadorRolAdmin asignadorRolAdmin)
@@ -28,7 +28,7 @@ namespace Peliculas.API.Controllers
             return NoContent();
         }
 
-        [HttpPost("QuitarAdmin")]
+        [HttpPost("quitarAdmin")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
         public async Task<ActionResult> QuitarAdmin([FromBody] string idUsuario,
             [FromServices] EliminadorRolAdmin eliminadorRolAdmin)
@@ -56,6 +56,14 @@ namespace Peliculas.API.Controllers
             [FromServices] LoginCuenta loginUsuario)
         {
             return await loginUsuario.Ejecutar(credenciales.Email, credenciales.Password);
+        }
+        
+        [HttpPost("solicitarRestablecimiento")]
+        public async Task<ActionResult> Login([FromBody] SolicitudRestablecerCredencial credencial,
+            [FromServices] SolicitadorRestablecerCredencial responsablecedorCredencial)
+        {
+            await responsablecedorCredencial.Ejecutar(credencial.Email);
+            return NoContent();
         }
     }
 }

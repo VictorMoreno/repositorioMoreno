@@ -29,9 +29,10 @@ export default function Login() {
 
   return (
     <>
-      <h3>Login</h3>
       <MostrarErrores errores={errores} />
       <FormularioAuth
+        titulo="Iniciar sesión"
+        esLogin={true}
         modelo={{ email: "", password: "" }}
         onSubmit={async (valores) => {
           await login(valores);

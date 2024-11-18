@@ -27,7 +27,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(
         sqlServer =>
         {
             sqlServer.UseNetTopologySuite();
-            // sqlServer.CommandTimeout(180);
         }));
 
 builder.Services.AddCors(options =>

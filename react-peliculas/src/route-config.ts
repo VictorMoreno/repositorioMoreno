@@ -1,6 +1,7 @@
 import CrearActores from "./actores/CrearActores";
 import EditarActores from "./actores/EditarActores";
 import IndiceActores from "./actores/IndiceActores";
+import FormularioSolicitudRestablecerCredencial from "./auth/FormularioSolicitudRestablecerCredencial";
 import IndiceUsuarios from "./auth/IndiceUsuarios";
 import Login from "./auth/Login";
 import Registro from "./auth/Registro";
@@ -31,13 +32,19 @@ const rutas = [
   { path: "/cines", componente: IndiceCines, esAdmin: true },
 
   { path: "/peliculas/:id", componente: DetallePelicula },
-  { path: "/peliculas/crear", componente: CrearPeliculas , esAdmin: true},
-  { path: "/peliculas/editar/:id", componente: EditarPeliculas , esAdmin: true},
+  { path: "/peliculas/crear", componente: CrearPeliculas, esAdmin: true },
+  { path: "/peliculas/editar/:id", componente: EditarPeliculas, esAdmin: true },
   { path: "/peliculas/filtrar", componente: FiltroPeliculas },
 
   { path: "/registro", componente: Registro },
   { path: "/login", componente: Login },
   { path: "/usuarios", componente: IndiceUsuarios, esAdmin: true },
+  { path: "/solicitudRestablecimiento", componente: FormularioSolicitudRestablecerCredencial },
+
+  // {
+  //   path: "/solicitudRestablecimiento",
+  //   componente: FormularioSolicitudRestablecerCredencial
+  // },
 
   { path: "/", componente: PaginaPrincipal },
 

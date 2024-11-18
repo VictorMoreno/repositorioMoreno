@@ -1,4 +1,5 @@
-﻿using Peliculas.API.Aplicacion;
+﻿using Microsoft.AspNetCore.Identity.UI.Services;
+using Peliculas.API.Aplicacion;
 using Peliculas.API.Repositorios;
 
 namespace Peliculas.API
@@ -37,6 +38,7 @@ namespace Peliculas.API
         public static IServiceCollection BindearFuncionalidadesExtras(this IServiceCollection services)
         {
             services.AddTransient<IProveedorContenedor, ProveedorManualContenedor>();
+            services.AddSingleton<IEmailSender, SmtpEmailSender>();
 
             return services;
         }
