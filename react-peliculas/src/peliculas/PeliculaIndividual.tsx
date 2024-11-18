@@ -21,7 +21,8 @@ export default function PeliculaIndividual(props: peliculaIndividualProps) {
   }
 
   return (
-    <div className={css.div}>
+    // <div className={css.div}>
+    <div className="container mt-3">
       <Link to={construirLick()}>
         <img src={props.pelicula.poster ? props.pelicula.poster : noDisponible } alt="Poster" />
       </Link>

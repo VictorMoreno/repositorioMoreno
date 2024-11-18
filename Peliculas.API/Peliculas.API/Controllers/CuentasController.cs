@@ -66,7 +66,7 @@ namespace Peliculas.API.Controllers
             return NoContent();
         }
         
-        [HttpPost("restablecer/{email}/{token}")]
+        [HttpPost("restablecer")]
         public async Task<ActionResult> Login(string email, string token,
             [FromServices] RestablecedorCredencial restablecedorCredencial)
         {
