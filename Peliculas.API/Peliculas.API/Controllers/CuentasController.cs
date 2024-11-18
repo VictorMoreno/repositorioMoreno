@@ -60,9 +60,17 @@ namespace Peliculas.API.Controllers
         
         [HttpPost("solicitarRestablecimiento")]
         public async Task<ActionResult> Login([FromBody] SolicitudRestablecerCredencial credencial,
-            [FromServices] SolicitadorRestablecerCredencial responsablecedorCredencial)
+            [FromServices] SolicitadorRestablecerCredencial solicitadorRestablecerCredencial)
         {
-            await responsablecedorCredencial.Ejecutar(credencial.Email);
+            await solicitadorRestablecerCredencial.Ejecutar(credencial.Email);
+            return NoContent();
+        }
+        
+        [HttpPost("restablecer/{email}/{token}")]
+        public async Task<ActionResult> Login(string email, string token,
+            [FromServices] RestablecedorCredencial restablecedorCredencial)
+        {
+            // await restablecedorCredencial.Ejecutar(token);
             return NoContent();
         }
     }

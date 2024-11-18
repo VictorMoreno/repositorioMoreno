@@ -17,3 +17,7 @@ export interface usuarioDto{
   id: string;
   email: string;
 }
+export interface restablecerCredencial{  
+  password:string;
+  passwordRepetida:string;
+}

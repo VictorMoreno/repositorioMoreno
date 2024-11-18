@@ -21,7 +21,7 @@ export default function IndiceUsuarios() {
     });
 
     Swal.fire({
-      title: "Eéito",
+      title: "Éxito",
       text: "Operación realizada con éxito.",
       icon: "success",
     });

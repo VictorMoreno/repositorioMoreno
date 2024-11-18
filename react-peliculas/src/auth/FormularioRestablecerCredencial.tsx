@@ -1,25 +1,22 @@
-import { Form, Formik} from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import GrupoTextoFormulario from "../utilidades/GrupoTextoFormulario";
 import Boton from "../utilidades/Boton";
 import axios from "axios";
 import { urlCuentas } from "../utilidades/endpoints";
 import Swal from "sweetalert2";
+import { restablecerCredencial } from "./auth.model";
 
-export default function FormularioSolicitudRestablecerCredencial() {
-  async function solicitarRestablecimiento(email: string) {
+export default function FormularioRestablecerCredencial() {
+  async function restablecer(valores: restablecerCredencial) {
     try {
-      await axios.post(
-        `${urlCuentas}/solicitarRestablecimiento`,
-        { Email: email }
-      );
+      await axios.post(`${urlCuentas}/restablecer`, valores);
 
       Swal.fire({
         title: "Éxito",
-        text: "Correo de recuperación enviado con éxito.",
+        text: "Contraseña restablecida correctamente.",
         icon: "success",
       });
-
     } catch (error) {
       setErrores(error.response.data);
     }
@@ -27,14 +24,13 @@ export default function FormularioSolicitudRestablecerCredencial() {
 
   return (
     <Formik
-      initialValues={{ email: "" }}
-      onSubmit={async (valores) =>
-        await solicitarRestablecimiento(valores.email)
-      }
+      initialValues={{ password: "", passwordRepetida: "" }}
+      onSubmit={async (valores) => await restablecer(valores)}
       validationSchema={Yup.object({
-        email: Yup.string()
-          .required("Este campo es requerido")
-          .email("Debe indicar un email válido"),
+        contraseña: Yup.string()
+          .required("Este campo es requerido"),
+        contraseñaRepetida: Yup.string()
+          .required("Este campo es requerido"),
       })}
     >
       {(formikProps) => (
@@ -43,10 +39,19 @@ export default function FormularioSolicitudRestablecerCredencial() {
             className="card p-4 shadow"
             style={{ maxWidth: "400px", width: "100%" }}
           >
-            <h3 className="text-center mb-4">Restablecer contraseña</h3>
+            <h3 className="text-center mb-4">Crear contraseña</h3>
             <Form>
               <div className="mb-3">
-                <GrupoTextoFormulario label="Email" campo="email" type="text" />
+                <GrupoTextoFormulario
+                  label="Nueva contraseña"
+                  campo="contraseña"
+                  type="password"
+                />
+                <GrupoTextoFormulario
+                  label="Repite contraseña"
+                  campo="contraseñaRepetida"
+                  type="password"
+                />
               </div>
               <div className="d-flex justify-content-between">
                 <Boton
