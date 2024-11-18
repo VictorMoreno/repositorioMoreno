@@ -17,11 +17,10 @@ export default function Menu() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <NavLink
-          // className={({ isActive }) => (isActive ? "active" : "navbar-brand")}
           className="navbar-brand"
           to="/"
         >
-          React Películas
+          Inicio
         </NavLink>
         <div
           className="collapse navbar-collapse"
@@ -105,7 +104,7 @@ export default function Menu() {
           <div className="d-flex">
             <Autorizado
               autorizado={
-                <>
+                <div className="d-flex align-items-center">
                   <span className="nav-link">
                     Hola, {obtenerNombreUsuario()}
                   </span>
@@ -121,7 +120,7 @@ export default function Menu() {
                   >
                     Log out
                   </Boton>
-                </>
+                </div>
               }
               noAutorizado={
                 <>

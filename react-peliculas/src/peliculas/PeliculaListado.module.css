@@ -4,3 +4,18 @@
     flex-direction: row;
     align-items: center;
 }
+/* 
+.div a {
+    text-decoration: none;
+} */
+
+/* .div p{
+    height: 44px;
+    font-size: 15px;
+    font-weigth: bold;
+} */
+
+.linkSinEstilo {
+    color: inherit;          /* Hereda el color del contenedor */
+    text-decoration: none;   /* Quita el subrayado */
+  }
