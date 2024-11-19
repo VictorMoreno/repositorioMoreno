@@ -74,8 +74,8 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
           />
           <FormularioGrupoMarkdown campo="resumen" label="Resumen" />
 
-          <div className="form-group">
-            <label>Géneros:</label>
+          <div className="mb-3">
+            <label className="form-label">Géneros:</label>
             <SelectorMultiple
               seleccionados={generosSeleccionados}
               noSeleccionados={generosNoSeleccionados}
@@ -86,8 +86,8 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
             />
           </div>
 
-          <div className="form-group">
-            <label>Cines:</label>
+          <div className="mb-3">
+            <label className="form-label">Cines:</label>
             <SelectorMultiple
               seleccionados={cinesSeleccionados}
               noSeleccionados={cinesNoSeleccionados}
@@ -98,7 +98,7 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
             />
           </div>
 
-          <div className="form-group">
+          <div className="form-group" style={{ marginBottom: "1rem" }}>
             <TypeAheadActores
               onAdd={(actores) => {
                 setActoresSeleccionados(actores);

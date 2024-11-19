@@ -4,9 +4,21 @@ namespace Peliculas.API.DTOs
 {
     public static class PeliculaActorDtoExtensiones
     {
-        public static PeliculaActorDTO ToDto(this Actor actor)
+        public static PeliculaActorDto ToDto(this PeliculasActores peliculaActor)
         {
-            return new PeliculaActorDTO
+            return new PeliculaActorDto
+            {
+                Id = peliculaActor.Actor.Id,
+                Nombre = peliculaActor.Actor.Nombre,
+                Foto = peliculaActor.Actor.Foto,
+                Personaje = peliculaActor.Personaje,
+                Orden = peliculaActor.Orden
+            };
+        }
+        
+        public static PeliculaActorDto ToDto(this Actor actor)
+        {
+            return new PeliculaActorDto
             {
                 Id = actor.Id,
                 Nombre = actor.Nombre,

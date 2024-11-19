@@ -4,8 +4,8 @@ namespace Peliculas.API.DTOs
 {
     public static class PeliculaDtoExtensiones
     {
-
-        public static PeliculaDTO ToDto(this Pelicula pelicula, (double votoPromedio, int votoUsuario) datosRating)
+        public static PeliculaDTO ToDto(this Pelicula pelicula,
+            (double votoPromedio, int votoUsuario) datosRating = default)
         {
             return new PeliculaDTO
             {
@@ -21,7 +21,7 @@ namespace Peliculas.API.DTOs
                     Id = genero.GeneroId,
                     Nombre = genero.Genero.Nombre
                 }).ToList(),
-                Actores = pelicula.PeliculasActores.Select(actor => new PeliculaActorDTO
+                Actores = pelicula.PeliculasActores.Select(actor => new PeliculaActorDto
                 {
                     Id = actor.ActorId,
                     Nombre = actor.Actor.Nombre,
@@ -37,7 +37,6 @@ namespace Peliculas.API.DTOs
                 }).ToList(),
                 VotoUsuario = datosRating.votoUsuario,
                 VotoPromedio = datosRating.votoPromedio,
-                
             };
         }
     }

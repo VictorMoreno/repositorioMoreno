@@ -13,11 +13,11 @@ namespace Peliculas.API.Aplicacion.Actores
             this._repositorio = repositorio;
         }
 
-        public async Task<List<PeliculaActorDTO>> Ejecutar(string nombre)
+        public async Task<List<PeliculaActorDto>> Ejecutar(string nombre)
         {
             if (string.IsNullOrWhiteSpace(nombre))
             {
-                return new List<PeliculaActorDTO>();
+                return new List<PeliculaActorDto>();
             }
 
             List<Actor> peliculas = await this._repositorio.BuscarPorNombre(nombre);

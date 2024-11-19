@@ -3,8 +3,8 @@ import MostrarErrorCampo from "./MostrarErrorCampo";
 
 export default function GrupoTextoFormulario(props: GrupoTextoFormularioProps) {
   return (
-    <div className="form-group">
-      {props.label ? <label htmlFor={props.campo}>{props.label}</label> : null}
+    <div className="mb-3">
+      {props.label ? <label className="form-label" htmlFor={props.campo}>{props.label}</label> : null}
       <Field
         type={props.type}
         name={props.campo}

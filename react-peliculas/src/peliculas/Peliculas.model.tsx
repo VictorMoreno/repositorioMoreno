@@ -14,7 +14,7 @@ export interface peliculaDto {
   generos: generoDto[];
   actores: actorPeliculaDto[];
   votoUsuario?: number;
-  promedioVoto?: number;
+  votoPromedio?: number;
 }
 
 export interface peliculaCreacionDto {

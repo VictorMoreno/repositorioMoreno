@@ -26,7 +26,7 @@ namespace Peliculas.API.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<PeliculaDTO>> Get(int id, [FromServices] EncontradorPelicula encontradorPelicula)
         {
-            var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+            var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
             return await encontradorPelicula.Ejecutar(id, HttpContext.User.Identity.IsAuthenticated, email);
         }
 

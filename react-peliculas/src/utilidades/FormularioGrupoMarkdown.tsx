@@ -1,6 +1,6 @@
 import { Field, useFormikContext } from "formik";
 import ReactMarkdown from "react-markdown";
-import './FormularioGrupoMarkdown.css'
+import "./FormularioGrupoMarkdown.css";
 
 export default function FormularioGrupoMarkdown(
   props: FormularioGrupoMarkdownProps
@@ -10,13 +10,13 @@ export default function FormularioGrupoMarkdown(
   return (
     <div className="form-group form-markdown">
       <div>
-        <label>{props.label}</label>
+        <label className="form-label">{props.label}</label>
         <div>
           <Field name={props.campo} as="textarea" className="form-textarea" />
         </div>
       </div>
       <div>
-        <label>{props.label} (preview:)</label>
+        <label className="form-label">{props.label} (preview)</label>
         <div className="markdown-container">
           <ReactMarkdown>{values[props.campo]}</ReactMarkdown>
         </div>

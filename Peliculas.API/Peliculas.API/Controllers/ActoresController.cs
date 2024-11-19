@@ -25,7 +25,7 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpGet("buscarPorNombre/{nombre}")]
-        public async Task<ActionResult<List<PeliculaActorDTO>>> BuscarPorNombre(string nombre,
+        public async Task<ActionResult<List<PeliculaActorDto>>> BuscarPorNombre(string nombre,
             [FromServices] BuscadorPeliculasActor buscadorPeliculasActor)
         {
             return await buscadorPeliculasActor.Ejecutar(nombre);

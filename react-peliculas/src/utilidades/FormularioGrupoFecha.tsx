@@ -4,8 +4,8 @@ import MostrarErrorCampo from "./MostrarErrorCampo";
 export default function FormGroupFecha(props: formGroupFechaProps) {
   const { values, validateForm, touched, errors } = useFormikContext<any>();
   return (
-    <div className="form-group">
-      <label htmlFor={props.campo}>{props.label}</label>
+    <div className="mb-3">
+      <label className="form-label" htmlFor={props.campo}>{props.label}</label>
       <input
         type="date"
         className="form-control"

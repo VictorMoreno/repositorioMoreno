@@ -48,7 +48,7 @@ export default function TypeAheadActores(props: typeAheadActoresProps) {
 
   return (
     <>
-      <label>Actores</label>
+      <label className="form-label">Actores:</label>
       <AsyncTypeahead
         id="typeahead"
         options={opciones}

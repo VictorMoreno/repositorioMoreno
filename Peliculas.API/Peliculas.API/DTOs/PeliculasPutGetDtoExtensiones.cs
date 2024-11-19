@@ -18,7 +18,7 @@ namespace Peliculas.API.DTOs
                 GenerosNoSeleccionados = generosNoSeleccionados.ConvertAll(GeneroDtoExtensions.ToDto),
                 GenerosSeleccionados = generosSeleccionados.Select(gs => gs.Genero.ToDto()).ToList(),
                 Pelicula = pelicula.ToDto(),
-                Actores = actores.Select(peliculaActor => PeliculaActorDtoExtensiones.ToDto(peliculaActor.Actor)).ToList()
+                Actores = actores.Select(peliculaActor => PeliculaActorDtoExtensiones.ToDto(peliculaActor)).ToList()
             };
         }
     }

@@ -7,6 +7,6 @@
         public List<GeneroDto> GenerosNoSeleccionados { get; set; }
         public List<CineDto> CinesSeleccionados { get; set; }
         public List<CineDto> CinesNoSeleccionados { get; set; }
-        public List<PeliculaActorDTO> Actores { get; set; }
+        public List<PeliculaActorDto> Actores { get; set; }
     }
 }

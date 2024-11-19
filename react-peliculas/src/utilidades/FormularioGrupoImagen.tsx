@@ -34,8 +34,8 @@ export default function FormularioGrupoImagen(
   };
 
   return (
-    <div className="form.group">
-      <label>{props.label}</label>
+    <div className="mb-3">
+      <label className="form-label">{props.label}</label>
       <div>
         <input
           type="file"
