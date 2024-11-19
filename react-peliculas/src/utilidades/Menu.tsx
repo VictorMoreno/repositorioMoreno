@@ -23,8 +23,8 @@ export default function Menu() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link to="/">
-          <img src="../logo192.png" width="50" alt="Inicio"/>
-        </Link>    
+          <img src="../logo192.png" width="50" alt="Inicio" />
+        </Link>
         <div
           className="collapse navbar-collapse"
           style={{ display: "flex", justifyContent: "space-between" }}
@@ -37,7 +37,7 @@ export default function Menu() {
                 }
                 to="/peliculas/filtrar"
               >
-                Filtrar Películas
+                Buscar Películas
               </NavLink>
             </li>
 
@@ -45,17 +45,6 @@ export default function Menu() {
               role="admin"
               autorizado={
                 <>
-                  <li className="nav-item">
-                    <NavLink
-                      className={({ isActive }) =>
-                        isActive ? "nav-link active" : "nav-link"
-                      }
-                      to="/generos"
-                    >
-                      Géneros
-                    </NavLink>
-                  </li>
-
                   <li className="nav-item">
                     <NavLink
                       className={({ isActive }) =>
@@ -86,6 +75,17 @@ export default function Menu() {
                       to="/peliculas/crear"
                     >
                       Crear Películas
+                    </NavLink>
+                  </li>
+
+                  <li className="nav-item">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
+                      to="/generos"
+                    >
+                      Géneros
                     </NavLink>
                   </li>
 

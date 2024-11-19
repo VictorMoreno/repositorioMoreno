@@ -33,9 +33,11 @@ export default function FormularioCine(props: formularioCineProps) {
     >
       {(formikProps) => (
         <Form>
-          <GrupoTextoFormulario label="Nombre" campo="nombre" type={"text"} />
+          <div style={{ marginBottom: "1rem" }}>
+            <GrupoTextoFormulario label="Nombre" campo="nombre" type={"text"} />
+          </div>
 
-          <div style={{ marginBottom: "1 rem" }}>
+          <div style={{ marginBottom: "2 rem" }}>
             <FormularioMapa
               campoLat="latitud"
               campoLng="longitud"
@@ -43,17 +45,18 @@ export default function FormularioCine(props: formularioCineProps) {
             />
           </div>
 
-          <Boton
-            disable={formikProps.isSubmitting}
-            type="submit"            
-            className={"btn btn-primary"}
-            style={null}
-          >
-            Salvar
-          </Boton>
-          <Link className="btn btn-secondary" to="/cines">
-            Cancelar
-          </Link>
+            <Boton
+              disable={formikProps.isSubmitting}
+              type="submit"
+              className={"btn btn-primary"}
+              style={null}
+            >
+              Salvar
+            </Boton>
+
+            <Link className="btn btn-secondary" to="/cines">
+              Cancelar
+            </Link>
         </Form>
       )}
     </Formik>

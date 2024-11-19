@@ -26,35 +26,37 @@ export default function Mapa(props: MapaProps) {
   );
 
   return (
-    <MapContainer
-      center={
-        props.coordenadas
-          ? [props.coordenadas[0].lat, props.coordenadas[0].lng]
-          : [40.4430227, -3.8066413]
-      }
-      zoom={10}
-      style={{ height: props.height }}
-    >
-      <TileLayer
-        attribution="React Peliclas"
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {props.soloLectura ? null : (
-        <ClickMapa
-          setPunto={(coordenadas) => {
-            setCoordenadas([coordenadas]);
-            props.manejarClickMapa(coordenadas);
-          }}
+    <div style={{ marginBottom: "1rem" }}>
+      <MapContainer
+        center={
+          props.coordenadas && props.coordenadas.length > 0
+            ? [props.coordenadas[0].lat, props.coordenadas[0].lng]
+            : [40.4430227, -3.8066413]
+        }
+        zoom={10}
+        style={{ height: props.height }}
+      >
+        <TileLayer
+          attribution="React Peliclas"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-      )}
-      {coordenadas.map((coordenada) => (
-        <Marcador
-          key={coordenada.lat + coordenada.lng}
-          lng={coordenada.lng}
-          lat={coordenada.lat}
-        />
-      ))}
-    </MapContainer>
+        {props.soloLectura ? null : (
+          <ClickMapa
+            setPunto={(coordenadas) => {
+              setCoordenadas([coordenadas]);
+              props.manejarClickMapa(coordenadas);
+            }}
+          />
+        )}
+        {coordenadas.map((coordenada) => (
+          <Marcador
+            key={coordenada.lat + coordenada.lng}
+            lng={coordenada.lng}
+            lat={coordenada.lat}
+          />
+        ))}
+      </MapContainer>
+    </div>
   );
 }
 

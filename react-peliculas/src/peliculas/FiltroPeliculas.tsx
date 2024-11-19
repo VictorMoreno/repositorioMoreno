@@ -99,7 +99,7 @@ export default function FiltroPeliculas() {
 
   return (
     <>
-      <h3>Busqueda de películas</h3>
+      <h3>Buscador de películas</h3>
 
       <Formik
         initialValues={valorInicial}
@@ -145,7 +145,7 @@ export default function FiltroPeliculas() {
                     type="checkbox"
                   />
                   <label
-                    className="form-check-label"
+                    className="form-check-label ms-2"
                     htmlFor="proximosEstrenos"
                   >
                     Próximos Estrenos
@@ -158,7 +158,7 @@ export default function FiltroPeliculas() {
                     name="enCines"
                     type="checkbox"
                   />
-                  <label className="form-check-label" htmlFor="enCines">
+                  <label className="form-check-label ms-2" htmlFor="enCines">
                     En Cines
                   </label>
                 </div>
