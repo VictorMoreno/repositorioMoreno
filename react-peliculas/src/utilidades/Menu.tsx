@@ -20,11 +20,11 @@ export default function Menu() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">
-          Inicio
-        </NavLink>
+        <Link to="/">
+          <img src="../logo192.png" width="50" alt="Inicio"/>
+        </Link>    
         <div
           className="collapse navbar-collapse"
           style={{ display: "flex", justifyContent: "space-between" }}
@@ -108,7 +108,7 @@ export default function Menu() {
             <Autorizado
               autorizado={
                 <div className="d-flex align-items-center">
-                  <span className="nav-link">
+                  <span className="nav-link text-light">
                     Hola, {obtenerNombreUsuario()}
                   </span>
                   <Boton

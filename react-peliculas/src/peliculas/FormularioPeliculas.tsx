@@ -138,7 +138,7 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
           >
             Enviar
           </Boton>
-          <Link className="btn btn-secondary" to="/">
+          <Link className="btn btn-danger" to="/">
             Cancelar
           </Link>
         </Form>

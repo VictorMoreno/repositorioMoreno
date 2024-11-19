@@ -29,7 +29,7 @@ export default function FormularioGeneros(props: FormularioGenerosProps) {
           >
             Guardar
           </Boton>
-          <Link className="btn btn-danger mb-2" to="/generos">
+          <Link className="btn btn-danger" to="/generos">
             Cancelar
           </Link>
         </Form>

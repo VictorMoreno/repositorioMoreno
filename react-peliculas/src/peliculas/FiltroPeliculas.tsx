@@ -163,23 +163,23 @@ export default function FiltroPeliculas() {
                   </label>
                 </div>
                 <Boton
-                  className="btn btn-primary mb-2 mx-sm-3"
-                  onClick={() => formikProps.submitForm()}
                   type={"button"}
                   disable={false}
                   style={null}
+                  className="btn btn-primary mb-2 mx-sm-3"
+                  onClick={() => formikProps.submitForm()}
                 >
                   Filtrar
                 </Boton>
                 <Boton
-                  className="btn btn-danger mb-2"
+                  type={"button"}
+                  disable={false}
+                  style={null}
+                  className="btn btn-secondary mb-2"
                   onClick={() => {
                     formikProps.setValues(valorInicial);
                     buscarPeliculas(valorInicial);
                   }}
-                  type={"button"}
-                  disable={false}
-                  style={null}
                 >
                   Limpiar
                 </Boton>

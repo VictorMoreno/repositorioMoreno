@@ -45,9 +45,9 @@ export default function FormularioActores(props: FormularioActoresProps) {
             className={"btn btn-primary"}
             style={null}
           >
-            Salvar
+            Guardar
           </Boton>
-          <Link className="btn btn-secondary" to="/actores">
+          <Link className="btn btn-danger" to="/actores">
             Cancelar
           </Link>
         </Form>
