@@ -41,7 +41,7 @@ const rutas = [
   { path: "/login", componente: Login },
   { path: "/usuarios", componente: IndiceUsuarios, esAdmin: true },
   { path: "/solicitudRestablecimiento", componente: FormularioSolicitudRestablecerCredencial },
-  { path: "/restablecer/*", componente: FormularioRestablecerCredencial },
+  // { path: "/restablecer/*", componente: FormularioRestablecerCredencial },
 
   { path: "/", componente: PaginaPrincipal },
 

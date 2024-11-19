@@ -99,7 +99,7 @@ export default function FiltroPeliculas() {
 
   return (
     <>
-      <h3>Filtrar Películas</h3>
+      <h3>Busqueda de películas</h3>
 
       <Formik
         initialValues={valorInicial}

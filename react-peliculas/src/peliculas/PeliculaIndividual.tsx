@@ -11,7 +11,7 @@ import Autorizado from "../auth/Autorizado";
 import noDisponible from "../NoDisponible.jpg";
 
 export default function PeliculaIndividual(props: peliculaIndividualProps) {
-  const construirLick = () => `peliculas/editar/${props.pelicula.id}`;
+  const construirUrl = () => `/peliculas/editar/${props.pelicula.id}`;
   const alerta = useContext(AlertaContext);
 
   function borrarPelicula() {
@@ -27,11 +27,11 @@ export default function PeliculaIndividual(props: peliculaIndividualProps) {
         alt="Poster"
         height={600}
         width="100%"
-        onClick={construirLick}
+        onClick={construirUrl}
       />
 
       <p className="text-center">
-        <Link className={css.linkSinEstilo} to={construirLick()}>{props.pelicula.titulo}</Link>        
+        <Link className={css.linkSinEstilo} to={construirUrl()}>{props.pelicula.titulo}</Link>        
       </p>
 
       <Autorizado
@@ -41,7 +41,7 @@ export default function PeliculaIndividual(props: peliculaIndividualProps) {
             <Link
               style={{ marginRight: "1rem" }}
               className="btn btn-info"
-              to={`/peliculas/editar/${props.pelicula.id}`}
+              to={construirUrl()}
             >
               Editar
             </Link>
