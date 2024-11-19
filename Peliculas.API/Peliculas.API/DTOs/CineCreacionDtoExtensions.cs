@@ -5,7 +5,7 @@ namespace Peliculas.API.DTOs
 {
     public static class CineCreacionDtoExtensions
     {
-        public static Cine ToEntity(this CineCreacionDTO actorCreacion, GeometryFactory geometryFactory)
+        public static Cine ToEntity(this CineCreacionDto actorCreacion, GeometryFactory geometryFactory)
         {
             return new Cine
             {

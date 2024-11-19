@@ -15,7 +15,7 @@ namespace Peliculas.API.Aplicacion.Cines
         public async Task<List<CineDto>> Ejecutar()
         {
             var cines = await this._repository.ObtenerCines();
-            return cines.ConvertAll(CineDTOExtensions.ToDto);
+            return cines.ConvertAll(CineDtoExtensions.ToDto);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Peliculas.API.DTOs
         {
             return new PeliculasPutGetDto
             {
-                CinesNoSeleccionados = cinesNoSeleccionados.ConvertAll(CineDTOExtensions.ToDto),
+                CinesNoSeleccionados = cinesNoSeleccionados.ConvertAll(CineDtoExtensions.ToDto),
                 CinesSeleccionados = cinesSeleccionados.Select(cs => cs.Cine.ToDto()).ToList(),
                 GenerosNoSeleccionados = generosNoSeleccionados.ConvertAll(GeneroDtoExtensions.ToDto),
                 GenerosSeleccionados = generosSeleccionados.Select(gs => gs.Genero.ToDto()).ToList(),

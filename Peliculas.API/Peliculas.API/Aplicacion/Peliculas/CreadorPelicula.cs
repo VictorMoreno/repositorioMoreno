@@ -17,7 +17,7 @@ namespace Peliculas.API.Aplicacion.Peliculas
             this._proveedorContenedor = proveedorContenedor;
         }
 
-        public async Task Ejecutar(PeliculaCreacionDTO input)
+        public async Task Ejecutar(PeliculaCreacionDto input)
         {
             var entidad = input.ToEntity();
 

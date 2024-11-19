@@ -2,7 +2,7 @@
 
 namespace Peliculas.API.DTOs
 {
-    public static class CineDTOExtensions
+    public static class CineDtoExtensions
     {
         public static CineDto ToDto(this Cine cine)
             => new CineDto

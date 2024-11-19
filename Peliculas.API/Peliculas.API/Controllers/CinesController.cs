@@ -25,7 +25,7 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CineCreacionDTO input, [FromServices] CreadorCine creador)
+        public async Task<ActionResult> Post([FromBody] CineCreacionDto input, [FromServices] CreadorCine creador)
         {
             await creador.Ejecutar(input);
             return NoContent();

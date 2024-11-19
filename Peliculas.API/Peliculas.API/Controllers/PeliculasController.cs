@@ -24,7 +24,7 @@ namespace Peliculas.API.Controllers
 
         [HttpGet("{id:int}")]
         [AllowAnonymous]
-        public async Task<ActionResult<PeliculaDTO>> Get(int id, [FromServices] EncontradorPelicula encontradorPelicula)
+        public async Task<ActionResult<PeliculaDto>> Get(int id, [FromServices] EncontradorPelicula encontradorPelicula)
         {
             var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
             return await encontradorPelicula.Ejecutar(id, HttpContext.User.Identity.IsAuthenticated, email);
@@ -32,7 +32,7 @@ namespace Peliculas.API.Controllers
 
         [HttpGet("filtrar")]
         [AllowAnonymous]
-        public async Task<ActionResult<List<PeliculaDTO>>> Filtrar([FromQuery] PeliculasFiltrarDto peliculasFiltrarDto,
+        public async Task<ActionResult<List<PeliculaDto>>> Filtrar([FromQuery] PeliculasFiltrarDto peliculasFiltrarDto,
             [FromServices] BuscadorPeliculas buscadorPeliculas)
         {
             return await buscadorPeliculas.Ejecutar(HttpContext,
@@ -44,7 +44,7 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromForm] PeliculaCreacionDTO pelicula,
+        public async Task<ActionResult> Post([FromForm] PeliculaCreacionDto pelicula,
             [FromServices] CreadorPelicula creadorPelicula)
         {
             await creadorPelicula.Ejecutar(pelicula);
@@ -52,7 +52,7 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Put(int id, [FromForm] PeliculaCreacionDTO pelicula,
+        public async Task<ActionResult> Put(int id, [FromForm] PeliculaCreacionDto pelicula,
             [FromServices] ModificadorPelicula modificadorPelicula)
         {
             await modificadorPelicula.Ejecutar(id, pelicula);
@@ -67,7 +67,7 @@ namespace Peliculas.API.Controllers
         }
 
         [HttpGet("PostGet")]
-        public async Task<ActionResult<PeliculasPostGetDTO>> PostGet([FromServices] BuscadorCine buscadorCine,
+        public async Task<ActionResult<PeliculasPostGetDto>> PostGet([FromServices] BuscadorCine buscadorCine,
             BuscadorGenero buscadorGenero)
         {
             var generos = await buscadorGenero.Ejecutar();

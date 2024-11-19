@@ -15,7 +15,7 @@ namespace Peliculas.API.Repositorios
             List<int> idsGeneros,
             List<int> idsCines,
             List<(int id, string personaje)> idsActores);
-        Task<List<PeliculaDTO>> Buscar(HttpContext httpContext,
+        Task<List<PeliculaDto>> Buscar(HttpContext httpContext,
             PaginacionDto paginacion,
             string? titulo,
             bool enCines,

@@ -4,10 +4,10 @@ namespace Peliculas.API.DTOs
 {
     public static class PeliculaDtoExtensiones
     {
-        public static PeliculaDTO ToDto(this Pelicula pelicula,
+        public static PeliculaDto ToDto(this Pelicula pelicula,
             (double votoPromedio, int votoUsuario) datosRating = default)
         {
-            return new PeliculaDTO
+            return new PeliculaDto
             {
                 Id = pelicula.Id,
                 Titulo = pelicula.Titulo,

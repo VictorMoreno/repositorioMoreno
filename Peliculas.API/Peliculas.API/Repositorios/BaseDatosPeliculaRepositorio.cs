@@ -7,7 +7,6 @@ namespace Peliculas.API.Repositorios
 {
     public class BaseDatosPeliculaRepositorio : IPeliculaRepositorio
     {
-        // private const int CANTIDAD_MOSTRAR = 6;
         private readonly ApplicationDbContext _context;
         private readonly IAlmacenadorArchivoRepositorio _almacenadorArchivo;
         private readonly IProveedorContenedor _proveedorContenedor;
@@ -27,27 +26,26 @@ namespace Peliculas.API.Repositorios
             string trailer,
             bool enCines,
             DateTime fechaLanzamiento,
-            IFormFile poster,
+            IFormFile? poster,
             List<int> idsGeneros,
             List<int> idsCines,
             List<(int id, string personaje)> actores)
         {
             Pelicula pelicula = await this.ObtenerPorId(id);
-            string rutaPoster = string.Empty;
-
-            if (poster != null)
-            {
-                rutaPoster = await _almacenadorArchivo.EditarArchivo(this._proveedorContenedor.ObtenerContenedorPeliculas(), poster, pelicula.Poster);
-            }
-
-            pelicula.Modificar(titulo, resumen, trailer, enCines, fechaLanzamiento, rutaPoster, idsGeneros, idsCines, actores);
+            string rutaPoster = poster != null
+                ? await _almacenadorArchivo.EditarArchivo(this._proveedorContenedor.ObtenerContenedorPeliculas(),
+                    poster, pelicula.Poster)
+                : pelicula.Poster;
+            
+            pelicula.Modificar(titulo, resumen, trailer, enCines, fechaLanzamiento, rutaPoster, idsGeneros, idsCines,
+                actores);
 
             pelicula = EscribirOrdenActores(pelicula);
 
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<PeliculaDTO>> Buscar(HttpContext httpContext,
+        public async Task<List<PeliculaDto>> Buscar(HttpContext httpContext,
             PaginacionDto paginacion,
             string? titulo,
             bool enCines,
@@ -75,8 +73,8 @@ namespace Peliculas.API.Repositorios
             if (generoId.HasValue && generoId != 0)
             {
                 query = query.Where(pelicula => pelicula.PeliculasGeneros
-                .Select(genero => genero.GeneroId)
-                .Contains(generoId.Value));
+                    .Select(genero => genero.GeneroId)
+                    .Contains(generoId.Value));
             }
 
             await httpContext.InsertarParametrosPaginacionEnCabecera(query.Count());
@@ -101,7 +99,8 @@ namespace Peliculas.API.Repositorios
             {
                 this._context.Peliculas.Remove(pelicula);
                 await this._context.SaveChangesAsync();
-                await this._almacenadorArchivo.BorrarArchivo(pelicula.Poster, this._proveedorContenedor.ObtenerContenedorPeliculas());
+                await this._almacenadorArchivo.BorrarArchivo(pelicula.Poster,
+                    this._proveedorContenedor.ObtenerContenedorPeliculas());
             }
         }
 
@@ -119,7 +118,6 @@ namespace Peliculas.API.Repositorios
                 .Include(x => x.PeliculasActores).ThenInclude(x => x.Actor)
                 .Include(x => x.PeliculasCines).ThenInclude(x => x.Cine)
                 .OrderBy(pelicula => pelicula.FechaLanzamiento)
-                // .Take(CANTIDAD_MOSTRAR)
                 .ToListAsync();
         }
 
@@ -129,7 +127,7 @@ namespace Peliculas.API.Repositorios
                 .Include(x => x.PeliculasGeneros).ThenInclude(x => x.Genero)
                 .Include(x => x.PeliculasActores).ThenInclude(x => x.Actor)
                 .Include(x => x.PeliculasCines).ThenInclude(x => x.Cine)
-                .FirstOrDefaultAsync(pelicula => pelicula.Id == id);
+                .FirstAsync(pelicula => pelicula.Id == id);
         }
 
         public async Task<List<Pelicula>> ObtenerProximosEstrenos()
@@ -141,30 +139,14 @@ namespace Peliculas.API.Repositorios
                 .Include(x => x.PeliculasActores).ThenInclude(x => x.Actor)
                 .Include(x => x.PeliculasCines).ThenInclude(x => x.Cine)
                 .OrderBy(pelicula => pelicula.FechaLanzamiento)
-                // .Take(CANTIDAD_MOSTRAR)
                 .ToListAsync();
         }
 
-        //public async Task<(int numeroTotal, List<Actor> elementos)> ObtenerActores(PaginacionDto paginacion)
-        //{
-        //    int cantidadActores = await this._context.Actores.CountAsync();
-
-        //    var actoresFiltrados = this._context.Actores
-        //        .OrderBy(actor => actor.Nombre)
-        //        .Paginar(paginacion)
-        //        .ToList();
-
-        //    return (cantidadActores, actoresFiltrados);
-        //}
-
         private Pelicula EscribirOrdenActores(Pelicula pelicula)
         {
-            if (pelicula.PeliculasActores != null)
+            for (int i = 0; i < pelicula.PeliculasActores.Count; i++)
             {
-                for (int i = 0; i < pelicula.PeliculasActores.Count; i++)
-                {
-                    pelicula.PeliculasActores[i].Orden = i;
-                }
+                pelicula.PeliculasActores[i].Orden = i;
             }
 
             return pelicula;

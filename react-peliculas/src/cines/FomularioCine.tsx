@@ -51,7 +51,7 @@ export default function FormularioCine(props: formularioCineProps) {
               className={"btn btn-primary"}
               style={null}
             >
-              Salvar
+              Guardar
             </Boton>
 
             <Link className="btn btn-secondary" to="/cines">

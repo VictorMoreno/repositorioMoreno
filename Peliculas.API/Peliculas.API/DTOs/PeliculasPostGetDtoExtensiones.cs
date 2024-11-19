@@ -2,9 +2,9 @@
 {
     public static class PeliculasPostGetDtoExtensiones
     {
-        public static PeliculasPostGetDTO ToResponse(List<GeneroDto> generos, List<CineDto> cines)
+        public static PeliculasPostGetDto ToResponse(List<GeneroDto> generos, List<CineDto> cines)
         {
-            return new PeliculasPostGetDTO
+            return new PeliculasPostGetDto
             {
                 Cines = cines,
                 Generos = generos

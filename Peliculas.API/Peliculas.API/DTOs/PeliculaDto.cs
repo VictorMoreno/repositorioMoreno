@@ -1,6 +1,6 @@
 ﻿namespace Peliculas.API.DTOs
 {
-    public class PeliculaDTO
+    public class PeliculaDto
     {
         public int Id { get; set; }
         public string Titulo { get; set; }

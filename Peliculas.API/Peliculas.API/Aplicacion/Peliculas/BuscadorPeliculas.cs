@@ -12,7 +12,7 @@ namespace Peliculas.API.Aplicacion.Peliculas
             this._peliculaRepositorio = peliculaRepositorio;
         }
 
-        public async Task<List<PeliculaDTO>> Ejecutar(
+        public async Task<List<PeliculaDto>> Ejecutar(
             HttpContext context,
             PaginacionDto paginacion,
             string? titulo,

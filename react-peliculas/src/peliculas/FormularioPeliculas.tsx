@@ -136,7 +136,7 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
             className={"btn btn-primary"}
             style={null}
           >
-            Enviar
+            Guardar
           </Boton>
           <Link className="btn btn-danger" to="/">
             Cancelar

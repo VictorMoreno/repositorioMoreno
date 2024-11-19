@@ -4,7 +4,7 @@ namespace Peliculas.API.DTOs
 {
     public static class PeliculaCreacionDtoExtensions
     {
-        public static Pelicula ToEntity(this PeliculaCreacionDTO pelicula)
+        public static Pelicula ToEntity(this PeliculaCreacionDto pelicula)
         {
             var registroPelicula = new Pelicula
             {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Peliculas.API.DTOs
 {
-    public class PeliculaCreacionDTO
+    public class PeliculaCreacionDto
     {
         [Required]
         [StringLength(maximumLength: 300)]
@@ -13,7 +13,7 @@ namespace Peliculas.API.DTOs
         public string Trailer { get; set; }
         public bool EnCines { get; set; }
         public DateTime FechaLanzamiento { get; set; }
-        public IFormFile Poster { get; set; }
+        public IFormFile? Poster { get; set; }
 
         [ModelBinder(BinderType = typeof(TypeBinder<List<int>>))]
         public List<int> GenerosIds { get; set; }
@@ -21,7 +21,7 @@ namespace Peliculas.API.DTOs
         [ModelBinder(BinderType = typeof(TypeBinder<List<int>>))]
         public List<int> CinesIds { get; set; }
 
-        [ModelBinder(BinderType = typeof(TypeBinder<List<ActorPeliculaCreacionDTO>>))]
-        public List<ActorPeliculaCreacionDTO> Actores { get; set; }
+        [ModelBinder(BinderType = typeof(TypeBinder<List<ActorPeliculaCreacionDto>>))]
+        public List<ActorPeliculaCreacionDto> Actores { get; set; }
     }
 }

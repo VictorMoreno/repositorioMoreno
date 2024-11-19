@@ -2,7 +2,7 @@
 {
     public class LandingPageDto
     {
-        public List<PeliculaDTO> EnCines { get; set; }
-        public List<PeliculaDTO> ProximosEstrenos { get; set; }
+        public List<PeliculaDto> EnCines { get; set; }
+        public List<PeliculaDto> ProximosEstrenos { get; set; }
     }
 }

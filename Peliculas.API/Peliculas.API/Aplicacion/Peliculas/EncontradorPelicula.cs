@@ -19,7 +19,7 @@ namespace Peliculas.API.Aplicacion.Peliculas
             this._userManager = userManager;
         }
 
-        public async Task<PeliculaDTO> Ejecutar(int id, bool estaAutenticado, string email)
+        public async Task<PeliculaDto> Ejecutar(int id, bool estaAutenticado, string email)
         {
             Pelicula pelicula = await this._peliculaRepositorio.ObtenerPorId(id);
 

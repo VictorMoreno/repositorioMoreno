@@ -12,7 +12,7 @@ namespace Peliculas.API.Aplicacion.Peliculas
             this._repositorio = repositorio;
         }
 
-        public async Task Ejecutar(int id, PeliculaCreacionDTO input)
+        public async Task Ejecutar(int id, PeliculaCreacionDto input)
         {
             await this._repositorio.Actualizar(id,
                 input.Titulo,

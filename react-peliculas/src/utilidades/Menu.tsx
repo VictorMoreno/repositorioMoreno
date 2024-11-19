@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Autorizado from "../auth/Autorizado";
 import { Link } from "react-router-dom";
 import Boton from "./Boton";
@@ -14,6 +14,7 @@ import {
 
 export default function Menu() {
   const { actualizar, claims } = useContext(AutenticacionContext);
+  const navigate = useNavigate();
 
   function obtenerNombreUsuario(): string {
     return claims.filter((x) => x.nombre === "email")[0]?.valor;
@@ -116,6 +117,7 @@ export default function Menu() {
                     onClick={() => {
                       logout();
                       actualizar([]);
+                      navigate('/');
                     }}
                     className="btn btn-link"
                     disable={false}
@@ -124,6 +126,7 @@ export default function Menu() {
                     <FontAwesomeIcon
                       icon={faRightFromBracket}
                       title="Log out"
+                      className="fa-lg"
                     />
                   </Boton>
                 </div>
@@ -131,10 +134,10 @@ export default function Menu() {
               noAutorizado={
                 <>
                   <Link to="/registro" className="btn btn-link">
-                    <FontAwesomeIcon icon={faUserPlus} title="Registro" />
+                    <FontAwesomeIcon icon={faUserPlus} title="Registro" className="fa-lg"/>
                   </Link>
                   <Link to="/login" className="btn btn-link">
-                    <FontAwesomeIcon icon={faSignInAlt} title="Login" />
+                    <FontAwesomeIcon icon={faSignInAlt} title="Login" className="fa-lg"/>
                   </Link>
                 </>
               }

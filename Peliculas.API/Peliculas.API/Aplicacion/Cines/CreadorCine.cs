@@ -15,7 +15,7 @@ namespace Peliculas.API.Aplicacion.Cines
             this._geometryFactory = geometryFactory;
         }
 
-        public async Task Ejecutar(CineCreacionDTO input)
+        public async Task Ejecutar(CineCreacionDto input)
         {
             await this._repository.Guardar(input.ToEntity(this._geometryFactory));
         }

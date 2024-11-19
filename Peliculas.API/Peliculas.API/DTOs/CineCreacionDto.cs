@@ -2,7 +2,7 @@
 
 namespace Peliculas.API.DTOs
 {
-    public class CineCreacionDTO
+    public class CineCreacionDto
     {
         [Required]
         [StringLength(maximumLength: 75)]

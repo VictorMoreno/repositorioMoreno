@@ -18,7 +18,7 @@ namespace Peliculas.API.Aplicacion.Cines
         {
             (int numeroTotal, List<Cine> elementos) cines = await this._repository.ObtenerCines(paginacionDto);
             await httpContext.InsertarParametrosPaginacionEnCabecera(cines.numeroTotal);
-            return cines.elementos.ConvertAll(CineDTOExtensions.ToDto);
+            return cines.elementos.ConvertAll(CineDtoExtensions.ToDto);
         }
     }
 }
