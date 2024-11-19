@@ -25,7 +25,7 @@ export default function PeliculaIndividual(props: peliculaIndividualProps) {
       <img
         src={props.pelicula.poster ? props.pelicula.poster : noDisponible}
         alt="Poster"
-        height={600}
+        height={500}
         width="100%"
         onClick={construirUrl}
       />

@@ -63,7 +63,7 @@ export default function TypeAheadActores(props: typeAheadActoresProps) {
         isLoading={estaCargando}
         onSearch={manejarBusqueda}
         placeholder="Escriba el nombre del actor..."
-        minLength={2}
+        minLength={1}
         flip={true}
         selected={seleccion}
         renderMenuItemChildren={(actor) => (

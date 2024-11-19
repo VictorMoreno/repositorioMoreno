@@ -1,6 +1,6 @@
 import "./SelectorMultiple.css";
 
-export default function SelectorMultiple(props: SelectorMultiplePorps) {
+export default function SelectorMultiple(props: SelectorMultipleProps) {
   function seleccionar(item: selectorMultipleModel) {
     const seleccionados = [...props.seleccionados, item];
     const noSeleccionados = props.noSeleccionados.filter(
@@ -58,7 +58,7 @@ export default function SelectorMultiple(props: SelectorMultiplePorps) {
   );
 }
 
-interface SelectorMultiplePorps {
+interface SelectorMultipleProps {
   seleccionados: selectorMultipleModel[];
   noSeleccionados: selectorMultipleModel[];
   onChange(

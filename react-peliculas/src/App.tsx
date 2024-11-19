@@ -7,11 +7,16 @@ import { claim } from "./auth/auth.model";
 import AutenticacionContext from "./auth/AutenticacionContext";
 import { obtenerClaims } from "./auth/manejadorJwt";
 import { configurarInterceptor } from "./utilidades/interceptores";
+import React from "react";
 
 configurarValidaciones();
 configurarInterceptor()
 
 function App() {
+  React.useEffect(() => {
+    document.body.style.backgroundColor = "#f5f5f5";
+  }, []);
+
   const [claims, setClaims] = useState<claim[]>([]);
   useEffect(() => {
     setClaims(obtenerClaims());
