@@ -2,10 +2,10 @@
 
 namespace Peliculas.API.DTOs
 {
-    public static class PeliculaDTOExtensiones
+    public static class PeliculaDtoExtensiones
     {
 
-        public static PeliculaDTO ToDto(this Pelicula pelicula)
+        public static PeliculaDTO ToDto(this Pelicula pelicula, (double votoPromedio, int votoUsuario) datosRating)
         {
             return new PeliculaDTO
             {
@@ -34,7 +34,10 @@ namespace Peliculas.API.DTOs
                     Latitud = cine.Cine.Ubicacion.Y,
                     Longitud = cine.Cine.Ubicacion.X,
                     Nombre = cine.Cine.Nombre
-                }).ToList()
+                }).ToList(),
+                VotoUsuario = datosRating.votoUsuario,
+                VotoPromedio = datosRating.votoPromedio,
+                
             };
         }
     }

@@ -12,7 +12,7 @@ namespace Peliculas.API.Aplicacion.Peliculas
             this._peliculaRepositorio = peliculaRepositorio;
         }
 
-        public async Task<List<PeliculaDTO>> Ejecutar(  
+        public async Task<List<PeliculaDTO>> Ejecutar(
             HttpContext context,
             PaginacionDto paginacion,
             string? titulo,
@@ -20,7 +20,8 @@ namespace Peliculas.API.Aplicacion.Peliculas
             int? generoId,
             bool proximosEstrenos)
         {
-            return await this._peliculaRepositorio.Buscar(context, paginacion, titulo, enCines, generoId, proximosEstrenos);
+            return await this._peliculaRepositorio.Buscar(context, paginacion, titulo, enCines, generoId,
+                proximosEstrenos);
         }
     }
 }

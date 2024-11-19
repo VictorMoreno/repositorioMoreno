@@ -4,7 +4,9 @@ namespace Peliculas.API.Repositorios;
 
 public interface IRatingRepositorio
 {
-    Task<Rating?> ObtenerRating(string idUsuario, int idPelicula);
+    Task<Rating?> ObtenerRatingUsuario(string idUsuario, int idPelicula);
+    Task<double> ObtenerMediaRatings(int idPelicula);
+    Task<bool> ExisteRatingPelicula(int idPelicula);
     Task Guardar(Rating rating);
     Task Actualizar(Rating ratingActual);
 }

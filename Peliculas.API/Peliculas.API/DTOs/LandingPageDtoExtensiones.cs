@@ -8,8 +8,8 @@ namespace Peliculas.API.DTOs
         {
             return new LandingPageDto
             {
-                ProximosEstrenos = proximosEstrenos.ConvertAll(PeliculaDTOExtensiones.ToDto),
-                EnCines = enCines.ConvertAll(PeliculaDTOExtensiones.ToDto)
+                ProximosEstrenos = proximosEstrenos.ConvertAll(pelicula => PeliculaDtoExtensiones.ToDto(pelicula)),
+                EnCines = enCines.ConvertAll(pelicula => PeliculaDtoExtensiones.ToDto(pelicula))
             };
         }
     }

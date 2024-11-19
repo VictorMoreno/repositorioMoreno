@@ -11,7 +11,7 @@ import Autorizado from "../auth/Autorizado";
 import noDisponible from "../NoDisponible.jpg";
 
 export default function PeliculaIndividual(props: peliculaIndividualProps) {
-  const construirUrl = () => `/peliculas/editar/${props.pelicula.id}`;
+  const construirUrl = () => `/pelicula/${props.pelicula.id}`;
   const alerta = useContext(AlertaContext);
 
   function borrarPelicula() {
@@ -41,7 +41,7 @@ export default function PeliculaIndividual(props: peliculaIndividualProps) {
             <Link
               style={{ marginRight: "1rem" }}
               className="btn btn-info"
-              to={construirUrl()}
+              to={`/peliculas/editar/${props.pelicula.id}`}
             >
               Editar
             </Link>

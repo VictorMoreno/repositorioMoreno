@@ -90,7 +90,7 @@ namespace Peliculas.API.Repositorios
                 .ThenInclude(cine => cine.Cine)
                 .ToListAsync();
 
-            return peliculas.ConvertAll(PeliculaDTOExtensiones.ToDto);
+            return peliculas.ConvertAll(pelicula => PeliculaDtoExtensiones.ToDto(pelicula));
         }
 
         public async Task Eliminar(int id)

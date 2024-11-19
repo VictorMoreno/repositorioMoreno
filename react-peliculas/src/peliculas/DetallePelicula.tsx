@@ -78,8 +78,9 @@ export default function DetallePelicula() {
             {genero.nombre}
           </Link>
         ))}
-        | {pelicula.fechaLanzamiento.toDateString()}| Voto promedio:{" "}
-        {pelicula.promedioVoto}| Tu voto:{" "}
+        | {pelicula.fechaLanzamiento.toDateString()}| Voto promedio:
+        {pelicula.promedioVoto}
+        | Tu voto:
         <Rating
           maximoValor={5}
           valorSeleccionado={pelicula.votoUsuario!}

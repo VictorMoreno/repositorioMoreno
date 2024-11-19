@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Peliculas.API.Aplicacion.Cines;
@@ -13,10 +14,20 @@ namespace Peliculas.API.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
     public class PeliculasController : ControllerBase
     {
+        [HttpGet("landingFilms")]
+        [AllowAnonymous]
+        public async Task<ActionResult<LandingPageDto>> GetLandingFilms(
+            [FromServices] BuscadorPeliculasPortada buscadorPeliculasPortada)
+        {
+            return await buscadorPeliculasPortada.Ejecutar();
+        }
+
         [HttpGet("{id:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<PeliculaDTO>> Get(int id, [FromServices] EncontradorPelicula encontradorPelicula)
         {
-            return await encontradorPelicula.Ejecutar(id);
+            var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+            return await encontradorPelicula.Ejecutar(id, HttpContext.User.Identity.IsAuthenticated, email);
         }
 
         [HttpGet("filtrar")]
@@ -70,15 +81,6 @@ namespace Peliculas.API.Controllers
             [FromServices] BuscadorPeliculaParaEdicion buscadorPeliculaParaEdicion)
         {
             return await buscadorPeliculaParaEdicion.Ejecutar(id);
-        }
-
-
-        [HttpGet("landingFilms")]
-        [AllowAnonymous]
-        public async Task<ActionResult<LandingPageDto>> GetLandingFilms(
-            [FromServices] BuscadorPeliculasPortada buscadorPeliculasPortada)
-        {
-            return await buscadorPeliculasPortada.Ejecutar();
         }
     }
 }

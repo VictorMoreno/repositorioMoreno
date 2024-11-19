@@ -20,7 +20,7 @@ public class CreadorRating : IServicioAplicacion
         var usuario = await _userManager.FindByEmailAsync(email);
         var idUsuario = usuario.Id;
 
-        var ratingActual = await this._repositorio.ObtenerRating(idUsuario, idPelicula);
+        var ratingActual = await this._repositorio.ObtenerRatingUsuario(idUsuario, idPelicula);
         
         if (ratingActual == null)
         {

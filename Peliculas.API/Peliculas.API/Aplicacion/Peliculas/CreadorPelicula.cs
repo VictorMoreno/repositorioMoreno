@@ -9,7 +9,8 @@ namespace Peliculas.API.Aplicacion.Peliculas
         private readonly IAlmacenadorArchivoRepositorio _almacenadorArchivo;
         private readonly IProveedorContenedor _proveedorContenedor;
 
-        public CreadorPelicula(IPeliculaRepositorio repositorio, IAlmacenadorArchivoRepositorio almacenadorArchivo, IProveedorContenedor proveedorContenedor)
+        public CreadorPelicula(IPeliculaRepositorio repositorio, IAlmacenadorArchivoRepositorio almacenadorArchivo,
+            IProveedorContenedor proveedorContenedor)
         {
             this._repositorio = repositorio;
             this._almacenadorArchivo = almacenadorArchivo;
@@ -22,7 +23,9 @@ namespace Peliculas.API.Aplicacion.Peliculas
 
             if (input.Poster != null)
             {
-                entidad.Poster = await this._almacenadorArchivo.GuardarArchivo(this._proveedorContenedor.ObtenerContenedorPeliculas(), input.Poster);
+                entidad.Poster =
+                    await this._almacenadorArchivo.GuardarArchivo(
+                        this._proveedorContenedor.ObtenerContenedorPeliculas(), input.Poster);
             }
 
             await this._repositorio.Guardar(entidad);

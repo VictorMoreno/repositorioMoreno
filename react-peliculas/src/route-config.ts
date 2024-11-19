@@ -32,7 +32,7 @@ const rutas = [
   { path: "/cines/editar/:id", componente: EditarCines, esAdmin: true },
   { path: "/cines", componente: IndiceCines, esAdmin: true },
 
-  { path: "/peliculas/:id", componente: DetallePelicula },
+  { path: "/pelicula/:id", componente: DetallePelicula },
   { path: "/peliculas/crear", componente: CrearPeliculas, esAdmin: true },
   { path: "/peliculas/editar/:id", componente: EditarPeliculas, esAdmin: true },
   { path: "/peliculas/filtrar", componente: FiltroPeliculas },

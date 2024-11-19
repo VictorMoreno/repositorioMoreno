@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +15,8 @@ public class RatingController : ControllerBase
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public async Task<ActionResult> Post([FromBody] RatingDto rating, [FromServices] CreadorRating creadorRating)
     {
-        var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "email").Value;
-        await creadorRating.Ejecutar(email, rating.PeliculaId, rating.Puntuacion);
+        var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
+        await creadorRating.Ejecutar(email, rating.IdPelicula, rating.Puntuacion);
 
         return NoContent();
     }

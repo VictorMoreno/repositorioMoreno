@@ -44,6 +44,7 @@ export default function Rating(props: RatingProps) {
           onMouseOver={() => {
             manejarMouseOver(indice + 1);
           }}
+          style={{ backgroundColor: "transparent" }}
           onClick={() => manejarClick(indice + 1)}
         />
       ))}

@@ -1,4 +1,5 @@
-﻿using Peliculas.API.DTOs;
+﻿using Microsoft.AspNetCore.Identity;
+using Peliculas.API.DTOs;
 using Peliculas.API.Entidades;
 using Peliculas.API.Repositorios;
 
@@ -6,23 +7,62 @@ namespace Peliculas.API.Aplicacion.Peliculas
 {
     public class EncontradorPelicula : IServicioAplicacion
     {
-        private readonly IPeliculaRepositorio _repository;
+        private readonly IPeliculaRepositorio _peliculaRepositorio;
+        private readonly IRatingRepositorio _ratingRepositorio;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public EncontradorPelicula(IPeliculaRepositorio repository)
+        public EncontradorPelicula(IPeliculaRepositorio peliculaRepositorio, IRatingRepositorio ratingRepositorio,
+            UserManager<IdentityUser> userManager)
         {
-            this._repository = repository;
+            this._peliculaRepositorio = peliculaRepositorio;
+            this._ratingRepositorio = ratingRepositorio;
+            this._userManager = userManager;
         }
 
-        public async Task<PeliculaDTO> Ejecutar(int id)
+        public async Task<PeliculaDTO> Ejecutar(int id, bool estaAutenticado, string email)
         {
-            Pelicula pelicula = await this._repository.ObtenerPorId(id);
+            Pelicula pelicula = await this._peliculaRepositorio.ObtenerPorId(id);
 
             if (pelicula == null)
             {
                 throw new FileNotFoundException();
             }
 
-            return pelicula.ToDto();
+            var datosRating = await this.GestionarVoto(estaAutenticado, email, pelicula.Id);
+
+            return pelicula.ToDto(datosRating);
+        }
+
+        private async Task<(double votoPromedio, int votoUsuario)> GestionarVoto(bool estaAutenticado,
+            string email,
+            int idPelicula)
+        {
+            var ratingVacio = (0.0, 0);
+
+            if (!estaAutenticado)
+            {
+                return ratingVacio;
+            }
+
+            if (!await this._ratingRepositorio.ExisteRatingPelicula(idPelicula))
+            {
+                return ratingVacio;
+            }
+
+            var votoPromedio = await this._ratingRepositorio.ObtenerMediaRatings(idPelicula);
+            var votoUsuario = 0;
+            
+            var usuario = await this._userManager.FindByEmailAsync(email);
+            var idUsuario = usuario.Id;
+
+            var ratingUsuario = await this._ratingRepositorio.ObtenerRatingUsuario(idUsuario, idPelicula);
+
+            if (ratingUsuario != null)
+            {
+                votoUsuario = ratingUsuario.Puntuacion;
+            }
+            
+            return (votoPromedio, votoUsuario);
         }
     }
 }

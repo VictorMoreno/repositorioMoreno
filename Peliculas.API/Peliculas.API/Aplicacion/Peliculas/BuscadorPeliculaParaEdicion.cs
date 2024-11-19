@@ -24,12 +24,14 @@ namespace Peliculas.API.Aplicacion.Peliculas
             Pelicula pelicula = await this._peliculaRepository.ObtenerPorId(id);
 
             List<int> idsGenerosSeleccionados = pelicula.PeliculasGeneros.Select(genero => genero.GeneroId).ToList();
-            List<Genero> generosNoSeleccionados = await this._generoRepositorio.ObtenerNoContenidos(idsGenerosSeleccionados);
+            List<Genero> generosNoSeleccionados =
+                await this._generoRepositorio.ObtenerNoContenidos(idsGenerosSeleccionados);
 
             List<int> idsCinesSeleccionados = pelicula.PeliculasCines.Select(genero => genero.CineId).ToList();
             List<Cine> cinesNoSeleccionados = await this._cineRepositorio.ObtenerNoContenidos(idsCinesSeleccionados);
 
-            return PeliculasPutGetDtoExtensiones.ToDto(generosNoSeleccionados, cinesNoSeleccionados, pelicula, pelicula.PeliculasGeneros, pelicula.PeliculasCines, pelicula.PeliculasActores);
+            return PeliculasPutGetDtoExtensiones.ToDto(generosNoSeleccionados, cinesNoSeleccionados, pelicula,
+                pelicula.PeliculasGeneros, pelicula.PeliculasCines, pelicula.PeliculasActores);
         }
     }
 }
