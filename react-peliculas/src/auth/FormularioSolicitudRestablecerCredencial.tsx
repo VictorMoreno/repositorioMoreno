@@ -1,25 +1,29 @@
-import { Form, Formik} from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import GrupoTextoFormulario from "../utilidades/GrupoTextoFormulario";
 import Boton from "../utilidades/Boton";
 import axios from "axios";
 import { urlCuentas } from "../utilidades/endpoints";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function FormularioSolicitudRestablecerCredencial() {
+  const navigate = useNavigate();
+
   async function solicitarRestablecimiento(email: string) {
     try {
-      await axios.post(
-        `${urlCuentas}/solicitarRestablecimiento`,
-        { Email: email }
-      );
+      await axios.post(`${urlCuentas}/solicitarRestablecimiento`, {
+        Email: email,
+      });
 
       Swal.fire({
         title: "Éxito",
         text: "Correo de recuperación enviado con éxito.",
         icon: "success",
+      }).then((result) => {
+        navigate("/");
       });
-
+      
     } catch (error) {
       setErrores(error.response.data);
     }

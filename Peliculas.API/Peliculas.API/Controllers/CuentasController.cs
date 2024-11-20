@@ -57,7 +57,7 @@ namespace Peliculas.API.Controllers
         {
             return await loginUsuario.Ejecutar(credenciales.Email, credenciales.Password);
         }
-        
+
         [HttpPost("solicitarRestablecimiento")]
         public async Task<ActionResult> Login([FromBody] SolicitudRestablecerCredencial credencial,
             [FromServices] SolicitadorRestablecerCredencial solicitadorRestablecerCredencial)
@@ -65,12 +65,13 @@ namespace Peliculas.API.Controllers
             await solicitadorRestablecerCredencial.Ejecutar(credencial.Email);
             return NoContent();
         }
-        
+
         [HttpPost("restablecer")]
-        public async Task<ActionResult> Login(string email, string token,
+        [AllowAnonymous]
+        public async Task<ActionResult> Login([FromBody] RestablecerCredencial credencial,
             [FromServices] RestablecedorCredencial restablecedorCredencial)
         {
-            // await restablecedorCredencial.Ejecutar(token);
+            await restablecedorCredencial.Ejecutar(credencial.Email, credencial.Token, credencial.Password);
             return NoContent();
         }
     }
