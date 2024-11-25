@@ -62,7 +62,7 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
     <>
       <h3>{props.titulo}</h3>
       {props.urlCrear ? (
-        <Link className="btn btn-primary" to={props.urlCrear}>
+        <Link className="btn btn-primary mb-3" to={props.urlCrear}>
           Crear {props.nombreEntidad}
         </Link>
       ) : null}
