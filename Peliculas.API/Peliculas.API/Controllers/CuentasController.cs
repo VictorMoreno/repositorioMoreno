@@ -90,5 +90,13 @@ namespace Peliculas.API.Controllers
             await eliminadorCuenta.Ejecutar(id);
             return NoContent();
         }
+        
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(string id, [FromBody] UsuarioEdicionDto usuario,
+            [FromServices] ModificadorCuenta modificador)
+        {
+            await modificador.Ejecutar(id, usuario.Email);
+            return NoContent();
+        }
     }
 }

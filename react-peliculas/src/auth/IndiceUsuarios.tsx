@@ -5,9 +5,11 @@ import IndiceEntidad from "../utilidades/IndiceEntidad";
 import { usuarioDto } from "./auth.model";
 import Swal from "sweetalert2";
 import confirmar from "../utilidades/Confirmar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function IndiceUsuarios() {
+  const navigate = useNavigate();
+
   async function hacerAdmin(id: string) {
     await realizarPeticion(`${urlCuentas}/hacerAdmin`, id);
   }
@@ -24,6 +26,8 @@ export default function IndiceUsuarios() {
       text: "Operación realizada con éxito.",
       icon: "success",
     });
+
+    navigate("/usuarios");
   }
 
   async function realizarPeticion(url: string, id: string) {
