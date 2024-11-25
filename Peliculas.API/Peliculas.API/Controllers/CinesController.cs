@@ -30,5 +30,12 @@ namespace Peliculas.API.Controllers
             await creador.Ejecutar(input);
             return NoContent();
         }
+        
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id, [FromServices] EliminadorCine eliminadorCine)
+        {
+            await eliminadorCine.Ejecutar(id);
+            return NoContent();
+        }
     }
 }

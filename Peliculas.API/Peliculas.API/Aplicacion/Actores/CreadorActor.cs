@@ -9,7 +9,8 @@ namespace Peliculas.API.Aplicacion.Actores
         private readonly IAlmacenadorArchivoRepositorio _almacenadorArchivo;
         private readonly IProveedorContenedor _proveedorContenedor;
 
-        public CreadorActor(IActorRepositorio repositorio, IAlmacenadorArchivoRepositorio almacenadorArchivo, IProveedorContenedor proveedorContenedor)
+        public CreadorActor(IActorRepositorio repositorio, IAlmacenadorArchivoRepositorio almacenadorArchivo,
+            IProveedorContenedor proveedorContenedor)
         {
             this._repositorio = repositorio;
             this._almacenadorArchivo = almacenadorArchivo;
@@ -22,7 +23,9 @@ namespace Peliculas.API.Aplicacion.Actores
 
             if (actorCreacionDto.Foto != null)
             {
-                entidadActor.Foto = await this._almacenadorArchivo.GuardarArchivo(this._proveedorContenedor.ObtenerContenedorActores(), actorCreacionDto.Foto);
+                entidadActor.Foto =
+                    await this._almacenadorArchivo.GuardarArchivo(this._proveedorContenedor.ObtenerContenedorActores(),
+                        actorCreacionDto.Foto);
             }
 
             await this._repositorio.Guardar(entidadActor);

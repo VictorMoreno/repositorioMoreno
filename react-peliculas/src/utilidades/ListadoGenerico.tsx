@@ -11,7 +11,7 @@ export default function ListadoGenerico(props: listadoGenericoProps) {
     if (props.listadoVacioUI) {
       return props.listadoVacioUI;
     }
-    return <>No ha elementos para mostrar</>;
+    return <>No hay elementos para mostrar</>;
   } else {
     return props.children;
   }

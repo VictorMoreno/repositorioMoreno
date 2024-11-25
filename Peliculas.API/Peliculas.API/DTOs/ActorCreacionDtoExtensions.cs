@@ -9,7 +9,7 @@ namespace Peliculas.API.DTOs
             return new Actor
             {
                 Nombre = actorCreacion.Nombre,
-                Biografia = actorCreacion.Biografia,
+                Biografia = string.IsNullOrEmpty(actorCreacion.Biografia) ? string.Empty : actorCreacion.Biografia,
                 FechaNacimiento = actorCreacion.FechaNacimiento,
                 Foto = string.Empty
             };

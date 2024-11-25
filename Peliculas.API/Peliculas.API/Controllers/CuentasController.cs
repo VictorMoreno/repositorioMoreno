@@ -74,5 +74,14 @@ namespace Peliculas.API.Controllers
             await restablecedorCredencial.Ejecutar(credencial.Email, credencial.Token, credencial.Password);
             return NoContent();
         }
+
+        [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
+        public async Task<ActionResult> Delete(string id,
+            [FromServices] EliminadorCuenta eliminadorCuenta)
+        {
+            await eliminadorCuenta.Ejecutar(id);
+            return NoContent();
+        }
     }
 }

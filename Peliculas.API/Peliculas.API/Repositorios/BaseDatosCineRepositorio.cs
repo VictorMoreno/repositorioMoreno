@@ -34,17 +34,6 @@ namespace Peliculas.API.Repositorios
         //    //}
         //}
 
-        //public async Task Eliminar(int id)
-        //{
-        //    var actor = await this._context.Actores.FirstOrDefaultAsync(actor => actor.Id == id);
-
-        //    if (actor != null)
-        //    {
-        //        this._context.Actores.Remove(actor);
-        //        await this._context.SaveChangesAsync();
-        //    }
-        //}
-
         public async Task Guardar(Cine cine)
         {
             this._context.Cines.Add(cine);
@@ -77,6 +66,17 @@ namespace Peliculas.API.Repositorios
             return await this._context.Cines
                 .Where(cine => !ids.Contains(cine.Id))
                 .ToListAsync();
+        }
+        
+        public async Task Eliminar(int id)
+        {
+            var cine = await this._context.Cines.FirstOrDefaultAsync(cine => cine.Id == id);
+
+            if (cine != null)
+            {
+                this._context.Cines.Remove(cine);
+                await this._context.SaveChangesAsync();
+            }
         }
     }
 }

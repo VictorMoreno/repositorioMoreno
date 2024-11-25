@@ -7,12 +7,23 @@ import Swal from "sweetalert2";
 import confirmar from "../utilidades/Confirmar";
 
 export default function IndiceUsuarios() {
+
   async function hacerAdmin(id: string) {
     await editarAdmin(`${urlCuentas}/hacerAdmin`, id);
   }
 
   async function quitarAdmin(id: string) {
     await editarAdmin(`${urlCuentas}/quitarAdmin`, id);
+  }
+
+  async function eliminarCuenta(id: string) {
+    await axios.delete(`${urlCuentas}/${id}`);
+
+    Swal.fire({
+      title: "Éxito",
+      text: "Operación realizada con éxito.",
+      icon: "success",
+    });
   }
 
   async function editarAdmin(url: string, id: string) {
@@ -51,16 +62,16 @@ export default function IndiceUsuarios() {
                         `¿Desea hacer a ${usuario.email} admin?`,
                         "Realizar"
                       )
-                    }                    
+                    }
                     type={"submit"}
                     disable={false}
-                    className={"btn btn-primary"}
+                    className={"btn btn-success"}
                     style={null}
                   >
                     Hacer Admin
                   </Boton>
                   <Boton
-                    className="btn btn-danger"
+                    className="btn btn-warning"
                     style={{ marginLeft: "1rem" }}
                     onClick={() =>
                       confirmar(
@@ -73,6 +84,21 @@ export default function IndiceUsuarios() {
                     disable={false}
                   >
                     Quitar Admin
+                  </Boton>
+                  <Boton
+                    className="btn btn-danger"
+                    style={{ marginLeft: "1rem" }}
+                    onClick={() =>
+                      confirmar(
+                        () => eliminarCuenta(usuario.id),
+                        `¿Desea eliminar al usuario ${usuario.email}?`,
+                        "Realizar"
+                      )
+                    }
+                    type={"submit"}
+                    disable={false}
+                  >
+                    Eliminar
                   </Boton>
                 </td>
                 <td>{usuario.email}</td>

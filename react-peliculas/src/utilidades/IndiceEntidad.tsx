@@ -35,6 +35,7 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
   async function borrar(id: number) {
     try {
       await axios.delete(`${props.url}/${id}`);
+      setPagina(1);
       cargarDatos();
     } catch (error) {
       console.log(error.respuse.data);
