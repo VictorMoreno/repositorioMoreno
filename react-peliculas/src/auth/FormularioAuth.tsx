@@ -56,7 +56,7 @@ export default function FormularioAuth(props: FormularioAuthProps) {
               </div>
               <p></p>
               <div className="text-center">
-                <Link to="/solicitudRestablecimiento" className="text-decoration-none">
+                <Link to="/usuarios/solicitudRestablecimiento" className="text-decoration-none">
                   ¿Has olvidado la contraseña?
                 </Link>
               </div>

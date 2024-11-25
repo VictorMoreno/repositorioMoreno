@@ -8,9 +8,10 @@ import AutenticacionContext from "./auth/AutenticacionContext";
 import { obtenerClaims } from "./auth/manejadorJwt";
 import { configurarInterceptor } from "./utilidades/interceptores";
 import React from "react";
+import ErrorBoundary from "./ErrorBoundary";
 
 configurarValidaciones();
-configurarInterceptor()
+configurarInterceptor();
 
 function App() {
   React.useEffect(() => {
@@ -40,21 +41,21 @@ function App() {
         <AutenticacionContext.Provider value={{ claims, actualizar }}>
           <Menu />
           <div className="container">
-            <Routes>
-              {rutas.map((ruta) => (
-                <Route
-                  key={ruta.path}
-                  path={ruta.path}
-                  element={
-                    ruta.esAdmin && !esAdmin() ? (
-                      <>No tiene permiso para acceder a este componente</>
-                    ) : (
-                      <ruta.componente />
-                    )
-                  }
-                />
-              ))}
-            </Routes>
+              <Routes>
+                {rutas.map((ruta) => (
+                  <Route
+                    key={ruta.path}
+                    path={ruta.path}
+                    element={
+                      ruta.esAdmin && !esAdmin() ? (
+                        <>No tiene permiso para acceder a este componente</>
+                      ) : (
+                        <ruta.componente />
+                      )
+                    }
+                  />
+                ))}
+              </Routes>
           </div>
         </AutenticacionContext.Provider>
       </BrowserRouter>

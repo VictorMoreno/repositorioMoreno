@@ -19,6 +19,13 @@ namespace Peliculas.API.Controllers
             return await buscador.Ejecutar(paginacion, HttpContext);
         }
 
+        [HttpGet("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
+        public async Task<ActionResult<UsuarioDto>> ObtenerUsuario(string id, [FromServices] ObtenedorCuenta obtenedor)
+        {
+            return await obtenedor.Ejecutar(id);
+        }
+
         [HttpPost("hacerAdmin")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
         public async Task<ActionResult> HacerAdmin([FromBody] string idUsuario,

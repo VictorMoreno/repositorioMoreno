@@ -1,6 +1,7 @@
 import CrearActores from "./actores/CrearActores";
 import EditarActores from "./actores/EditarActores";
 import IndiceActores from "./actores/IndiceActores";
+import EditarUsuario from "./auth/EditarUsuario";
 import FormularioRestablecerCredencial from "./auth/FormularioRestablecerCredencial";
 import FormularioSolicitudRestablecerCredencial from "./auth/FormularioSolicitudRestablecerCredencial";
 import IndiceUsuarios from "./auth/IndiceUsuarios";
@@ -40,8 +41,9 @@ const rutas = [
   { path: "/registro", componente: Registro },
   { path: "/login", componente: Login },
   { path: "/usuarios", componente: IndiceUsuarios, esAdmin: true },
-  { path: "/solicitudRestablecimiento", componente: FormularioSolicitudRestablecerCredencial },
-  { path: "/restablecer", componente: FormularioRestablecerCredencial },
+  { path: "/usuarios/solicitudRestablecimiento", componente: FormularioSolicitudRestablecerCredencial },
+  { path: "/usuarios/restablecer", componente: FormularioRestablecerCredencial },
+  { path: "/usuarios/editar/:id", componente: EditarUsuario , esAdmin: true},
 
   { path: "/", componente: PaginaPrincipal },
 

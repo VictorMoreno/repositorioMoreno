@@ -33,7 +33,7 @@ export default function FormularioRestablecerCredencial() {
           token: token,
           password: valores.password,
         };
-        await axios.post(`${urlCuentas}/restablecer`, datos);
+        await axios.post(`${urlCuentas}/usuarios/restablecer`, datos);
 
         Swal.fire({
           title: "Éxito",

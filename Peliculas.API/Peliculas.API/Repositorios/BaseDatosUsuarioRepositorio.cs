@@ -28,6 +28,11 @@ public class BaseDatosUsuarioRepositorio : IUsuarioRepositorio
 
         return (numeroTotal, usuarios);
     }
+    
+    public async Task<IdentityUser> Obtener(string id)
+    {
+        return await this._context.Users.FirstAsync(usuario => usuario.Id == id).ConfigureAwait(false);
+    }
 
     public async Task HacerAdministrador(string idUsuario)
     {

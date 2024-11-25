@@ -2,7 +2,6 @@ import FormularioGeneros from "./FormularioGeneros";
 import { urlGeneros } from "../utilidades/endpoints";
 import { generoCreacionDto, generoDto } from "./generos.model";
 import EditarEntidad from "../utilidades/EditarEntidad";
-import { ReactElement } from "react";
 
 export default function EditarGeneros() {
   return (

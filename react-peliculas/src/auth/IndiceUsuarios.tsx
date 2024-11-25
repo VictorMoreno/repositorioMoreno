@@ -5,15 +5,15 @@ import IndiceEntidad from "../utilidades/IndiceEntidad";
 import { usuarioDto } from "./auth.model";
 import Swal from "sweetalert2";
 import confirmar from "../utilidades/Confirmar";
+import { Link } from "react-router-dom";
 
 export default function IndiceUsuarios() {
-
   async function hacerAdmin(id: string) {
-    await editarAdmin(`${urlCuentas}/hacerAdmin`, id);
+    await realizarPeticion(`${urlCuentas}/hacerAdmin`, id);
   }
 
   async function quitarAdmin(id: string) {
-    await editarAdmin(`${urlCuentas}/quitarAdmin`, id);
+    await realizarPeticion(`${urlCuentas}/quitarAdmin`, id);
   }
 
   async function eliminarCuenta(id: string) {
@@ -26,7 +26,7 @@ export default function IndiceUsuarios() {
     });
   }
 
-  async function editarAdmin(url: string, id: string) {
+  async function realizarPeticion(url: string, id: string) {
     await axios.post(url, JSON.stringify(id), {
       headers: { "Content-Type": "application/json" },
     });
@@ -55,6 +55,27 @@ export default function IndiceUsuarios() {
             {usuarios?.map((usuario) => (
               <tr key={usuario.id}>
                 <td>
+                  <Link
+                    className="btn btn-success"
+                    to={`editar/${usuario.id}`}
+                  >
+                    Editar
+                  </Link>                  
+                  <Boton
+                    className="btn btn-danger"
+                    style={null}
+                    onClick={() =>
+                      confirmar(
+                        () => eliminarCuenta(usuario.id),
+                        `¿Desea eliminar al usuario ${usuario.email}?`,
+                        "Realizar"
+                      )
+                    }
+                    type={"submit"}
+                    disable={false}
+                  >
+                    Borrar
+                  </Boton>
                   <Boton
                     onClick={() =>
                       confirmar(
@@ -65,8 +86,8 @@ export default function IndiceUsuarios() {
                     }
                     type={"submit"}
                     disable={false}
-                    className={"btn btn-success"}
-                    style={null}
+                    className={"btn btn-primary"}
+                    style={{ marginLeft: "1rem" }}
                   >
                     Hacer Admin
                   </Boton>
@@ -84,21 +105,6 @@ export default function IndiceUsuarios() {
                     disable={false}
                   >
                     Quitar Admin
-                  </Boton>
-                  <Boton
-                    className="btn btn-danger"
-                    style={{ marginLeft: "1rem" }}
-                    onClick={() =>
-                      confirmar(
-                        () => eliminarCuenta(usuario.id),
-                        `¿Desea eliminar al usuario ${usuario.email}?`,
-                        "Realizar"
-                      )
-                    }
-                    type={"submit"}
-                    disable={false}
-                  >
-                    Eliminar
                   </Boton>
                 </td>
                 <td>{usuario.email}</td>
