@@ -329,6 +329,166 @@ namespace Peliculas.API.Migrations
                             FechaNacimiento = new DateTime(1975, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Foto = "https://localhost:7290/actores/620ba7f7-38ac-4727-9a7c-8f3f7dcfb47e.jpg",
                             Nombre = "Charlize Theron"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Biografia = "Margot Robbie es una actriz y productora australiana conocida por sus papeles en películas como 'The Wolf of Wall Street', 'I, Tonya' y 'Barbie'. Ha sido nominada a varios premios, incluyendo el Óscar, y es reconocida por su versatilidad en papeles dramáticos y cómicos.",
+                            FechaNacimiento = new DateTime(1990, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/8FA42CB3-2A52-4C12-A5D6-EED127CA6139.jpg",
+                            Nombre = "Margot Robbie"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Biografia = "Ruth Negga es una actriz irlandesa-etíope conocida por su actuación en 'Loving', por la que recibió una nominación al Óscar. También ha destacado en series como 'Preacher' y 'Agents of S.H.I.E.L.D.'.",
+                            FechaNacimiento = new DateTime(1981, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/50D498BD-39F2-42C5-A6B8-781DA33CB01D.jpg",
+                            Nombre = "Ruth Negga"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Biografia = "Tommy Lee Jones es un actor y director estadounidense ganador del Óscar, conocido por papeles en películas como 'Men in Black', 'No Country for Old Men' y 'The Fugitive'. Es reconocido por su carácter y estilo distintivo en la pantalla.",
+                            FechaNacimiento = new DateTime(1946, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/01CF2324-A586-4A1E-9583-C4A35FFDA084.jpg",
+                            Nombre = "Tommy Lee Jones"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Biografia = "Sandra Bullock es una actriz y productora estadounidense, conocida por su versatilidad en una amplia gama de géneros, desde la comedia en 'Miss Congeniality' hasta el drama en 'The Blind Side', película que le valió un Óscar. También ha sido aclamada por sus papeles en 'Gravity' y 'Bird Box'.",
+                            FechaNacimiento = new DateTime(1964, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/9F0150C5-6584-45D0-9EFC-9E0F78B49BAF.jpg",
+                            Nombre = "Sandra Bullock"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Biografia = "Channing Tatum es un actor, productor y bailarín estadounidense, conocido por sus papeles en películas como 'Magic Mike', 'Step Up' y '21 Jump Street'. Su habilidad para la danza le ha ayudado a destacarse, además de su presencia en comedias y dramas.",
+                            FechaNacimiento = new DateTime(1980, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/ED6F7AB2-28AB-4AA1-8F0B-F988B4594D5F.jpg",
+                            Nombre = "Channing Tatum"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Biografia = "George Clooney es un actor, director y productor estadounidense, reconocido mundialmente por su trabajo en películas como 'Ocean's Eleven', 'Gravity', 'The Descendants' y 'Up in the Air'. Ha ganado múltiples premios, incluidos los premios Óscar, y es conocido por su activismo y trabajo humanitario.",
+                            FechaNacimiento = new DateTime(1961, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/74E76C1E-EC0E-4AB2-BA80-A83CE2385235.jpg",
+                            Nombre = "George Clooney"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Biografia = "Timothée Chalamet es un actor estadounidense, conocido por sus papeles en 'Call Me by Your Name', 'Little Women', y su participación en 'Dune'. Aclamado por su habilidad actoral, Chalamet ha sido nominado a varios premios importantes, incluidos los premios Óscar.",
+                            FechaNacimiento = new DateTime(1995, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/B5F73E68-8140-4904-9D25-C764CECD0199.jpg",
+                            Nombre = "Timothée Chalamet"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Biografia = "Zendaya Maree Stoermer Coleman, conocida profesionalmente como Zendaya, es una actriz y cantante estadounidense famosa por su papel en la serie de Disney Channel 'Shake It Up' y su papel en películas como 'Spider-Man: Homecoming' y 'Dune'. Además de su carrera en la actuación, Zendaya es una influyente figura en la moda y activismo social.",
+                            FechaNacimiento = new DateTime(1996, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/5D506761-8211-4C40-A4AB-CCC2582A335C.jpg",
+                            Nombre = "Zendaya"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Biografia = "Kate Winslet es una actriz inglesa ganadora de múltiples premios, incluyendo un Óscar por su papel en 'The Reader'. Es conocida por su capacidad de adaptarse a roles diversos, como en 'Titanic', 'Eternal Sunshine of the Spotless Mind', y en la saga de Avatar como la Dr. Ronal.",
+                            FechaNacimiento = new DateTime(1975, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/A77A6BEA-0FDD-49BE-83DB-93F6B81BEAC3.jpg",
+                            Nombre = "Kate Winslet"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Biografia = "Cliff Curtis es un actor neozelandés conocido por sus roles en películas de acción y dramas. Ha trabajado en varias producciones importantes, incluyendo 'Training Day', 'The Dark Horse', y 'Avatar'. En la saga de Avatar, interpreta a Tonowari, el líder de la tribu de los Metkayina.",
+                            FechaNacimiento = new DateTime(1968, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/FC2B363B-0FBE-44A3-94FD-9D08E5C72C51.jpg",
+                            Nombre = "Cliff Curtis"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Biografia = "Tom Cruise es uno de los actores más famosos y exitosos de Hollywood, conocido por su papel icónico como Ethan Hunt en la saga 'Misión: Imposible'. Además de ser un actor destacado, ha sido productor de muchas de sus películas y es conocido por sus impresionantes acrobacias y dedicación a sus roles.",
+                            FechaNacimiento = new DateTime(1962, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/7671EC80-98D6-403A-AEC7-4C8A3A7DE2E7.jpg",
+                            Nombre = "Tom Cruise"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Biografia = "Hayley Atwell es una actriz británica conocida por su papel de Peggy Carter en el Universo Cinematográfico de Marvel. Su presencia en 'Misión: Imposible - Sentencia Mortal Parte Dos' marca una nueva colaboración en el cine de acción, donde interpreta a un personaje clave dentro de la trama.",
+                            FechaNacimiento = new DateTime(1982, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/E4E6F0A2-BDEA-44C4-956A-D86E02CCFA45.jpg",
+                            Nombre = "Hayley Atwell"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Biografia = "Brie Larson es una actriz, directora y productora estadounidense conocida por su papel como Carol Danvers/Captain Marvel en el Universo Cinematográfico de Marvel. Ganó el Premio de la Academia a la Mejor Actriz por su actuación en 'Room'. Además de su carrera actoral, Larson también ha incursionado en la dirección de películas.",
+                            FechaNacimiento = new DateTime(1989, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/54CEFD17-5189-46EE-81B1-AC93F0A42CAB.jpg",
+                            Nombre = "Brie Larson"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Biografia = "Teyonah Parris es una actriz estadounidense conocida por su papel como Monica Rambeau en la serie de Disney+ 'WandaVision' y ahora en 'The Marvels'. Parris ha sido aclamada por su trabajo en la televisión y el cine, destacándose por su versatilidad y talento.",
+                            FechaNacimiento = new DateTime(1987, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/CC6C7B1C-BED7-434A-8F39-404077C11F5F.jpg",
+                            Nombre = "Teyonah Parris"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Biografia = "Iman Vellani es una joven actriz canadiense conocida por interpretar a Kamala Khan/Ms. Marvel en la serie de Disney+ 'Ms. Marvel'. 'The Marvels' es su participación en el Universo Cinematográfico de Marvel, donde compartirá pantalla con otras heroínas del MCU.",
+                            FechaNacimiento = new DateTime(2002, 9, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/DFD1D3B8-EE44-4B63-A335-B16CE508C80A.jpg",
+                            Nombre = "Iman Vellani"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Biografia = "Lady Gaga es una cantante, compositora y actriz estadounidense, conocida por su estilo musical ecléctico y su presencia en el escenario. Ha ganado múltiples premios, incluidos varios premios Grammy, y su actuación en 'A Star Is Born' (2018) le valió una nominación al Óscar. En 'Joker: Locura de a Dos', interpretará a Harley Quinn.",
+                            FechaNacimiento = new DateTime(1986, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/DD1BAEBB-57E2-4D97-834E-79503110E782.jpg",
+                            Nombre = "Lady Gaga"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Biografia = "Zazie Beetz es una actriz alemana-estadounidense conocida por sus papeles en 'Atlanta', 'Deadpool 2' y 'Joker'. En 'Joker', interpretó a Sophie Dumond, un personaje central que tiene una conexión crucial con Arthur Fleck/Joker. Beetz ha sido elogiada por su talento y versatilidad.",
+                            FechaNacimiento = new DateTime(1991, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/757387BF-FA8B-40DA-8F34-BC9156071FFD.jpg",
+                            Nombre = "Zazie Beetz"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Biografia = "Joaquin Phoenix es un actor, productor y activista estadounidense, conocido por sus papeles en películas como 'Gladiator', 'Her' y 'The Master'. Su interpretación del Joker en la película 'Joker' (2019) le valió el Premio Óscar a Mejor Actor, convirtiéndose en uno de los actores más aclamados de su generación.",
+                            FechaNacimiento = new DateTime(1974, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/7A3B28F1-2CDD-4F5D-9F57-DCD64C2B63A3.jpg",
+                            Nombre = "Joaquin Phoenix"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Biografia = "Lucas Till es un actor estadounidense conocido por sus papeles en 'X-Men: First Class' (2011) como Havok, y por protagonizar la serie de televisión 'MacGyver' (2016-2021) como Angus MacGyver. También ha trabajado en películas como 'Battle: Los Angeles' (2011) y 'The Disappointments Room' (2016).",
+                            FechaNacimiento = new DateTime(1990, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/BE15B21C-AE30-4E8D-A4B8-DCD28C027000.jpg",
+                            Nombre = "Lucas Till"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Biografia = "Jason Momoa es un actor, productor y director estadounidense conocido por sus papeles en la serie de televisión 'Game of Thrones' como Khal Drogo, y como el superhéroe Aquaman en el universo cinematográfico de DC. También ha trabajado en otras producciones como 'Frontier', 'The Red Road' y 'See'. Su presencia en pantalla y su carisma lo han convertido en uno de los actores más populares de la actualidad.",
+                            FechaNacimiento = new DateTime(1979, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "https://localhost:7290/actores/4DACD85F-6223-4AF4-B146-C8115958ED90.jpg",
+                            Nombre = "Jason Momoa"
                         });
                 });
 
@@ -652,6 +812,183 @@ namespace Peliculas.API.Migrations
                     b.HasIndex("PeliculaId");
 
                     b.ToTable("PeliculasActores");
+
+                    b.HasData(
+                        new
+                        {
+                            ActorId = 7,
+                            PeliculaId = 1,
+                            Orden = 0,
+                            Personaje = "Jack Conrad"
+                        },
+                        new
+                        {
+                            ActorId = 11,
+                            PeliculaId = 1,
+                            Orden = 0,
+                            Personaje = "Nellie LaRoy"
+                        },
+                        new
+                        {
+                            ActorId = 7,
+                            PeliculaId = 2,
+                            Orden = 0,
+                            Personaje = "Cliff Booth"
+                        },
+                        new
+                        {
+                            ActorId = 1,
+                            PeliculaId = 2,
+                            Orden = 0,
+                            Personaje = "Rick Dalton"
+                        },
+                        new
+                        {
+                            ActorId = 11,
+                            PeliculaId = 2,
+                            Orden = 0,
+                            Personaje = "Sharon Tate"
+                        },
+                        new
+                        {
+                            ActorId = 7,
+                            PeliculaId = 3,
+                            Orden = 0,
+                            Personaje = "Roy McBride"
+                        },
+                        new
+                        {
+                            ActorId = 12,
+                            PeliculaId = 3,
+                            Orden = 0,
+                            Personaje = "Helen Lantos"
+                        },
+                        new
+                        {
+                            ActorId = 13,
+                            PeliculaId = 3,
+                            Orden = 0,
+                            Personaje = "Clifford McBride"
+                        },
+                        new
+                        {
+                            ActorId = 7,
+                            PeliculaId = 4,
+                            Orden = 0,
+                            Personaje = "Jack Trainer"
+                        },
+                        new
+                        {
+                            ActorId = 14,
+                            PeliculaId = 4,
+                            Orden = 0,
+                            Personaje = "Loretta Sage"
+                        },
+                        new
+                        {
+                            ActorId = 15,
+                            PeliculaId = 4,
+                            Orden = 0,
+                            Personaje = "Dash McMahon"
+                        },
+                        new
+                        {
+                            ActorId = 30,
+                            PeliculaId = 5,
+                            Orden = 0,
+                            Personaje = "Connor"
+                        },
+                        new
+                        {
+                            ActorId = 29,
+                            PeliculaId = 5,
+                            Orden = 0,
+                            Personaje = "Cayden Richards"
+                        },
+                        new
+                        {
+                            ActorId = 17,
+                            PeliculaId = 6,
+                            Orden = 0,
+                            Personaje = "Paul Atreides"
+                        },
+                        new
+                        {
+                            ActorId = 18,
+                            PeliculaId = 6,
+                            Orden = 0,
+                            Personaje = "Chani"
+                        },
+                        new
+                        {
+                            ActorId = 19,
+                            PeliculaId = 7,
+                            Orden = 0,
+                            Personaje = "Tonowari"
+                        },
+                        new
+                        {
+                            ActorId = 20,
+                            PeliculaId = 7,
+                            Orden = 0,
+                            Personaje = "Ronal"
+                        },
+                        new
+                        {
+                            ActorId = 22,
+                            PeliculaId = 8,
+                            Orden = 0,
+                            Personaje = "Ethan Hunt"
+                        },
+                        new
+                        {
+                            ActorId = 21,
+                            PeliculaId = 8,
+                            Orden = 0,
+                            Personaje = "Grace"
+                        },
+                        new
+                        {
+                            ActorId = 23,
+                            PeliculaId = 9,
+                            Orden = 0,
+                            Personaje = "Kamala Khan"
+                        },
+                        new
+                        {
+                            ActorId = 24,
+                            PeliculaId = 9,
+                            Orden = 0,
+                            Personaje = "Monica Parris"
+                        },
+                        new
+                        {
+                            ActorId = 25,
+                            PeliculaId = 9,
+                            Orden = 0,
+                            Personaje = "Carol Danvers"
+                        },
+                        new
+                        {
+                            ActorId = 28,
+                            PeliculaId = 10,
+                            Orden = 0,
+                            Personaje = "Arthur Fleck"
+                        },
+                        new
+                        {
+                            ActorId = 26,
+                            PeliculaId = 10,
+                            Orden = 0,
+                            Personaje = "Lee Quinzel"
+                        },
+                        new
+                        {
+                            ActorId = 27,
+                            PeliculaId = 10,
+                            Orden = 0,
+                            Personaje = "Sophie Dumond"
+                        });
                 });
 
             modelBuilder.Entity("Peliculas.API.Entidades.PeliculasCines", b =>

@@ -41,6 +41,37 @@ public static class ModelConfigurationExtensions
     private const int IdCineGranollers = 6;
     private const int IdCineKinepolisValencia = 7;
 
+    private const int IdActorLeonardo = 1;
+    private const int IdActorMerylStreep = 2;
+    private const int IdActorRobertDeNiro = 3;
+    private const int IdActorScarlettJohansson = 4;
+    private const int IdActorTomHanks = 5;
+    private const int IdActorNataliePortman = 6;
+    private const int IdActorBradPitt = 7;
+    private const int IdActorEmmaStone = 8;
+    private const int IdActorMorganFreeman = 9;
+    private const int IdActorCharlizeTheron = 10;
+    private const int IdActorMargot = 11;
+    private const int IdActorRuth = 12;
+    private const int IdActorTommy = 13;
+    private const int IdActorSandra = 14;
+    private const int IdActorChanning = 15;
+    private const int IdActorGeorge = 16;
+    private const int IdActorTimothee = 17;
+    private const int IdActorZendaya = 18;
+    private const int IdActorCliffCurtis = 19;
+    private const int IdActorKateWinslet = 20;
+    private const int IdActorHayleyAtwell = 21;
+    private const int IdActorTomCruise = 22;
+    private const int IdActorImanVellani = 23;
+    private const int IdActorTeyonahParris = 24;
+    private const int IdActorBrieLarson = 25;
+    private const int IdActorLadyGaga = 26;
+    private const int IdActorZazieBeetz = 27;
+    private const int IdActorJoaquinPhoenix = 28;
+    private const int IdActorLucasTill = 29;
+    private const int IdActorJasonMomoa = 30;
+
     public static void Seed(this ModelBuilder modelBuilder)
     {
         RellenarGeneros(modelBuilder);
@@ -49,6 +80,39 @@ public static class ModelConfigurationExtensions
         RellenarPeliculas(modelBuilder);
         RellenarPeliculasGeneros(modelBuilder);
         RellenarPeliculasCines(modelBuilder);
+        RellenarPeliculasActores(modelBuilder);
+    }
+
+    private static void RellenarPeliculasActores(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<PeliculasActores>().HasData(
+            new PeliculasActores { PeliculaId = IdPeliculaBabylon, ActorId = IdActorBradPitt, Personaje = "Jack Conrad" },
+            new PeliculasActores { PeliculaId = IdPeliculaBabylon, ActorId = IdActorMargot, Personaje = "Nellie LaRoy" },
+            new PeliculasActores { PeliculaId = IdPeliculaHollywood, ActorId = IdActorBradPitt, Personaje = "Cliff Booth" },
+            new PeliculasActores { PeliculaId = IdPeliculaHollywood, ActorId = IdActorLeonardo, Personaje = "Rick Dalton" },
+            new PeliculasActores { PeliculaId = IdPeliculaHollywood, ActorId = IdActorMargot, Personaje = "Sharon Tate" },
+            new PeliculasActores { PeliculaId = IdPeliculaAdAstra, ActorId = IdActorBradPitt, Personaje = "Roy McBride" },
+            new PeliculasActores { PeliculaId = IdPeliculaAdAstra, ActorId = IdActorRuth, Personaje = "Helen Lantos" },
+            new PeliculasActores { PeliculaId = IdPeliculaAdAstra, ActorId = IdActorTommy, Personaje = "Clifford McBride" },
+            new PeliculasActores { PeliculaId = IdPeliculaCiudadPerdida, ActorId = IdActorBradPitt, Personaje = "Jack Trainer" },
+            new PeliculasActores { PeliculaId = IdPeliculaCiudadPerdida, ActorId = IdActorSandra, Personaje = "Loretta Sage" },
+            new PeliculasActores { PeliculaId = IdPeliculaCiudadPerdida, ActorId = IdActorChanning, Personaje = "Dash McMahon" },
+            new PeliculasActores { PeliculaId = IdPeliculaWolves, ActorId = IdActorJasonMomoa, Personaje = "Connor" },
+            new PeliculasActores { PeliculaId = IdPeliculaWolves, ActorId = IdActorLucasTill, Personaje = "Cayden Richards" },
+            new PeliculasActores { PeliculaId = IdPeliculaDune, ActorId = IdActorTimothee, Personaje = "Paul Atreides" },
+            new PeliculasActores { PeliculaId = IdPeliculaDune, ActorId = IdActorZendaya, Personaje = "Chani" },
+            new PeliculasActores { PeliculaId = IdPeliculaAvatar, ActorId = IdActorCliffCurtis, Personaje = "Tonowari" },
+            new PeliculasActores { PeliculaId = IdPeliculaAvatar, ActorId = IdActorKateWinslet, Personaje = "Ronal" },
+            new PeliculasActores { PeliculaId = IdPeliculaMisionImposible, ActorId = IdActorTomCruise, Personaje = "Ethan Hunt" },
+            new PeliculasActores
+                { PeliculaId = IdPeliculaMisionImposible, ActorId = IdActorHayleyAtwell, Personaje = "Grace" },
+            new PeliculasActores { PeliculaId = IdPeliculaMarvels, ActorId = IdActorImanVellani, Personaje = "Kamala Khan" },
+            new PeliculasActores { PeliculaId = IdPeliculaMarvels, ActorId = IdActorTeyonahParris, Personaje = "Monica Parris" },
+            new PeliculasActores { PeliculaId = IdPeliculaMarvels, ActorId = IdActorBrieLarson, Personaje = "Carol Danvers" },
+            new PeliculasActores { PeliculaId = IdPeliculaJoker, ActorId = IdActorJoaquinPhoenix, Personaje = "Arthur Fleck" },
+            new PeliculasActores { PeliculaId = IdPeliculaJoker, ActorId = IdActorLadyGaga, Personaje = "Lee Quinzel" },
+            new PeliculasActores { PeliculaId = IdPeliculaJoker, ActorId = IdActorZazieBeetz, Personaje = "Sophie Dumond" }
+        );
     }
 
     private static void RellenarPeliculasCines(ModelBuilder modelBuilder)
@@ -110,12 +174,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2022, 12, 23),
                 Poster = "https://localhost:7290/peliculas/ea9fd07a-1fb5-4eb7-a01a-1c27266c2309.png",
                 Resumen =
-                    "Una épica historia sobre el exceso, la decadencia y los sueños rotos en el Hollywood de los años 20, donde la transición del cine mudo al sonoro sacude a la industria.",
-                // PeliculasActores = new List<Actor>
-                // {
-                //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Margot Robbie" },
-                //     new Actor { Nombre = "Leonardo DiCaprio" }
-                // }
+                    "Una épica historia sobre el exceso, la decadencia y los sueños rotos en el Hollywood de los años 20, donde la transición del cine mudo al sonoro sacude a la industria."
             },
             new Pelicula
             {
@@ -126,12 +185,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2019, 7, 26),
                 Poster = "https://localhost:7290/peliculas/14a89f1e-d997-46ec-ae77-37b43118b00c.jpg",
                 Resumen =
-                    "Un actor de televisión y su doble de riesgo se encuentran con los eventos de 1969 en Hollywood mientras las estrellas de cine se enfrentan a un cambio cultural.",
-                // PeliculasActores = new List<Actor>
-                // {
-                //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Leonardo DiCaprio" },
-                //     new Actor { Nombre = "Margot Robbie" }
-                // }
+                    "Un actor de televisión y su doble de riesgo se encuentran con los eventos de 1969 en Hollywood mientras las estrellas de cine se enfrentan a un cambio cultural."
             },
             new Pelicula
             {
@@ -142,12 +196,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2019, 9, 20),
                 Poster = "https://localhost:7290/peliculas/eecfa05e-7968-474a-93c4-3f5b24e5cb66.jpg",
                 Resumen =
-                    "Un astronauta viaja a los rincones más distantes del sistema solar para encontrar a su padre y resolver un misterio que amenaza la supervivencia de la Tierra.",
-                // PeliculasActores = new List<Actor>
-                // {
-                //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Tommy Lee Jones" },
-                //     new Actor { Nombre = "Ruth Negga" }
-                // }
+                    "Un astronauta viaja a los rincones más distantes del sistema solar para encontrar a su padre y resolver un misterio que amenaza la supervivencia de la Tierra."
             },
             new Pelicula
             {
@@ -159,11 +208,6 @@ public static class ModelConfigurationExtensions
                 Poster = "https://localhost:7290/peliculas/0acee9d1-94df-4229-aab0-bf7c308e2933.jpg",
                 Resumen =
                     "Una escritora de novelas románticas es secuestrada por un millonario que busca un tesoro perdido en una isla remota, y es rescatada por su modelo de portada.",
-                // PeliculasActores = new List<Actor>
-                // {
-                //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Sandra Bullock" },
-                //     new Actor { Nombre = "Channing Tatum" }
-                // }
             },
             new Pelicula
             {
@@ -175,7 +219,6 @@ public static class ModelConfigurationExtensions
                 Poster = "",
                 Resumen =
                     "Dos solitarios se ven involucrados en el mismo trabajo, que pronto se convierte en una carrera por la supervivencia.",
-                // PeliculasActores = new List<Actor> { new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "George Clooney" } }
             },
             new Pelicula
             {
@@ -240,7 +283,7 @@ public static class ModelConfigurationExtensions
         modelBuilder.Entity<Actor>().HasData(
             new Actor
             {
-                Id = 1,
+                Id = IdActorLeonardo,
                 Nombre = "Leonardo DiCaprio",
                 FechaNacimiento = new DateTime(1974, 11, 11),
                 Foto = "https://localhost:7290/actores/39c562aa-c83d-4bc7-97aa-8895dc46880c.jpg",
@@ -249,7 +292,7 @@ public static class ModelConfigurationExtensions
             },
             new Actor
             {
-                Id = 2,
+                Id = IdActorMerylStreep,
                 Nombre = "Meryl Streep",
                 FechaNacimiento = new DateTime(1949, 6, 22),
                 Foto = "https://localhost:7290/actores/ade14658-7f47-496a-ace0-7c1d0414f468.jpg",
@@ -258,7 +301,7 @@ public static class ModelConfigurationExtensions
             },
             new Actor
             {
-                Id = 3,
+                Id = IdActorRobertDeNiro,
                 Nombre = "Robert De Niro",
                 FechaNacimiento = new DateTime(1943, 8, 17),
                 Foto = "https://localhost:7290/actores/b0ff03ae-86fa-426b-9ce2-9e4975678026.jpg",
@@ -267,7 +310,7 @@ public static class ModelConfigurationExtensions
             },
             new Actor
             {
-                Id = 4,
+                Id = IdActorScarlettJohansson,
                 Nombre = "Scarlett Johansson",
                 FechaNacimiento = new DateTime(1984, 11, 22),
                 Foto = "https://localhost:7290/actores/ef905ad6-7cb3-46d9-adfc-e2961efd0437.jpg",
@@ -276,7 +319,7 @@ public static class ModelConfigurationExtensions
             },
             new Actor
             {
-                Id = 5,
+                Id = IdActorTomHanks,
                 Nombre = "Tom Hanks",
                 FechaNacimiento = new DateTime(1956, 7, 9),
                 Foto = "https://localhost:7290/actores/91510ed1-a7dd-4592-bbc4-e3baa12285c0.jpg",
@@ -285,7 +328,7 @@ public static class ModelConfigurationExtensions
             },
             new Actor
             {
-                Id = 6,
+                Id = IdActorNataliePortman,
                 Nombre = "Natalie Portman",
                 FechaNacimiento = new DateTime(1981, 6, 9),
                 Foto = "https://localhost:7290/actores/3531dfef-80bd-4e62-b40b-d7f5e89ddb27.jpg",
@@ -294,7 +337,7 @@ public static class ModelConfigurationExtensions
             },
             new Actor
             {
-                Id = 7,
+                Id = IdActorBradPitt,
                 Nombre = "Brad Pitt",
                 FechaNacimiento = new DateTime(1963, 12, 18),
                 Foto = "https://localhost:7290/actores/fed532b0-86d5-4e3d-9978-cbaf00f53bd2.jpg",
@@ -303,7 +346,7 @@ public static class ModelConfigurationExtensions
             },
             new Actor
             {
-                Id = 8,
+                Id = IdActorEmmaStone,
                 Nombre = "Emma Stone",
                 FechaNacimiento = new DateTime(1988, 11, 6),
                 Foto = "https://localhost:7290/actores/626b3111-fd53-40f9-a88c-02dcc38587a2.jpg",
@@ -312,7 +355,7 @@ public static class ModelConfigurationExtensions
             },
             new Actor
             {
-                Id = 9,
+                Id = IdActorMorganFreeman,
                 Nombre = "Morgan Freeman",
                 FechaNacimiento = new DateTime(1937, 6, 1),
                 Foto = "https://localhost:7290/actores/76ac4765-8bcd-4075-8bf2-25c601e0a891.jpeg",
@@ -321,12 +364,192 @@ public static class ModelConfigurationExtensions
             },
             new Actor
             {
-                Id = 10,
+                Id = IdActorCharlizeTheron,
                 Nombre = "Charlize Theron",
                 FechaNacimiento = new DateTime(1975, 8, 7),
                 Foto = "https://localhost:7290/actores/620ba7f7-38ac-4727-9a7c-8f3f7dcfb47e.jpg",
                 Biografia =
                     "Charlize Theron es una actriz y productora sudafricana conocida por su papel en 'Monster', por el que ganó un Óscar, y su actuación en películas de acción como 'Mad Max: Fury Road'."
+            },
+            new Actor
+            {
+                Id = IdActorMargot,
+                Nombre = "Margot Robbie",
+                FechaNacimiento = new DateTime(1990, 7, 2),
+                Foto = "https://localhost:7290/actores/8FA42CB3-2A52-4C12-A5D6-EED127CA6139.jpg",
+                Biografia =
+                    "Margot Robbie es una actriz y productora australiana conocida por sus papeles en películas como 'The Wolf of Wall Street', 'I, Tonya' y 'Barbie'. Ha sido nominada a varios premios, incluyendo el Óscar, y es reconocida por su versatilidad en papeles dramáticos y cómicos."
+            },
+            new Actor
+            {
+                Id = IdActorRuth,
+                Nombre = "Ruth Negga",
+                FechaNacimiento = new DateTime(1981, 1, 7),
+                Foto = "https://localhost:7290/actores/50D498BD-39F2-42C5-A6B8-781DA33CB01D.jpg",
+                Biografia =
+                    "Ruth Negga es una actriz irlandesa-etíope conocida por su actuación en 'Loving', por la que recibió una nominación al Óscar. También ha destacado en series como 'Preacher' y 'Agents of S.H.I.E.L.D.'."
+            },
+            new Actor
+            {
+                Id = IdActorTommy,
+                Nombre = "Tommy Lee Jones",
+                FechaNacimiento = new DateTime(1946, 9, 15),
+                Foto = "https://localhost:7290/actores/01CF2324-A586-4A1E-9583-C4A35FFDA084.jpg",
+                Biografia =
+                    "Tommy Lee Jones es un actor y director estadounidense ganador del Óscar, conocido por papeles en películas como 'Men in Black', 'No Country for Old Men' y 'The Fugitive'. Es reconocido por su carácter y estilo distintivo en la pantalla."
+            },
+            new Actor
+            {
+                Id = IdActorSandra,
+                Nombre = "Sandra Bullock",
+                FechaNacimiento = new DateTime(1964, 7, 26),
+                Foto = "https://localhost:7290/actores/9F0150C5-6584-45D0-9EFC-9E0F78B49BAF.jpg",
+                Biografia =
+                    "Sandra Bullock es una actriz y productora estadounidense, conocida por su versatilidad en una amplia gama de géneros, desde la comedia en 'Miss Congeniality' hasta el drama en 'The Blind Side', película que le valió un Óscar. También ha sido aclamada por sus papeles en 'Gravity' y 'Bird Box'."
+            },
+            new Actor
+            {
+                Id = IdActorChanning,
+                Nombre = "Channing Tatum",
+                FechaNacimiento = new DateTime(1980, 4, 26),
+                Foto = "https://localhost:7290/actores/ED6F7AB2-28AB-4AA1-8F0B-F988B4594D5F.jpg",
+                Biografia =
+                    "Channing Tatum es un actor, productor y bailarín estadounidense, conocido por sus papeles en películas como 'Magic Mike', 'Step Up' y '21 Jump Street'. Su habilidad para la danza le ha ayudado a destacarse, además de su presencia en comedias y dramas."
+            },
+            new Actor
+            {
+                Id = IdActorGeorge,
+                Nombre = "George Clooney",
+                FechaNacimiento = new DateTime(1961, 5, 6),
+                Foto = "https://localhost:7290/actores/74E76C1E-EC0E-4AB2-BA80-A83CE2385235.jpg",
+                Biografia =
+                    "George Clooney es un actor, director y productor estadounidense, reconocido mundialmente por su trabajo en películas como 'Ocean's Eleven', 'Gravity', 'The Descendants' y 'Up in the Air'. Ha ganado múltiples premios, incluidos los premios Óscar, y es conocido por su activismo y trabajo humanitario."
+            },
+            new Actor
+            {
+                Id = IdActorTimothee,
+                Nombre = "Timothée Chalamet",
+                FechaNacimiento = new DateTime(1995, 12, 27),
+                Foto = "https://localhost:7290/actores/B5F73E68-8140-4904-9D25-C764CECD0199.jpg",
+                Biografia =
+                    "Timothée Chalamet es un actor estadounidense, conocido por sus papeles en 'Call Me by Your Name', 'Little Women', y su participación en 'Dune'. Aclamado por su habilidad actoral, Chalamet ha sido nominado a varios premios importantes, incluidos los premios Óscar."
+            },
+            new Actor
+            {
+                Id = IdActorZendaya,
+                Nombre = "Zendaya",
+                FechaNacimiento = new DateTime(1996, 9, 1),
+                Foto = "https://localhost:7290/actores/5D506761-8211-4C40-A4AB-CCC2582A335C.jpg",
+                Biografia =
+                    "Zendaya Maree Stoermer Coleman, conocida profesionalmente como Zendaya, es una actriz y cantante estadounidense famosa por su papel en la serie de Disney Channel 'Shake It Up' y su papel en películas como 'Spider-Man: Homecoming' y 'Dune'. Además de su carrera en la actuación, Zendaya es una influyente figura en la moda y activismo social."
+            },
+            new Actor
+            {
+                Id = IdActorKateWinslet,
+                Nombre = "Kate Winslet",
+                FechaNacimiento = new DateTime(1975, 10, 5),
+                Foto = "https://localhost:7290/actores/A77A6BEA-0FDD-49BE-83DB-93F6B81BEAC3.jpg",
+                Biografia =
+                    "Kate Winslet es una actriz inglesa ganadora de múltiples premios, incluyendo un Óscar por su papel en 'The Reader'. Es conocida por su capacidad de adaptarse a roles diversos, como en 'Titanic', 'Eternal Sunshine of the Spotless Mind', y en la saga de Avatar como la Dr. Ronal."
+            },
+            new Actor
+            {
+                Id = IdActorCliffCurtis,
+                Nombre = "Cliff Curtis",
+                FechaNacimiento = new DateTime(1968, 7, 27),
+                Foto = "https://localhost:7290/actores/FC2B363B-0FBE-44A3-94FD-9D08E5C72C51.jpg",
+                Biografia =
+                    "Cliff Curtis es un actor neozelandés conocido por sus roles en películas de acción y dramas. Ha trabajado en varias producciones importantes, incluyendo 'Training Day', 'The Dark Horse', y 'Avatar'. En la saga de Avatar, interpreta a Tonowari, el líder de la tribu de los Metkayina."
+            },
+            new Actor
+            {
+                Id = IdActorTomCruise,
+                Nombre = "Tom Cruise",
+                FechaNacimiento = new DateTime(1962, 7, 3),
+                Foto = "https://localhost:7290/actores/7671EC80-98D6-403A-AEC7-4C8A3A7DE2E7.jpg",
+                Biografia =
+                    "Tom Cruise es uno de los actores más famosos y exitosos de Hollywood, conocido por su papel icónico como Ethan Hunt en la saga 'Misión: Imposible'. Además de ser un actor destacado, ha sido productor de muchas de sus películas y es conocido por sus impresionantes acrobacias y dedicación a sus roles."
+            },
+            new Actor
+            {
+                Id = IdActorHayleyAtwell,
+                Nombre = "Hayley Atwell",
+                FechaNacimiento = new DateTime(1982, 4, 5),
+                Foto = "https://localhost:7290/actores/E4E6F0A2-BDEA-44C4-956A-D86E02CCFA45.jpg",
+                Biografia =
+                    "Hayley Atwell es una actriz británica conocida por su papel de Peggy Carter en el Universo Cinematográfico de Marvel. Su presencia en 'Misión: Imposible - Sentencia Mortal Parte Dos' marca una nueva colaboración en el cine de acción, donde interpreta a un personaje clave dentro de la trama."
+            },
+            new Actor
+            {
+                Id = IdActorBrieLarson,
+                Nombre = "Brie Larson",
+                FechaNacimiento = new DateTime(1989, 10, 1),
+                Foto = "https://localhost:7290/actores/54CEFD17-5189-46EE-81B1-AC93F0A42CAB.jpg",
+                Biografia =
+                    "Brie Larson es una actriz, directora y productora estadounidense conocida por su papel como Carol Danvers/Captain Marvel en el Universo Cinematográfico de Marvel. Ganó el Premio de la Academia a la Mejor Actriz por su actuación en 'Room'. Además de su carrera actoral, Larson también ha incursionado en la dirección de películas."
+            },
+            new Actor
+            {
+                Id = IdActorTeyonahParris,
+                Nombre = "Teyonah Parris",
+                FechaNacimiento = new DateTime(1987, 9, 22),
+                Foto = "https://localhost:7290/actores/CC6C7B1C-BED7-434A-8F39-404077C11F5F.jpg",
+                Biografia =
+                    "Teyonah Parris es una actriz estadounidense conocida por su papel como Monica Rambeau en la serie de Disney+ 'WandaVision' y ahora en 'The Marvels'. Parris ha sido aclamada por su trabajo en la televisión y el cine, destacándose por su versatilidad y talento."
+            },
+            new Actor
+            {
+                Id = IdActorImanVellani,
+                Nombre = "Iman Vellani",
+                FechaNacimiento = new DateTime(2002, 9, 3),
+                Foto = "https://localhost:7290/actores/DFD1D3B8-EE44-4B63-A335-B16CE508C80A.jpg",
+                Biografia =
+                    "Iman Vellani es una joven actriz canadiense conocida por interpretar a Kamala Khan/Ms. Marvel en la serie de Disney+ 'Ms. Marvel'. 'The Marvels' es su participación en el Universo Cinematográfico de Marvel, donde compartirá pantalla con otras heroínas del MCU."
+            },
+            new Actor
+            {
+                Id = IdActorLadyGaga,
+                Nombre = "Lady Gaga",
+                FechaNacimiento = new DateTime(1986, 3, 28),
+                Foto = "https://localhost:7290/actores/DD1BAEBB-57E2-4D97-834E-79503110E782.jpg",
+                Biografia =
+                    "Lady Gaga es una cantante, compositora y actriz estadounidense, conocida por su estilo musical ecléctico y su presencia en el escenario. Ha ganado múltiples premios, incluidos varios premios Grammy, y su actuación en 'A Star Is Born' (2018) le valió una nominación al Óscar. En 'Joker: Locura de a Dos', interpretará a Harley Quinn."
+            },
+            new Actor
+            {
+                Id = IdActorZazieBeetz,
+                Nombre = "Zazie Beetz",
+                FechaNacimiento = new DateTime(1991, 6, 25),
+                Foto = "https://localhost:7290/actores/757387BF-FA8B-40DA-8F34-BC9156071FFD.jpg",
+                Biografia =
+                    "Zazie Beetz es una actriz alemana-estadounidense conocida por sus papeles en 'Atlanta', 'Deadpool 2' y 'Joker'. En 'Joker', interpretó a Sophie Dumond, un personaje central que tiene una conexión crucial con Arthur Fleck/Joker. Beetz ha sido elogiada por su talento y versatilidad."
+            },
+            new Actor
+            {
+                Id = IdActorJoaquinPhoenix,
+                Nombre = "Joaquin Phoenix",
+                FechaNacimiento = new DateTime(1974, 10, 28),
+                Foto = "https://localhost:7290/actores/7A3B28F1-2CDD-4F5D-9F57-DCD64C2B63A3.jpg",
+                Biografia =
+                    "Joaquin Phoenix es un actor, productor y activista estadounidense, conocido por sus papeles en películas como 'Gladiator', 'Her' y 'The Master'. Su interpretación del Joker en la película 'Joker' (2019) le valió el Premio Óscar a Mejor Actor, convirtiéndose en uno de los actores más aclamados de su generación."
+            },
+            new Actor
+            {
+                Id = IdActorLucasTill,
+                Nombre = "Lucas Till",
+                FechaNacimiento = new DateTime(1990, 8, 10),
+                Foto = "https://localhost:7290/actores/BE15B21C-AE30-4E8D-A4B8-DCD28C027000.jpg",
+                Biografia =
+                    "Lucas Till es un actor estadounidense conocido por sus papeles en 'X-Men: First Class' (2011) como Havok, y por protagonizar la serie de televisión 'MacGyver' (2016-2021) como Angus MacGyver. También ha trabajado en películas como 'Battle: Los Angeles' (2011) y 'The Disappointments Room' (2016)."
+            },
+            new Actor
+            {
+                Id = IdActorJasonMomoa,
+                Nombre = "Jason Momoa",
+                FechaNacimiento = new DateTime(1979, 8, 1),
+                Foto = "https://localhost:7290/actores/4DACD85F-6223-4AF4-B146-C8115958ED90.jpg",
+                Biografia =
+                    "Jason Momoa es un actor, productor y director estadounidense conocido por sus papeles en la serie de televisión 'Game of Thrones' como Khal Drogo, y como el superhéroe Aquaman en el universo cinematográfico de DC. También ha trabajado en otras producciones como 'Frontier', 'The Red Road' y 'See'. Su presencia en pantalla y su carisma lo han convertido en uno de los actores más populares de la actualidad."
             }
         );
     }
