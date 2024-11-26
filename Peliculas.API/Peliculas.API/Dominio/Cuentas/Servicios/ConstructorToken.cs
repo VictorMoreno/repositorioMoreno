@@ -32,7 +32,7 @@ namespace Peliculas.API.Dominio.Cuentas.Servicios
 
             SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this._configuration["jwtKey"]));
             SigningCredentials credenciales = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            DateTime expiracion = DateTime.UtcNow.AddDays(3);
+            DateTime expiracion = DateTime.Now.AddMinutes(3);
 
             JwtSecurityToken token = new JwtSecurityToken(
                 claims: claims,

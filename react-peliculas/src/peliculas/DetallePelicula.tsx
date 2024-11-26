@@ -10,6 +10,7 @@ import Mapa from "../utilidades/Mapa";
 import { coordenadaDto } from "../utilidades/coordenada.module";
 import Rating from "../utilidades/Rating";
 import Swal from "sweetalert2";
+import noDisponible from "../NoDisponible.jpg";
 
 export default function DetallePelicula() {
   const { id }: any = useParams();
@@ -86,7 +87,7 @@ export default function DetallePelicula() {
         <div style={{ display: "flex", margin: "1rem" }}>
           <span style={{ display: "inline-block", marginRight: "1rem" }}>
             <img
-              src={pelicula.poster}
+              src={pelicula.poster ? pelicula.poster : noDisponible}
               style={{ width: "225px", height: "315px" }}
               alt="poster"
             />

@@ -1,5 +1,5 @@
 import Menu from "./utilidades/Menu";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import rutas from "./route-config";
 import configurarValidaciones from "./validaciones";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import AutenticacionContext from "./auth/AutenticacionContext";
 import { obtenerClaims } from "./auth/manejadorJwt";
 import { configurarInterceptor } from "./utilidades/interceptores";
 import React from "react";
-import ErrorBoundary from "./ErrorBoundary";
+import FormularioSinPermiso from "./utilidades/FormularioSinPermiso";
 
 configurarValidaciones();
 configurarInterceptor();
@@ -41,21 +41,21 @@ function App() {
         <AutenticacionContext.Provider value={{ claims, actualizar }}>
           <Menu />
           <div className="container">
-              <Routes>
-                {rutas.map((ruta) => (
-                  <Route
-                    key={ruta.path}
-                    path={ruta.path}
-                    element={
-                      ruta.esAdmin && !esAdmin() ? (
-                        <>No tiene permiso para acceder a este componente</>
-                      ) : (
-                        <ruta.componente />
-                      )
-                    }
-                  />
-                ))}
-              </Routes>
+            <Routes>
+              {rutas.map((ruta) => (
+                <Route
+                  key={ruta.path}
+                  path={ruta.path}
+                  element={
+                    ruta.esAdmin && !esAdmin() ? (
+                      <FormularioSinPermiso />
+                    ) : (
+                      <ruta.componente />
+                    )
+                  }
+                />
+              ))}
+            </Routes>
           </div>
         </AutenticacionContext.Provider>
       </BrowserRouter>
