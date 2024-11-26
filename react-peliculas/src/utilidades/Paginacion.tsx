@@ -35,7 +35,7 @@ export default function Paginacion(props: paginacionProps) {
         });
 
         setListadoLinks(links);
-    }, [props.paginaActual, props.cantidadTotalPaginas, props.radio])
+    }, [props.paginaActual, props.cantidadTotalPaginas, props.radio]);
 
     function obtenerClase(link: modeloLink){
         if (link.activo){
