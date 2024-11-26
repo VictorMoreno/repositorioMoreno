@@ -104,8 +104,23 @@ builder.Services.AddSingleton(NtsGeometryServices.Instance.CreateGeometryFactory
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    try
+    {
+        var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+        await IdentityConfigurationExtensions.RellenarUsuarios(userManager);
+    }
+    catch (Exception ex)
+    {
+        // Manejar errores de inicialización
+        Console.WriteLine($"Error al inicializar los datos de Identity: {ex.Message}");
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

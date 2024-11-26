@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Peliculas.API.Entidades;
 
@@ -8,7 +9,6 @@ namespace Peliculas.API
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace Peliculas.API
                 .HasKey(x => new { x.CineId, x.PeliculaId });
 
             base.OnModelCreating(modelBuilder);
-            
+
             modelBuilder.Seed();
         }
 

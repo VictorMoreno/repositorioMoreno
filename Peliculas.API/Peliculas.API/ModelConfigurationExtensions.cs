@@ -6,12 +6,71 @@ namespace Peliculas.API;
 
 public static class ModelConfigurationExtensions
 {
+    private const int IdGeneroAcción = 1;
+    private const int IdGeneroAventura = 2;
+    private const int IdGeneroCatástrofe = 3;
+    private const int IdGeneroCienciaFiccion = 4;
+    private const int IdGeneroComedia = 5;
+    private const int IdGeneroDocumentales = 6;
+    private const int IdGeneroDrama = 7;
+    private const int IdGeneroFantasia = 8;
+    private const int IdGeneroTerror = 9;
+    private const int IdGeneroRomantico = 10;
+    private const int IdGeneroHistorica = 11;
+    private const int IdGeneroSuspense = 12;
+    private const int IdGeneroEspionaje = 13;
+    private const int IdGeneroCrimen = 14;
+    private const int IdGeneroThriller = 15;
+
+    private const int IdPeliculaBabylon = 1;
+    private const int IdPeliculaHollywood = 2;
+    private const int IdPeliculaAdAstra = 3;
+    private const int IdPeliculaCiudadPerdida = 4;
+    private const int IdPeliculaWolves = 5;
+    private const int IdPeliculaDune = 6;
+    private const int IdPeliculaAvatar = 7;
+    private const int IdPeliculaMisionImposible = 8;
+    private const int IdPeliculaMarvels = 9;
+    private const int IdPeliculaJoker = 10;
+
     public static void Seed(this ModelBuilder modelBuilder)
     {
         RellenarGeneros(modelBuilder);
         RellenarActores(modelBuilder);
         RellenarCines(modelBuilder);
         RellenarPeliculas(modelBuilder);
+        RellenarPeliculasGeneros(modelBuilder);
+    }
+
+    private static void RellenarPeliculasGeneros(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<PeliculasGeneros>().HasData(
+            new PeliculasGeneros { GeneroId = IdGeneroDrama, PeliculaId = IdPeliculaBabylon },
+            new PeliculasGeneros { GeneroId = IdGeneroComedia, PeliculaId = IdPeliculaBabylon },
+            new PeliculasGeneros { GeneroId = IdGeneroHistorica, PeliculaId = IdPeliculaBabylon },
+            new PeliculasGeneros { GeneroId = IdGeneroDrama, PeliculaId = IdPeliculaHollywood },
+            new PeliculasGeneros { GeneroId = IdGeneroComedia, PeliculaId = IdPeliculaHollywood },
+            new PeliculasGeneros { GeneroId = IdGeneroCienciaFiccion, PeliculaId = IdPeliculaAdAstra },
+            new PeliculasGeneros { GeneroId = IdGeneroDrama, PeliculaId = IdPeliculaAdAstra },
+            new PeliculasGeneros { GeneroId = IdGeneroAventura, PeliculaId = IdPeliculaCiudadPerdida },
+            new PeliculasGeneros { GeneroId = IdGeneroComedia, PeliculaId = IdPeliculaCiudadPerdida },
+            new PeliculasGeneros { GeneroId = IdGeneroAcción, PeliculaId = IdPeliculaCiudadPerdida },
+            new PeliculasGeneros { GeneroId = IdGeneroSuspense, PeliculaId = IdPeliculaWolves },
+            new PeliculasGeneros { GeneroId = IdGeneroAcción, PeliculaId = IdPeliculaWolves },
+            new PeliculasGeneros { GeneroId = IdGeneroAcción, PeliculaId = IdPeliculaDune },
+            new PeliculasGeneros { GeneroId = IdGeneroAventura, PeliculaId = IdPeliculaDune },
+            new PeliculasGeneros { GeneroId = IdGeneroDrama, PeliculaId = IdPeliculaDune },
+            new PeliculasGeneros { GeneroId = IdGeneroCienciaFiccion, PeliculaId = IdPeliculaAvatar },
+            new PeliculasGeneros { GeneroId = IdGeneroFantasia, PeliculaId = IdPeliculaAvatar },
+            new PeliculasGeneros { GeneroId = IdGeneroAcción, PeliculaId = IdPeliculaMisionImposible },
+            new PeliculasGeneros { GeneroId = IdGeneroEspionaje, PeliculaId = IdPeliculaMisionImposible },
+            new PeliculasGeneros { GeneroId = IdGeneroAcción, PeliculaId = IdPeliculaMarvels },
+            new PeliculasGeneros { GeneroId = IdGeneroAventura, PeliculaId = IdPeliculaMarvels },
+            new PeliculasGeneros { GeneroId = IdGeneroCienciaFiccion, PeliculaId = IdPeliculaMarvels },
+            new PeliculasGeneros { GeneroId = IdGeneroDrama, PeliculaId = IdPeliculaJoker },
+            new PeliculasGeneros { GeneroId = IdGeneroCrimen, PeliculaId = IdPeliculaJoker },
+            new PeliculasGeneros { GeneroId = IdGeneroThriller, PeliculaId = IdPeliculaJoker }
+        );
     }
 
     private static void RellenarPeliculas(ModelBuilder modelBuilder)
@@ -19,7 +78,7 @@ public static class ModelConfigurationExtensions
         modelBuilder.Entity<Pelicula>().HasData(
             new Pelicula
             {
-                Id = 1,
+                Id = IdPeliculaBabylon,
                 Titulo = "Babylon",
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=gBil8RpweBE&pp=ygUYYmFieWxvbiB0cmFpbGVyIGVzcGHDsW9s",
@@ -27,11 +86,6 @@ public static class ModelConfigurationExtensions
                 Poster = "https://localhost:7290/peliculas/ea9fd07a-1fb5-4eb7-a01a-1c27266c2309.png",
                 Resumen =
                     "Una épica historia sobre el exceso, la decadencia y los sueños rotos en el Hollywood de los años 20, donde la transición del cine mudo al sonoro sacude a la industria.",
-                // PeliculasGeneros = new List<Genero>
-                // {
-                //     new Genero { Nombre = "Drama" }, new Genero { Nombre = "Comedia" },
-                //     new Genero { Nombre = "Histórica" }
-                // },
                 // PeliculasCines = new List<Cine>
                 //     { new Cine { Nombre = "Cine Capitol", Ubicacion = new Point(40.418974, -3.705269) } },
                 // PeliculasActores = new List<Actor>
@@ -42,7 +96,7 @@ public static class ModelConfigurationExtensions
             },
             new Pelicula
             {
-                Id = 2,
+                Id = IdPeliculaHollywood,
                 Titulo = "Érase una vez en… Hollywood",
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=J0rFGJV3cYw",
@@ -50,8 +104,6 @@ public static class ModelConfigurationExtensions
                 Poster = "https://localhost:7290/peliculas/14a89f1e-d997-46ec-ae77-37b43118b00c.jpg",
                 Resumen =
                     "Un actor de televisión y su doble de riesgo se encuentran con los eventos de 1969 en Hollywood mientras las estrellas de cine se enfrentan a un cambio cultural.",
-                // PeliculasGeneros = new List<Genero>
-                //     { new Genero { Nombre = "Drama" }, new Genero { Nombre = "Comedia" } },
                 // PeliculasCines = new List<Cine>
                 //     { new Cine { Nombre = "Cine Ideal", Ubicacion = new Point(40.424975, -3.705754) } },
                 // PeliculasActores = new List<Actor>
@@ -62,7 +114,7 @@ public static class ModelConfigurationExtensions
             },
             new Pelicula
             {
-                Id = 3,
+                Id = IdPeliculaAdAstra,
                 Titulo = "Ad Astra",
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=2hy4clp3IMM",
@@ -70,8 +122,6 @@ public static class ModelConfigurationExtensions
                 Poster = "https://localhost:7290/peliculas/eecfa05e-7968-474a-93c4-3f5b24e5cb66.jpg",
                 Resumen =
                     "Un astronauta viaja a los rincones más distantes del sistema solar para encontrar a su padre y resolver un misterio que amenaza la supervivencia de la Tierra.",
-                // PeliculasGeneros = new List<Genero>
-                //     { new Genero { Nombre = "Ciencia Ficción" }, new Genero { Nombre = "Drama" } },
                 // PeliculasCines = new List<Cine>
                 //     { new Cine { Nombre = "Cine Coliseum", Ubicacion = new Point(40.418314, -3.707091) } },
                 // PeliculasActores = new List<Actor>
@@ -82,7 +132,7 @@ public static class ModelConfigurationExtensions
             },
             new Pelicula
             {
-                Id = 4,
+                Id = IdPeliculaCiudadPerdida,
                 Titulo = "La ciudad perdida",
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=DWq5cjkxEQQ",
@@ -90,11 +140,6 @@ public static class ModelConfigurationExtensions
                 Poster = "https://localhost:7290/peliculas/0acee9d1-94df-4229-aab0-bf7c308e2933.jpg",
                 Resumen =
                     "Una escritora de novelas románticas es secuestrada por un millonario que busca un tesoro perdido en una isla remota, y es rescatada por su modelo de portada.",
-                // PeliculasGeneros = new List<Genero>
-                // {
-                //     new Genero { Nombre = "Aventura" }, new Genero { Nombre = "Comedia" },
-                //     new Genero { Nombre = "Acción" }
-                // },
                 // PeliculasCines = new List<Cine>
                 //     { new Cine { Nombre = "Cine ABC", Ubicacion = new Point(40.416775, -3.703790) } },
                 // PeliculasActores = new List<Actor>
@@ -105,7 +150,7 @@ public static class ModelConfigurationExtensions
             },
             new Pelicula
             {
-                Id = 5,
+                Id = IdPeliculaWolves,
                 Titulo = "Wolves",
                 EnCines = false,
                 Trailer = "https://www.youtube.com/watch?v=Ti_7suoHmRQ",
@@ -113,13 +158,12 @@ public static class ModelConfigurationExtensions
                 Poster = "",
                 Resumen =
                     "Dos solitarios se ven involucrados en el mismo trabajo, que pronto se convierte en una carrera por la supervivencia.",
-                // PeliculasGeneros = new List<Genero> { new Genero { Nombre = "Suspenso" }, new Genero { Nombre = "Acción" } },
                 // PeliculasCines = new List<Cine> { new Cine { Nombre = "Cine Yelmo", Ubicacion = new Point(40.416775, -3.703790) } },
                 // PeliculasActores = new List<Actor> { new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "George Clooney" } }
             },
             new Pelicula
             {
-                Id = 6,
+                Id = IdPeliculaDune,
                 Titulo = "Dune: Parte dos",
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=6OmJF6VjKMA",
@@ -130,7 +174,7 @@ public static class ModelConfigurationExtensions
             },
             new Pelicula
             {
-                Id = 7,
+                Id = IdPeliculaAvatar,
                 Titulo = "Avatar 3",
                 EnCines = false,
                 Trailer = "https://www.youtube.com/watch?v=YXtWPVFk5TQ",
@@ -141,7 +185,7 @@ public static class ModelConfigurationExtensions
             },
             new Pelicula
             {
-                Id = 8,
+                Id = IdPeliculaMisionImposible,
                 Titulo = "Misión: Imposible - Sentencia Mortal Parte Dos",
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=8jRMVhGwy0M",
@@ -152,7 +196,7 @@ public static class ModelConfigurationExtensions
             },
             new Pelicula
             {
-                Id = 9,
+                Id = IdPeliculaMarvels,
                 Titulo = "The Marvels",
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=gdSGIf8kbhg",
@@ -163,14 +207,14 @@ public static class ModelConfigurationExtensions
             },
             new Pelicula
             {
-                Id = 10,
+                Id = IdPeliculaJoker,
                 Titulo = "Joker: locura de a dos",
                 EnCines = true,
                 Trailer = "https://www.youtube.com/watch?v=7SZfThvjt5I",
                 FechaLanzamiento = new DateTime(2024, 10, 4),
                 Poster = "https://localhost:7290/peliculas/c900cffe-1828-46f1-9893-99b86ec064ab.png",
                 Resumen =
-                    "Arthur Fleck regresa como el Joker en una secuela que explora su relación con Harley Quinn y el oscuro descenso de ambos.",
+                    "Arthur Fleck regresa como el Joker en una secuela que explora su relación con Harley Quinn y el oscuro descenso de ambos."
             }
         );
     }
@@ -274,16 +318,21 @@ public static class ModelConfigurationExtensions
     private static void RellenarGeneros(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Genero>().HasData(
-            new Genero { Id = 1, Nombre = "Acción" },
-            new Genero { Id = 2, Nombre = "Aventura" },
-            new Genero { Id = 3, Nombre = "Catástrofe" },
-            new Genero { Id = 4, Nombre = "Ciencia Ficción" },
-            new Genero { Id = 5, Nombre = "Comedia" },
-            new Genero { Id = 6, Nombre = "Documentales" },
-            new Genero { Id = 7, Nombre = "Drama" },
-            new Genero { Id = 8, Nombre = "Fantasia" },
-            new Genero { Id = 9, Nombre = "Terror" },
-            new Genero { Id = 10, Nombre = "Romantico" });
+            new Genero { Id = IdGeneroAcción, Nombre = "Acción" },
+            new Genero { Id = IdGeneroAventura, Nombre = "Aventura" },
+            new Genero { Id = IdGeneroCatástrofe, Nombre = "Catástrofe" },
+            new Genero { Id = IdGeneroCienciaFiccion, Nombre = "Ciencia Ficción" },
+            new Genero { Id = IdGeneroComedia, Nombre = "Comedia" },
+            new Genero { Id = IdGeneroDocumentales, Nombre = "Documentales" },
+            new Genero { Id = IdGeneroDrama, Nombre = "Drama" },
+            new Genero { Id = IdGeneroFantasia, Nombre = "Fantasia" },
+            new Genero { Id = IdGeneroTerror, Nombre = "Terror" },
+            new Genero { Id = IdGeneroRomantico, Nombre = "Romantico" },
+            new Genero { Id = IdGeneroHistorica, Nombre = "Historica" },
+            new Genero { Id = IdGeneroSuspense, Nombre = "Suspense" },
+            new Genero { Id = IdGeneroEspionaje, Nombre = "Espionaje" },
+            new Genero { Id = IdGeneroCrimen, Nombre = "Crimen" },
+            new Genero { Id = IdGeneroThriller, Nombre = "Thriller" });
     }
 
     private static void RellenarCines(ModelBuilder modelBuilder)
