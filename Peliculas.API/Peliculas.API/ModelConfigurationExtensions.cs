@@ -33,6 +33,14 @@ public static class ModelConfigurationExtensions
     private const int IdPeliculaMarvels = 9;
     private const int IdPeliculaJoker = 10;
 
+    private const int IdCineCallao = 1;
+    private const int IdCineYelmoIdeal = 2;
+    private const int IdCineDiagonal = 3;
+    private const int IdCineRenoir = 4;
+    private const int IdCineVerdi = 5;
+    private const int IdCineGranollers = 6;
+    private const int IdCineKinepolisValencia = 7;
+
     public static void Seed(this ModelBuilder modelBuilder)
     {
         RellenarGeneros(modelBuilder);
@@ -40,6 +48,23 @@ public static class ModelConfigurationExtensions
         RellenarCines(modelBuilder);
         RellenarPeliculas(modelBuilder);
         RellenarPeliculasGeneros(modelBuilder);
+        RellenarPeliculasCines(modelBuilder);
+    }
+
+    private static void RellenarPeliculasCines(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<PeliculasCines>().HasData(
+            new PeliculasCines { PeliculaId = IdPeliculaBabylon, CineId = IdCineRenoir },
+            new PeliculasCines { PeliculaId = IdPeliculaHollywood, CineId = IdCineCallao },
+            new PeliculasCines { PeliculaId = IdPeliculaAdAstra, CineId = IdCineDiagonal },
+            new PeliculasCines { PeliculaId = IdPeliculaCiudadPerdida, CineId = IdCineKinepolisValencia },
+            new PeliculasCines { PeliculaId = IdPeliculaWolves, CineId = IdCineYelmoIdeal },
+            new PeliculasCines { PeliculaId = IdPeliculaDune, CineId = IdCineVerdi },
+            new PeliculasCines { PeliculaId = IdPeliculaAvatar, CineId = IdCineCallao },
+            new PeliculasCines { PeliculaId = IdPeliculaMisionImposible, CineId = IdCineVerdi },
+            new PeliculasCines { PeliculaId = IdPeliculaMarvels, CineId = IdCineDiagonal },
+            new PeliculasCines { PeliculaId = IdPeliculaJoker, CineId = IdCineKinepolisValencia }
+        );
     }
 
     private static void RellenarPeliculasGeneros(ModelBuilder modelBuilder)
@@ -86,8 +111,6 @@ public static class ModelConfigurationExtensions
                 Poster = "https://localhost:7290/peliculas/ea9fd07a-1fb5-4eb7-a01a-1c27266c2309.png",
                 Resumen =
                     "Una épica historia sobre el exceso, la decadencia y los sueños rotos en el Hollywood de los años 20, donde la transición del cine mudo al sonoro sacude a la industria.",
-                // PeliculasCines = new List<Cine>
-                //     { new Cine { Nombre = "Cine Capitol", Ubicacion = new Point(40.418974, -3.705269) } },
                 // PeliculasActores = new List<Actor>
                 // {
                 //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Margot Robbie" },
@@ -104,8 +127,6 @@ public static class ModelConfigurationExtensions
                 Poster = "https://localhost:7290/peliculas/14a89f1e-d997-46ec-ae77-37b43118b00c.jpg",
                 Resumen =
                     "Un actor de televisión y su doble de riesgo se encuentran con los eventos de 1969 en Hollywood mientras las estrellas de cine se enfrentan a un cambio cultural.",
-                // PeliculasCines = new List<Cine>
-                //     { new Cine { Nombre = "Cine Ideal", Ubicacion = new Point(40.424975, -3.705754) } },
                 // PeliculasActores = new List<Actor>
                 // {
                 //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Leonardo DiCaprio" },
@@ -122,8 +143,6 @@ public static class ModelConfigurationExtensions
                 Poster = "https://localhost:7290/peliculas/eecfa05e-7968-474a-93c4-3f5b24e5cb66.jpg",
                 Resumen =
                     "Un astronauta viaja a los rincones más distantes del sistema solar para encontrar a su padre y resolver un misterio que amenaza la supervivencia de la Tierra.",
-                // PeliculasCines = new List<Cine>
-                //     { new Cine { Nombre = "Cine Coliseum", Ubicacion = new Point(40.418314, -3.707091) } },
                 // PeliculasActores = new List<Actor>
                 // {
                 //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Tommy Lee Jones" },
@@ -140,8 +159,6 @@ public static class ModelConfigurationExtensions
                 Poster = "https://localhost:7290/peliculas/0acee9d1-94df-4229-aab0-bf7c308e2933.jpg",
                 Resumen =
                     "Una escritora de novelas románticas es secuestrada por un millonario que busca un tesoro perdido en una isla remota, y es rescatada por su modelo de portada.",
-                // PeliculasCines = new List<Cine>
-                //     { new Cine { Nombre = "Cine ABC", Ubicacion = new Point(40.416775, -3.703790) } },
                 // PeliculasActores = new List<Actor>
                 // {
                 //     new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "Sandra Bullock" },
@@ -158,7 +175,6 @@ public static class ModelConfigurationExtensions
                 Poster = "",
                 Resumen =
                     "Dos solitarios se ven involucrados en el mismo trabajo, que pronto se convierte en una carrera por la supervivencia.",
-                // PeliculasCines = new List<Cine> { new Cine { Nombre = "Cine Yelmo", Ubicacion = new Point(40.416775, -3.703790) } },
                 // PeliculasActores = new List<Actor> { new Actor { Nombre = "Brad Pitt" }, new Actor { Nombre = "George Clooney" } }
             },
             new Pelicula
@@ -340,43 +356,43 @@ public static class ModelConfigurationExtensions
         modelBuilder.Entity<Cine>().HasData(
             new Cine
             {
-                Id = 1,
+                Id = IdCineCallao,
                 Nombre = "Cines Callao",
                 Ubicacion = new Point(-3.705912, 40.419829)
             },
             new Cine
             {
-                Id = 2,
+                Id = IdCineYelmoIdeal,
                 Nombre = "Yelmo Cines Ideal",
                 Ubicacion = new Point(-3.7065112, 40.41357)
             },
             new Cine
             {
-                Id = 3,
+                Id = IdCineDiagonal,
                 Nombre = "Cinesa Diagonal Mar",
                 Ubicacion = new Point(2.2140153, 41.4096507)
             },
             new Cine
             {
-                Id = 4,
+                Id = IdCineRenoir,
                 Nombre = "Cines Renoir Plaza de España",
                 Ubicacion = new Point(-3.7159609, 40.4243981)
             },
             new Cine
             {
-                Id = 5,
+                Id = IdCineVerdi,
                 Nombre = "Cines Verdi Barcelona",
                 Ubicacion = new Point(2.1542843, 41.4039621)
             },
             new Cine
             {
-                Id = 6,
+                Id = IdCineGranollers,
                 Nombre = "Ocine Granollers",
                 Ubicacion = new Point(2.2866108, 41.6067659)
             },
             new Cine
             {
-                Id = 7,
+                Id = IdCineKinepolisValencia,
                 Nombre = "Kinépolis Valencia",
                 Ubicacion = new Point(-0.4287164, 39.4778583)
             }
