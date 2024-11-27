@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
-using Peliculas.API.DTOs;
-using Peliculas.API.Repositorios;
+using Peliculas.API.Aplicacion.Cuentas.Dtos;
+using Peliculas.API.Dominio.Cuentas;
 
 namespace Peliculas.API.Aplicacion.Cuentas;
 

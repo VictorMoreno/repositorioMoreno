@@ -1,4 +1,4 @@
-using Peliculas.API.Repositorios;
+using Peliculas.API.Dominio.Cines;
 
 namespace Peliculas.API.Aplicacion.Cines;
 

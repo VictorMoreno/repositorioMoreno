@@ -1,6 +1,7 @@
-using Peliculas.API.DTOs;
-using Peliculas.API.Repositorios;
-using Peliculas.API.Utilidades;
+using Peliculas.API.Aplicacion.Cuentas.Dtos;
+using Peliculas.API.Compartido.Dtos;
+using Peliculas.API.Compartido.Utilidades;
+using Peliculas.API.Dominio.Cuentas;
 
 namespace Peliculas.API.Aplicacion.Cuentas;
 

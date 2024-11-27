@@ -1,6 +1,5 @@
-﻿using Peliculas.API.DTOs;
-using Peliculas.API.Entidades;
-using Peliculas.API.Repositorios;
+﻿using Peliculas.API.Aplicacion.Generos.Dtos;
+using Peliculas.API.Dominio.Generos;
 
 namespace Peliculas.API.Aplicacion.Generos
 {

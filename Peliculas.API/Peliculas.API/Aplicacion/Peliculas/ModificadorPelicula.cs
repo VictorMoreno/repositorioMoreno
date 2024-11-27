@@ -1,5 +1,5 @@
-﻿using Peliculas.API.DTOs;
-using Peliculas.API.Repositorios;
+﻿using Peliculas.API.Aplicacion.Peliculas.Dtos;
+using Peliculas.API.Dominio.Peliculas;
 
 namespace Peliculas.API.Aplicacion.Peliculas
 {

@@ -1,4 +1,4 @@
-﻿using Peliculas.API.Repositorios;
+﻿using Peliculas.API.Dominio.Generos;
 
 namespace Peliculas.API.Aplicacion.Generos
 {

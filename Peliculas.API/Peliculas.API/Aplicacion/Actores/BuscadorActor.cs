@@ -1,7 +1,7 @@
-﻿using Peliculas.API.DTOs;
-using Peliculas.API.Entidades;
-using Peliculas.API.Repositorios;
-using Peliculas.API.Utilidades;
+﻿using Peliculas.API.Aplicacion.Actores.Dtos;
+using Peliculas.API.Compartido.Dtos;
+using Peliculas.API.Compartido.Utilidades;
+using Peliculas.API.Dominio.Actores;
 
 namespace Peliculas.API.Aplicacion.Actores
 {

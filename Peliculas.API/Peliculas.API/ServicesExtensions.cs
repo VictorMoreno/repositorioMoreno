@@ -1,6 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity.UI.Services;
 using Peliculas.API.Aplicacion;
-using Peliculas.API.Repositorios;
+using Peliculas.API.Dominio.Actores;
+using Peliculas.API.Dominio.Cines;
+using Peliculas.API.Dominio.Cuentas;
+using Peliculas.API.Dominio.Generos;
+using Peliculas.API.Dominio.GestoresImagenes;
+using Peliculas.API.Dominio.Peliculas;
+using Peliculas.API.Dominio.Ratings;
+using Peliculas.API.Infraestructura.Actores;
+using Peliculas.API.Infraestructura.Cines;
+using Peliculas.API.Infraestructura.Cuentas;
+using Peliculas.API.Infraestructura.Generos;
+using Peliculas.API.Infraestructura.GestoresImagenes;
+using Peliculas.API.Infraestructura.Peliculas;
+using Peliculas.API.Infraestructura.Ratings;
 
 namespace Peliculas.API
 {

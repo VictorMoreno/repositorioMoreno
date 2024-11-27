@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using Peliculas.API.Entidades;
-using Peliculas.API.Repositorios;
+using Peliculas.API.Dominio.Ratings;
 
 namespace Peliculas.API.Aplicacion.Ratings;
 

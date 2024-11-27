@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using Peliculas.API.Excepciones;
+using Peliculas.API.Dominio.Cuentas.Excepciones;
 
 namespace Peliculas.API.Aplicacion.Cuentas;
 

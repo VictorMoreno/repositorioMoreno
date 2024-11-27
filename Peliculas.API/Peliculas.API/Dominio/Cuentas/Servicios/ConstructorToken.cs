@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using Peliculas.API.DTOs;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Peliculas.API.Aplicacion.Cuentas.Dtos;
 
 namespace Peliculas.API.Dominio.Cuentas.Servicios
 {

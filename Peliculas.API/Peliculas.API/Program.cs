@@ -6,10 +6,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NetTopologySuite;
 using Peliculas.API;
-using Peliculas.API.APIBehaviors;
-using Peliculas.API.Filtros;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using Peliculas.API.Compartido.Utilidades;
+using Peliculas.API.Compartido.Utilidades.Behaviors;
+using Peliculas.API.Compartido.Utilidades.DatosPrueba;
+using Peliculas.API.Compartido.Utilidades.Filtros;
+using Peliculas.API.Infraestructura;
 
 var builder = WebApplication.CreateBuilder(args);
 
