@@ -18,6 +18,8 @@ import CrearPeliculas from "./peliculas/CrearPeliculas";
 import DetallePelicula from "./peliculas/DetallePelicula";
 import EditarPeliculas from "./peliculas/EditarPeliculas";
 import FiltroPeliculas from "./peliculas/FiltroPeliculas";
+import FormularioError from "./utilidades/FormularioError";
+import FormularioSinPermiso from "./utilidades/FormularioSinPermiso";
 import RedireccionarPaginaPrincipal from "./utilidades/RedireccionPaginaPrincipal";
 
 const rutas = [
@@ -44,6 +46,9 @@ const rutas = [
   { path: "/usuarios/solicitudRestablecimiento", componente: FormularioSolicitudRestablecerCredencial },
   { path: "/usuarios/restablecer", componente: FormularioRestablecerCredencial },
   { path: "/usuarios/editar/:id", componente: EditarUsuario , esAdmin: true},
+
+  { path: "/sesion", componente: FormularioSinPermiso},
+  { path: "/error", componente: FormularioError},
 
   { path: "/", componente: PaginaPrincipal },
 

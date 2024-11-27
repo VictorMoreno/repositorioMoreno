@@ -11,14 +11,24 @@ import Paginacion from "../utilidades/Paginacion";
 
 export default function FiltroPeliculas() {
   const valorInicial: filtroPeliculasForm = {
+      titulo: "",
+      generoId: 0,
+      proximosEstrenos: false,
+      enCines: false,
+      pagina: 1,
+      registrosPorPagina: 10,
+    };
+
+  const [volorFiltro, setValorFiltro] = useState<filtroPeliculasForm>({
     titulo: "",
     generoId: 0,
     proximosEstrenos: false,
     enCines: false,
     pagina: 1,
     registrosPorPagina: 10,
-  };
+  });
 
+  const [inicializado, setInicializado] = useState(false); // Nuevo estado
   const navigate = useNavigate();
   const [generos, setGeneros] = useState<generoDto[]>([]);
   const [peliculas, setPeliculas] = useState<peliculaDto[]>([]);
@@ -34,29 +44,22 @@ export default function FiltroPeliculas() {
   }, []);
 
   useEffect(() => {
-    if (query.get("titulo")) {
-      valorInicial.titulo = query.get("titulo")!;
-    }
+    if (!inicializado) {
+      const nuevosValores: filtroPeliculasForm = {
+        titulo: query.get("titulo") || "",
+        generoId: query.get("generoId") ? parseInt(query.get("generoId")!, 10) : 0,
+        proximosEstrenos: query.get("proximosEstrenos") === "true",
+        enCines: query.get("enCines") === "true",
+        pagina: query.get("pagina") ? parseInt(query.get("pagina")!, 10) : 1,
+        registrosPorPagina: 10,
+      };
 
-    if (query.get("generoId")) {
-      valorInicial.generoId = parseInt(query.get("generoId")!, 10);
+      setValorFiltro(nuevosValores);
+      buscarPeliculas(nuevosValores);
+      setInicializado(true);
     }
-
-    if (query.get("proximosEstrenos")) {
-      valorInicial.proximosEstrenos = true;
-    }
-
-    if (query.get("enCines")) {
-      valorInicial.enCines = true;
-    }
-
-    if (query.get("pagina")) {
-      valorInicial.pagina = parseInt(query.get("pagina")!, 10);
-    }
-
-    buscarPeliculas(valorInicial);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [query]);
 
   function buscarPeliculas(valores: filtroPeliculasForm) {
     modificarUrl(valores);
@@ -68,7 +71,7 @@ export default function FiltroPeliculas() {
           10
         );
         setTotalPaginas(
-          Math.ceil(totalRegistros / valorInicial.registrosPorPagina)
+          Math.ceil(totalRegistros / volorFiltro.registrosPorPagina)
         );
         setPeliculas(respuesta.data);
       });
@@ -102,7 +105,8 @@ export default function FiltroPeliculas() {
       <h3>Buscador de películas</h3>
 
       <Formik
-        initialValues={valorInicial}
+        initialValues={volorFiltro}
+        enableReinitialize
         onSubmit={(valores) => {
           valores.pagina = 1;
           buscarPeliculas(valores);
@@ -192,7 +196,7 @@ export default function FiltroPeliculas() {
               cantidadTotalPaginas={totalPaginas}
               paginaActual={formikProps.values.pagina}
               onChange={(nuevaPagina) => {
-                formikProps.values.pagina = nuevaPagina;
+                formikProps.setFieldValue("pagina", nuevaPagina);
                 buscarPeliculas(formikProps.values);
               }}
             />
