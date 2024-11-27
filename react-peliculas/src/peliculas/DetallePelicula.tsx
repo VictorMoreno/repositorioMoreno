@@ -79,7 +79,15 @@ export default function DetallePelicula() {
             {genero.nombre}
           </Link>
         ))}
-        | {pelicula.fechaLanzamiento.toDateString()} | Voto promedio: {pelicula.votoPromedio} | Tu voto: <Rating
+        |{" "}
+        {pelicula.fechaLanzamiento.toLocaleDateString("es-ES", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}{" "}
+        | Voto promedio: {pelicula.votoPromedio} | Tu voto:{" "}
+        <Rating
           maximoValor={5}
           valorSeleccionado={pelicula.votoUsuario!}
           onChange={onVote}
@@ -108,7 +116,7 @@ export default function DetallePelicula() {
         </div>
         {pelicula.resumen ? (
           <div style={{ marginTop: "1rem" }}>
-            <h3>Resumen</h3>
+            <h3>Sinopsis</h3>
             <div>
               <ReactMarkdown>{pelicula.resumen}</ReactMarkdown>
             </div>
