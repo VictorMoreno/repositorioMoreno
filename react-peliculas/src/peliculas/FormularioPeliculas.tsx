@@ -72,7 +72,7 @@ export default function FormularioPeliculas(props: FormularioPeliculasProps) {
             label="Poster"
             imagenURL={props.modelo.posterURL ? props.modelo.posterURL : ""}
           />
-          <FormularioGrupoMarkdown campo="resumen" label="Resumen" />
+          <FormularioGrupoMarkdown campo="resumen" label="Sinopsis" />
 
           <div className="mb-3">
             <label className="form-label">Géneros:</label>

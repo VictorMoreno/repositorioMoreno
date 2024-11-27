@@ -21,23 +21,34 @@ export default function PeliculaIndividual(props: peliculaIndividualProps) {
   }
 
   return (
-    <div key={props.pelicula.id} className="col-md-4 mb-3">
+    <div key={props.pelicula.id} className="col-md-4 col-sm-6 col-12 mb-3">
       <Link to={construirUrl()}>
-        <img
-          src={props.pelicula.poster ? props.pelicula.poster : noDisponible}
-          alt="Poster"
-          height={500}
-          width="100%"
-          onClick={construirUrl}
-          style={{ cursor: "pointer" }}
-        />
+        <div
+          style={{
+            position: "relative",
+            paddingBottom: "150%",
+            height: 0,
+            overflow: "hidden",
+            borderRadius: "5px",
+          }}
+        >
+          <img
+            src={props.pelicula.poster ? props.pelicula.poster : noDisponible}
+            alt="Poster"
+            className="img-fluid"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </div>
       </Link>
 
-      <h5 className="text-center">
-        {/* <Link className={css.linkSinEstilo} to={construirUrl()}> */}
-          {props.pelicula.titulo}
-        {/* </Link> */}
-      </h5>
+      <h5 className="text-center">{props.pelicula.titulo}</h5>
 
       <Autorizado
         role="admin"

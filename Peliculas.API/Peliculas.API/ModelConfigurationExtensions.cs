@@ -180,7 +180,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2022, 12, 23),
                 Poster = "https://localhost:7290/peliculas/ea9fd07a-1fb5-4eb7-a01a-1c27266c2309.png",
                 Resumen =
-                    "Una épica historia sobre el exceso, la decadencia y los sueños rotos en el Hollywood de los años 20, donde la transición del cine mudo al sonoro sacude a la industria."
+                    "Ambientada en Los Ángeles durante los años 20, cuenta una historia de ambición y excesos desmesurados que recorre la ascensión y caída de múltiples personajes durante una época de desenfrenada decadencia y depravación en los albores de Hollywood."
             },
             new Pelicula
             {
@@ -191,7 +191,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2019, 7, 26),
                 Poster = "https://localhost:7290/peliculas/14a89f1e-d997-46ec-ae77-37b43118b00c.jpg",
                 Resumen =
-                    "Un actor de televisión y su doble de riesgo se encuentran con los eventos de 1969 en Hollywood mientras las estrellas de cine se enfrentan a un cambio cultural."
+                    "Hollywood, años 60. La estrella de un western televisivo, Rick Dalton (DiCaprio), intenta amoldarse a los cambios del medio al mismo tiempo que su doble (Pitt). La vida de Dalton está ligada completamente a Hollywood, y es vecino de la joven y prometedora actriz y modelo Sharon Tate (Robbie) que acaba de casarse con el prestigioso director Roman Polanski."
             },
             new Pelicula
             {
@@ -202,7 +202,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2019, 9, 20),
                 Poster = "https://localhost:7290/peliculas/eecfa05e-7968-474a-93c4-3f5b24e5cb66.jpg",
                 Resumen =
-                    "Un astronauta viaja a los rincones más distantes del sistema solar para encontrar a su padre y resolver un misterio que amenaza la supervivencia de la Tierra."
+                    "El astronauta Roy McBride (Brad Pitt) viaja a los límites exteriores del sistema solar para encontrar a su padre perdido y desentrañar un misterio que amenaza la supervivencia de nuestro planeta. Su viaje desvelará secretos que desafían la naturaleza de la existencia humana y nuestro lugar en el cosmos."
             },
             new Pelicula
             {
@@ -213,7 +213,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2022, 3, 25),
                 Poster = "https://localhost:7290/peliculas/0acee9d1-94df-4229-aab0-bf7c308e2933.jpg",
                 Resumen =
-                    "Una escritora de novelas románticas es secuestrada por un millonario que busca un tesoro perdido en una isla remota, y es rescatada por su modelo de portada.",
+                    "La carrera literaria de la brillante y algo huraña escritora de novelas Loretta Sage (Sandra Bullock) ha girado en torno a las novelas románticas de aventuras que, ambientadas en lugares exóticos, protagoniza un atractivo galán cuya imagen aparece reproducida en todas las portadas, y que en la vida real corresponde a Alan (Channing Tatum), un modelo que ha centrado su carrera en personificar al novelesco aventurero. Durante una gira para promocionar su nuevo libro junto a Alan, Loretta es raptada por un excéntrico multimillonario (Daniel Radcliffe), con la intención de que la autora le guíe hasta el tesoro de la antigua ciudad perdida sobre el que gira su último relato. Deseoso de demostrar que puede ser un héroe en la vida real, y no simplemente en las páginas de sus obras de ficción, Alan se lanza al rescate de la novelista.",
             },
             new Pelicula
             {
@@ -235,7 +235,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2024, 3, 15),
                 Poster = "https://localhost:7290/peliculas/98e8356c-3214-454f-b6c5-81f82de778ff.jpg",
                 Resumen =
-                    "La segunda parte de la épica adaptación de Dune, donde Paul Atreides busca venganza y un legado que cambiará el universo.",
+                    "Tras los sucesos de la primera parte acontecidos en el planeta Arrakis, el joven Paul Atreides se une a la tribu de los Fremen y comienza un viaje espiritual y marcial para convertirse en mesías, mientras intenta evitar el horrible pero inevitable futuro que ha presenciado: una Guerra Santa en su nombre, que se extiende por todo el universo conocido... Secuela de 'Dune' (2021).",
             },
             new Pelicula
             {
@@ -246,7 +246,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2025, 12, 19),
                 Poster = "https://localhost:7290/peliculas/aad70b69-1dd1-4b5a-8e4a-1941c00fe96f.jpg",
                 Resumen =
-                    "La siguiente entrega de la saga de ciencia ficción de Pandora, explorando nuevas regiones del planeta y enfrentándose a amenazas desconocidas.",
+                    "La tercera entrega de la saga \"Avatar\", presenta al Pueblo de las Cenizas, un clan Na'vi no tan pacífico que utilizará la violencia si lo necesita para conseguir sus objetivos, aunque sea contra otros clanes.",
             },
             new Pelicula
             {
@@ -268,7 +268,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2024, 11, 8),
                 Poster = "https://localhost:7290/peliculas/c2eb8dbc-9a1f-4bbe-a8d5-346999a51022.jpg",
                 Resumen =
-                    "Las heroínas del universo Marvel, Carol Danvers, Kamala Khan y Monica Rambeau, unen fuerzas para enfrentar una amenaza cósmica.",
+                    "Carol Danvers, alias Capitana Marvel, ha recuperado la identidad que le arrebataron los tiránicos Kree y se ha cobrado su venganza contra la Inteligencia Suprema. Pero una serie de consecuencias imprevistas la obligan a cargar con el peso de un universo desestabilizado. Cuando el deber la lleva hasta un anómalo agujero de gusano vinculado a una revolucionaria Kree, sus poderes se conectan con los de su superfán de Nueva Jersey Kamala Khan, también conocida como Ms. Marvel, y con los de su sobrina, con la que está distanciada y es ahora astronauta en S.A.B.E.R., la capitana Monica Rambeau. Juntas, las integrantes de este insólito trío tendrán que unir fuerzas y aprender a trabajar en equipo como 'The Marvels' para salvar el universo.",
             },
             new Pelicula
             {
@@ -279,7 +279,7 @@ public static class ModelConfigurationExtensions
                 FechaLanzamiento = new DateTime(2024, 10, 4),
                 Poster = "https://localhost:7290/peliculas/c900cffe-1828-46f1-9893-99b86ec064ab.png",
                 Resumen =
-                    "Arthur Fleck regresa como el Joker en una secuela que explora su relación con Harley Quinn y el oscuro descenso de ambos."
+                    "Tras crear el caos, Arthur Fleck ha sido internado en Arkham a la espera de juicio por sus crímenes como Joker. Mientras lidia con su doble identidad, Arthur no sólo se topa con el amor verdadero, sino que también descubre la música que siempre ha estado dentro de él. Secuela de 'Joker' (2019)."
             }
         );
     }

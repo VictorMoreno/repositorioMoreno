@@ -28,7 +28,7 @@ public class SolicitadorRestablecerCredencial : IServicioAplicacion
             string urlWeb = this._configuration["FrontendUrl"]!;
 
             var urlRestablecimiento =
-                $"{urlWeb}/restablecer?email={Uri.EscapeDataString(email)}&token={Uri.EscapeDataString(token)}";
+                $"{urlWeb}/usuarios/restablecer?email={Uri.EscapeDataString(email)}&token={Uri.EscapeDataString(token)}";
             await _emailSender.SendEmailAsync(usuario.Email, "Restablecer contraseña",
                 $"Haz clic en el enlace para restablecer tu contraseña: <a href='{urlRestablecimiento}'>Restablecer Contraseña</a>");
         }

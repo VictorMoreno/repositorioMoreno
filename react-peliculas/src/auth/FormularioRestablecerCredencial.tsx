@@ -33,7 +33,7 @@ export default function FormularioRestablecerCredencial() {
           token: token,
           password: valores.password,
         };
-        await axios.post(`${urlCuentas}/usuarios/restablecer`, datos);
+        await axios.post(`${urlCuentas}/restablecer`, datos);
 
         Swal.fire({
           title: "Éxito",
@@ -62,7 +62,7 @@ export default function FormularioRestablecerCredencial() {
         {(formikProps) => (
           <div className="container d-flex justify-content-center align-items-center min-vh-100">
             <div
-              className="card p-4 shadow"
+              className="card p-4 shadow bg-dark text-light"
               style={{ maxWidth: "400px", width: "100%" }}
             >
               <h3 className="text-center mb-4">Crear contraseña</h3>

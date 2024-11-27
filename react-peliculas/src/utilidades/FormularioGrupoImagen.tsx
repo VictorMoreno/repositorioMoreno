@@ -20,7 +20,7 @@ export default function FormularioGrupoImagen(
         .catch((error) => console.log(error));
 
       values[props.campo] = archivo;
-      setImagenURL('');
+      setImagenURL("");
     }
   };
 
@@ -41,20 +41,44 @@ export default function FormularioGrupoImagen(
           type="file"
           accept=".jpg,.jpeg,.png"
           onChange={ManejarOnChange}
+          style={{ cursor: "pointer" }}
         />
       </div>
 
       {imagenBase64 ? (
-        <div>
-          <div style={divStyle}>
-            <img
-              style={imgStyle}
-              src={imagenBase64}
-              alt="imagen seleccionada"
-            />
-          </div>
+        <div
+          style={{
+            position: "relative",
+            paddingBottom: "150%",
+            height: 0,
+            overflow: "hidden",
+            borderRadius: "5px",
+          }}
+        >
+          <img
+            src={imagenBase64}
+            alt="imagen seleccionada"
+            className="img-fluid"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
         </div>
-      ) : null}
+      ) : // <div>
+      //   <div style={divStyle}>
+      //     <img
+      //       style={imgStyle}
+      //       src={imagenBase64}
+      //       alt="imagen seleccionada"
+      //     />
+      //   </div>
+      // </div>
+      null}
 
       {imagenURL ? (
         <div>
