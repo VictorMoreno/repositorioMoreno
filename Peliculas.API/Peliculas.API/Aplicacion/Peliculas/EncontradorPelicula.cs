@@ -39,11 +39,6 @@ namespace Peliculas.API.Aplicacion.Peliculas
         {
             var ratingVacio = (0.0, 0);
 
-            if (!estaAutenticado)
-            {
-                return ratingVacio;
-            }
-
             if (!await this._ratingRepositorio.ExisteRatingPelicula(idPelicula))
             {
                 return ratingVacio;
@@ -51,17 +46,21 @@ namespace Peliculas.API.Aplicacion.Peliculas
 
             var votoPromedio = await this._ratingRepositorio.ObtenerMediaRatings(idPelicula);
             var votoUsuario = 0;
-            
-            var usuario = await this._userManager.FindByEmailAsync(email);
-            var idUsuario = usuario.Id;
 
-            var ratingUsuario = await this._ratingRepositorio.ObtenerRatingUsuario(idUsuario, idPelicula);
-
-            if (ratingUsuario != null)
+            if (estaAutenticado)
             {
-                votoUsuario = ratingUsuario.Puntuacion;
+
+                var usuario = await this._userManager.FindByEmailAsync(email);
+                var idUsuario = usuario.Id;
+
+                var ratingUsuario = await this._ratingRepositorio.ObtenerRatingUsuario(idUsuario, idPelicula);
+
+                if (ratingUsuario != null)
+                {
+                    votoUsuario = ratingUsuario.Puntuacion;
+                }
             }
-            
+
             return (votoPromedio, votoUsuario);
         }
     }

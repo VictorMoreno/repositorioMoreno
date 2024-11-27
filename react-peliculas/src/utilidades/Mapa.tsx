@@ -33,7 +33,7 @@ export default function Mapa(props: MapaProps) {
             ? [props.coordenadas[0].lat, props.coordenadas[0].lng]
             : [40.4430227, -3.8066413]
         }
-        zoom={10}
+        zoom={6}
         style={{ height: props.height }}
       >
         <TileLayer
@@ -53,6 +53,7 @@ export default function Mapa(props: MapaProps) {
             key={coordenada.lat + coordenada.lng}
             lng={coordenada.lng}
             lat={coordenada.lat}
+            nombre={coordenada.nombre!}
           />
         ))}
       </MapContainer>

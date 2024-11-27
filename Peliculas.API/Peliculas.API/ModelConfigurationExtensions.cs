@@ -119,11 +119,17 @@ public static class ModelConfigurationExtensions
     {
         modelBuilder.Entity<PeliculasCines>().HasData(
             new PeliculasCines { PeliculaId = IdPeliculaBabylon, CineId = IdCineRenoir },
+            new PeliculasCines { PeliculaId = IdPeliculaBabylon, CineId =  IdCineDiagonal},
             new PeliculasCines { PeliculaId = IdPeliculaHollywood, CineId = IdCineCallao },
             new PeliculasCines { PeliculaId = IdPeliculaAdAstra, CineId = IdCineDiagonal },
+            new PeliculasCines { PeliculaId = IdPeliculaAdAstra, CineId =  IdCineKinepolisValencia},
+            new PeliculasCines { PeliculaId = IdPeliculaAdAstra, CineId =  IdCineVerdi},
             new PeliculasCines { PeliculaId = IdPeliculaCiudadPerdida, CineId = IdCineKinepolisValencia },
             new PeliculasCines { PeliculaId = IdPeliculaWolves, CineId = IdCineYelmoIdeal },
             new PeliculasCines { PeliculaId = IdPeliculaDune, CineId = IdCineVerdi },
+            new PeliculasCines { PeliculaId = IdPeliculaDune, CineId =  IdCineCallao},
+            new PeliculasCines { PeliculaId = IdPeliculaDune, CineId =  IdCineDiagonal},
+            new PeliculasCines { PeliculaId = IdPeliculaDune, CineId =  IdCineRenoir},
             new PeliculasCines { PeliculaId = IdPeliculaAvatar, CineId = IdCineCallao },
             new PeliculasCines { PeliculaId = IdPeliculaMisionImposible, CineId = IdCineVerdi },
             new PeliculasCines { PeliculaId = IdPeliculaMarvels, CineId = IdCineDiagonal },
