@@ -17,19 +17,26 @@ export default function IndiceEntidad<T>(props: IndiceEntidadProps<T>) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pagina, cantidadRegistrosPagina]);
 
-  function cargarDatos() {
-    axios
-      .get(props.url, {
-        params: { Pagina: pagina, RegistrosPorPagina: cantidadRegistrosPagina },
-      })
-      .then((respuesta: AxiosResponse<T[]>) => {
-        const totalRegistros = parseInt(
-          respuesta.headers["cantidadtotalregistros"],
-          10
-        );
-        setTotalPaginas(Math.ceil(totalRegistros / cantidadRegistrosPagina));
-        setEntidades(respuesta.data);
+  async function cargarDatos() {
+    try {
+      const respuesta = await axios.get<T[]>(props.url, {
+        params: {
+          Pagina: pagina,
+          RegistrosPorPagina: cantidadRegistrosPagina,
+        },
       });
+
+      const totalRegistros = parseInt(
+        respuesta.headers["cantidadtotalregistros"],
+        10
+      );
+
+      setTotalPaginas(Math.ceil(totalRegistros / cantidadRegistrosPagina));
+      setEntidades(respuesta.data);
+    } catch (error) {
+      console.error("Error al cargar datos:", error);
+      // Puedes agregar más manejo de errores aquí
+    }
   }
 
   async function borrar(id: number) {

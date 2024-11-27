@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function FormularioSinPermiso() {
   return (
-    <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
+    <div className="d-flex align-items-center justify-content-center vh-100">
       <div className="text-center">
         <div className="alert alert-warning" role="alert">
           <h4 className="alert-heading">Acceso restringido</h4>
