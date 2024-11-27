@@ -1,8 +1,8 @@
 import axios from "axios";
 import { obtenerToken } from "../auth/manejadorJwt";
+import Swal from "sweetalert2";
 
 export function configurarInterceptor() {
-  
   axios.interceptors.request.use(
     function (config) {
       const token = obtenerToken();
@@ -25,11 +25,15 @@ export function configurarInterceptor() {
 
         if (status === 401) {
           window.location.href = "/sesion";
-        } else {
-          window.location.href = "/error";
+        } else if (status === 422) {
+          Swal.fire({
+            title: "Error",
+            text: error.response.data.message,
+            icon: "error",
+          });
         }
       } else {
-        console.error("Error de red o tiempo de espera excedido.");
+        window.location.href = "/error";
       }
 
       return Promise.reject(error);

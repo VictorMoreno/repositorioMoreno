@@ -1,6 +1,8 @@
-﻿namespace Peliculas.API.Excepciones
+﻿using Peliculas.API.Dominio;
+
+namespace Peliculas.API.Excepciones
 {
-    public class LoginIncorrectoException : Exception
+    public class LoginIncorrectoException : DomainError
     {
         public LoginIncorrectoException() 
             : base("Credenciales incorrectas")

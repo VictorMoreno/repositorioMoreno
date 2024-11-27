@@ -116,7 +116,7 @@ export default function DetallePelicula() {
         ) : null}
         {pelicula.actores && pelicula.actores.length > 0 ? (
           <div style={{ marginTop: "1rem" }}>
-            <h3>Actores</h3>
+            <h3>Actores/Personajes</h3>
             <div style={{ display: "flex", flexDirection: "column" }}>
               {pelicula.actores?.map((actor) => (
                 <div key={actor.id} style={{ marginBottom: "2px" }}>
@@ -149,7 +149,7 @@ export default function DetallePelicula() {
           </div>
         ) : null}
         {pelicula.cines && pelicula.cines.length > 0 ? (
-          <div>
+          <div style={{ marginTop: "1rem" }}>
             <h2>Mostrandose en los siguientes cines</h2>
             <Mapa
               coordenadas={transformarCoordenadas()}

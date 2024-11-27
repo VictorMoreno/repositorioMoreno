@@ -68,7 +68,6 @@ builder.Services.AddAuthorization(opciones =>
 
 builder.Services.AddControllers(options =>
 {
-    options.Filters.Add<FiltroExcepcion>();
     options.Filters.Add<ParsearBadRequest>();
 }).ConfigureApiBehaviorOptions(BehaviorBadRequest.Parsear);
 
@@ -137,5 +136,6 @@ app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.UseMiddleware<MiddlewareExcepcion>();
 
 app.Run();

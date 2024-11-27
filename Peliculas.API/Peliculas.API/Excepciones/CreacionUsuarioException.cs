@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Peliculas.API.Dominio;
 
 namespace Peliculas.API.Excepciones
 {
-    public class CreacionUsuarioException : Exception
+    public class CreacionUsuarioException : DomainError
     {
         private IEnumerable<IdentityError> _errores;
         public IEnumerable<IdentityError> Errores => this._errores;
