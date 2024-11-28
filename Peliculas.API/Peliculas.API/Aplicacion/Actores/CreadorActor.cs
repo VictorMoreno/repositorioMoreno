@@ -1,5 +1,4 @@
-﻿using Peliculas.API.Aplicacion.Actores.Dtos;
-using Peliculas.API.Dominio.Actores;
+﻿using Peliculas.API.Dominio.Actores;
 using Peliculas.API.Dominio.GestoresImagenes;
 
 namespace Peliculas.API.Aplicacion.Actores
@@ -18,18 +17,20 @@ namespace Peliculas.API.Aplicacion.Actores
             this._proveedorContenedor = proveedorContenedor;
         }
 
-        public async Task Ejecutar(ActorCreacionDto actorCreacionDto)
+        public async Task Ejecutar(string nombre, string? biografia, DateTime fechaNacimiento, IFormFile? foto)
         {
-            var entidadActor = actorCreacionDto.ToEntity();
+            Actor actor = Actor.Crear(nombre,
+                string.IsNullOrEmpty(biografia) ? string.Empty : biografia,
+                fechaNacimiento);
 
-            if (actorCreacionDto.Foto != null)
+            if (foto != null)
             {
-                entidadActor.Foto =
-                    await this._almacenadorArchivo.GuardarArchivo(this._proveedorContenedor.ObtenerContenedorActores(),
-                        actorCreacionDto.Foto);
+                actor.Foto = await this._almacenadorArchivo.GuardarArchivo(
+                    this._proveedorContenedor.ObtenerContenedorActores(),
+                    foto);
             }
 
-            await this._repositorio.Guardar(entidadActor);
+            await this._repositorio.Guardar(actor);
         }
     }
 }

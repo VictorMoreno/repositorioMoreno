@@ -7,32 +7,12 @@ namespace Peliculas.API.Infraestructura.Cines
 {
     public class BaseDatosCineRepositorio : ICineRepositorio
     {
-        private readonly ApplicationDbContext _context;        
+        private readonly ApplicationDbContext _context;
 
         public BaseDatosCineRepositorio(ApplicationDbContext context)
         {
             this._context = context;
         }
-
-        //public async Task Actualizar(int id,
-        //    string nombre,
-        //    string biografia,
-        //    DateTime fechaNacimiento,
-        //    string foto)
-        //{
-        //    //Actor actor = await this._context.Actores.FirstOrDefaultAsync(actor => actor.Id == id);
-
-        //    //if (foto != null)
-        //    //{
-        //    //    actor.Foto = await this._almacenadorArchivo.EditarArchivo(this._contenedorArchivos, foto, actor.Foto);
-        //    //}
-
-        //    //if (actor != null)
-        //    //{
-        //    //    actor.Modificar(nombre, biografia, fechaNacimiento, foto);
-        //    //    await this._context.SaveChangesAsync();
-        //    //}
-        //}
 
         public async Task Guardar(Cine cine)
         {
@@ -59,7 +39,7 @@ namespace Peliculas.API.Infraestructura.Cines
                 .ToListAsync();
         }
 
-        public async Task<Cine> ObtenerPorId(int id) => await this._context.Cines.FirstOrDefaultAsync(actor => actor.Id == id);
+        public async Task<Cine> ObtenerPorId(int id) => await this._context.Cines.FirstAsync(actor => actor.Id == id);
 
         public async Task<List<Cine>> ObtenerNoContenidos(List<int> ids)
         {
@@ -67,7 +47,7 @@ namespace Peliculas.API.Infraestructura.Cines
                 .Where(cine => !ids.Contains(cine.Id))
                 .ToListAsync();
         }
-        
+
         public async Task Eliminar(int id)
         {
             var cine = await this._context.Cines.FirstOrDefaultAsync(cine => cine.Id == id);
@@ -77,6 +57,11 @@ namespace Peliculas.API.Infraestructura.Cines
                 this._context.Cines.Remove(cine);
                 await this._context.SaveChangesAsync();
             }
+        }
+
+        public async Task Actualizar(Cine cine)
+        {
+            await this._context.SaveChangesAsync();
         }
     }
 }

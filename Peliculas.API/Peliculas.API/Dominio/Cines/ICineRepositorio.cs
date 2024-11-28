@@ -10,5 +10,6 @@ namespace Peliculas.API.Dominio.Cines
         Task<Cine> ObtenerPorId(int id);
         Task<List<Cine>> ObtenerNoContenidos(List<int> ids);
         Task Eliminar(int id);
+        Task Actualizar(Cine cine);
     }
 }

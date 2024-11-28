@@ -54,7 +54,7 @@ export default function FormularioCine(props: formularioCineProps) {
               Guardar
             </Boton>
 
-            <Link className="btn btn-secondary" to="/cines">
+            <Link className="btn btn-danger" to="/cines">
               Cancelar
             </Link>
         </Form>

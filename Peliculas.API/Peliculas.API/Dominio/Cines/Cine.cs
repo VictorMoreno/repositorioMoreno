@@ -4,7 +4,7 @@ using Peliculas.API.Dominio.Peliculas;
 
 namespace Peliculas.API.Dominio.Cines
 {
-    public class Cine
+    public partial class Cine
     {
         public int Id { get; set; }
         [Required]

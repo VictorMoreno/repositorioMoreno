@@ -7,11 +7,8 @@ namespace Peliculas.API.Aplicacion.Cines.Dtos
     {
         public static Cine ToEntity(this CineCreacionDto actorCreacion, GeometryFactory geometryFactory)
         {
-            return new Cine
-            {
-                Nombre = actorCreacion.Nombre,
-                Ubicacion = geometryFactory.CreatePoint(new Coordinate(actorCreacion.Longitud, actorCreacion.Latitud))
-            };
+            return Cine.Crear(actorCreacion.Nombre,
+                geometryFactory.CreatePoint(new Coordinate(actorCreacion.Longitud, actorCreacion.Latitud)));
         }
     }
 }

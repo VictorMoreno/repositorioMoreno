@@ -9,7 +9,7 @@ namespace Peliculas.API.App.Controllers
 {
     [Route("api/cines")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,Policy = "EsAdmin")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
     public class CinesController : ControllerBase
     {
         [HttpGet]
@@ -31,7 +31,15 @@ namespace Peliculas.API.App.Controllers
             await creador.Ejecutar(input);
             return NoContent();
         }
-        
+
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> Put(int id, [FromBody] CineCreacionDto input,
+            [FromServices] ModificadorCine modificador)
+        {
+            await modificador.Ejecutar(id, input.Nombre, input.Latitud, input.Longitud);
+            return NoContent();
+        }
+
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id, [FromServices] EliminadorCine eliminadorCine)
         {
