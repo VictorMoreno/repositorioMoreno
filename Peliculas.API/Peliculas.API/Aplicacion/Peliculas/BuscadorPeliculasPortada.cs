@@ -5,7 +5,7 @@ namespace Peliculas.API.Aplicacion.Peliculas
 {
     public class BuscadorPeliculasPortada : IServicioAplicacion
     {
-        private readonly IPeliculaRepositorio _repository;       
+        private readonly IPeliculaRepositorio _repository;
 
         public BuscadorPeliculasPortada(IPeliculaRepositorio repository)
         {
@@ -14,8 +14,8 @@ namespace Peliculas.API.Aplicacion.Peliculas
 
         public async Task<LandingPageDto> Ejecutar()
         {
-            var proximosEstrenos = await this._repository.ObtenerProximosEstrenos();
-            var enCines = await this._repository.ObtenerEnCines();
+            List<Pelicula> proximosEstrenos = await this._repository.ObtenerProximosEstrenos();
+            List<Pelicula> enCines = await this._repository.ObtenerEnCines();
 
             return LandingPageDtoExtensiones.ToDto(proximosEstrenos, enCines);
         }

@@ -18,18 +18,34 @@ namespace Peliculas.API.Aplicacion.Peliculas
             this._proveedorContenedor = proveedorContenedor;
         }
 
-        public async Task Ejecutar(PeliculaCreacionDto input)
+        public async Task Ejecutar(
+            string titulo,
+            string resumen,
+            string trailer,
+            bool enCines,
+            DateTime fechaLanzamiento,
+            IFormFile? poster,
+            List<int> generosIds,
+            List<int> cinesIds,
+            List<ActorPeliculaCreacionDto> actores)
         {
-            var entidad = input.ToEntity();
+            List<PeliculasActores> actoresAsociados =
+                actores.ConvertAll(actor => PeliculasActores.Crear(actor.id, actor.Personaje));
 
-            if (input.Poster != null)
+            Pelicula nuevaPelicula = Pelicula.Crear(titulo, resumen, trailer, enCines, fechaLanzamiento,
+                poster: string.Empty, actoresAsociados, PeliculasGeneros.Crear(generosIds),
+                PeliculasCines.Crear(cinesIds));
+
+            if (poster != null)
             {
-                entidad.Poster =
-                    await this._almacenadorArchivo.GuardarArchivo(
-                        this._proveedorContenedor.ObtenerContenedorPeliculas(), input.Poster);
+                string ficheroPoster = await this._almacenadorArchivo.GuardarArchivo(
+                    this._proveedorContenedor.ObtenerContenedorPeliculas(),
+                    poster);
+
+                nuevaPelicula.AsignarPoster(ficheroPoster);
             }
 
-            await this._repositorio.Guardar(entidad);
+            await this._repositorio.Guardar(nuevaPelicula);
         }
     }
 }

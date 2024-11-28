@@ -14,7 +14,7 @@ namespace Peliculas.API.Infraestructura.Generos
             this._context = context;
         }
 
-        public async Task<(int numeroTotal, List<Genero> elementos)> ObtenerTodosLosGeneros(PaginacionDto paginacion)
+        public async Task<(int numeroTotal, List<Genero> elementos)> ObtenerGeneros(PaginacionDto paginacion)
         {
             int cantidadGeneros = await this._context.Generos.CountAsync();
 
@@ -26,7 +26,7 @@ namespace Peliculas.API.Infraestructura.Generos
             return (cantidadGeneros, generosFiltrados);
         }
 
-        public async Task<List<Genero>> ObtenerTodosLosGeneros()
+        public async Task<List<Genero>> ObtenerGeneros()
         {
             return await this._context.Generos
                 .OrderBy(genero => genero.Nombre)
@@ -53,15 +53,10 @@ namespace Peliculas.API.Infraestructura.Generos
             }
         }
 
-        public async Task Eliminar(int id)
+        public async Task Eliminar(Genero genero)
         {
-            var genero = await this._context.Generos.FirstOrDefaultAsync(genero => genero.Id == id);
-
-            if (genero != null)
-            {
-                this._context.Generos.Remove(genero);
-                await this._context.SaveChangesAsync();
-            }
+            this._context.Generos.Remove(genero);
+            await this._context.SaveChangesAsync();
         }
 
         public async Task<List<Genero>> ObtenerNoContenidos(List<int> ids)

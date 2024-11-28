@@ -13,7 +13,9 @@ namespace Peliculas.API.Aplicacion.Actores
 
         public async Task Ejecutar(int id)
         {
-            await this._repositorio.Eliminar(id);
+            Actor actor = await this._repositorio.ObtenerPorId(id);
+
+            await this._repositorio.Eliminar(actor);
         }
     }
 }

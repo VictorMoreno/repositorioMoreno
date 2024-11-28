@@ -2,7 +2,6 @@
 using Peliculas.API.Aplicacion.Peliculas.Dtos;
 using Peliculas.API.Compartido.Dtos;
 using Peliculas.API.Compartido.Utilidades;
-using Peliculas.API.Dominio.GestoresImagenes;
 using Peliculas.API.Dominio.Peliculas;
 
 namespace Peliculas.API.Infraestructura.Peliculas
@@ -10,40 +9,14 @@ namespace Peliculas.API.Infraestructura.Peliculas
     public class BaseDatosPeliculaRepositorio : IPeliculaRepositorio
     {
         private readonly ApplicationDbContext _context;
-        private readonly IAlmacenadorArchivoRepositorio _almacenadorArchivo;
-        private readonly IProveedorContenedor _proveedorContenedor;
 
-        public BaseDatosPeliculaRepositorio(ApplicationDbContext context,
-            IAlmacenadorArchivoRepositorio almacenadorArchivo,
-            IProveedorContenedor proveedorContenedor)
+        public BaseDatosPeliculaRepositorio(ApplicationDbContext context)
         {
             this._context = context;
-            this._almacenadorArchivo = almacenadorArchivo;
-            this._proveedorContenedor = proveedorContenedor;
         }
 
-        public async Task Actualizar(int id,
-            string titulo,
-            string resumen,
-            string trailer,
-            bool enCines,
-            DateTime fechaLanzamiento,
-            IFormFile? poster,
-            List<int> idsGeneros,
-            List<int> idsCines,
-            List<(int id, string personaje)> actores)
+        public async Task Actualizar(Pelicula pelicula)
         {
-            Pelicula pelicula = await this.ObtenerPorId(id);
-            string rutaPoster = poster != null
-                ? await _almacenadorArchivo.EditarArchivo(this._proveedorContenedor.ObtenerContenedorPeliculas(),
-                    poster, pelicula.Poster)
-                : pelicula.Poster;
-            
-            pelicula.Modificar(titulo, resumen, trailer, enCines, fechaLanzamiento, rutaPoster, idsGeneros, idsCines,
-                actores);
-
-            pelicula = EscribirOrdenActores(pelicula);
-
             await _context.SaveChangesAsync();
         }
 
@@ -93,17 +66,10 @@ namespace Peliculas.API.Infraestructura.Peliculas
             return peliculas.ConvertAll(pelicula => PeliculaDtoExtensiones.ToDto(pelicula));
         }
 
-        public async Task Eliminar(int id)
+        public async Task Eliminar(Pelicula pelicula)
         {
-            var pelicula = await this._context.Peliculas.FirstOrDefaultAsync(pelicula => pelicula.Id == id);
-
-            if (pelicula != null)
-            {
-                this._context.Peliculas.Remove(pelicula);
-                await this._context.SaveChangesAsync();
-                await this._almacenadorArchivo.BorrarArchivo(pelicula.Poster,
-                    this._proveedorContenedor.ObtenerContenedorPeliculas());
-            }
+            this._context.Peliculas.Remove(pelicula);
+            await this._context.SaveChangesAsync();
         }
 
         public async Task Guardar(Pelicula pelicula)
@@ -142,16 +108,6 @@ namespace Peliculas.API.Infraestructura.Peliculas
                 .Include(x => x.PeliculasCines).ThenInclude(x => x.Cine)
                 .OrderBy(pelicula => pelicula.FechaLanzamiento)
                 .ToListAsync();
-        }
-
-        private Pelicula EscribirOrdenActores(Pelicula pelicula)
-        {
-            for (int i = 0; i < pelicula.PeliculasActores.Count; i++)
-            {
-                pelicula.PeliculasActores[i].Orden = i;
-            }
-
-            return pelicula;
         }
     }
 }

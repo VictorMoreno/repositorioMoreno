@@ -13,11 +13,11 @@ public class EliminadorCuenta : IServicioAplicacion
 
     public async Task Ejecutar(string id)
     {
-        var cuenta = await this._userManager.FindByIdAsync(id).ConfigureAwait(false);
+        IdentityUser? cuenta = await this._userManager.FindByIdAsync(id).ConfigureAwait(false);
 
         if (cuenta != null)
         {
-            var resultado = await _userManager.DeleteAsync(cuenta);
+            IdentityResult resultado = await _userManager.DeleteAsync(cuenta);
 
             if (!resultado.Succeeded)
             {

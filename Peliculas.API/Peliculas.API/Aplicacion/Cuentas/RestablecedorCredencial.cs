@@ -14,11 +14,11 @@ public class RestablecedorCredencial : IServicioAplicacion
 
     public async Task Ejecutar(string email, string token, string nuevaPassword)
     {
-        var usuario = await _userManager.FindByEmailAsync(email);
+        IdentityUser? usuario = await _userManager.FindByEmailAsync(email);
         
         if (usuario != null)
         {
-            var resultado = await _userManager.ResetPasswordAsync(usuario, token, nuevaPassword);
+            IdentityResult resultado = await _userManager.ResetPasswordAsync(usuario, token, nuevaPassword);
 
             if (!resultado.Succeeded)
             {

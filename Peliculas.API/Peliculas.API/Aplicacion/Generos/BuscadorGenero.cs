@@ -14,7 +14,7 @@ namespace Peliculas.API.Aplicacion.Generos
 
         public async Task<List<GeneroDto>> Ejecutar()
         {
-            var generos = await this._repositorio.ObtenerTodosLosGeneros();
+            List<Genero> generos = await this._repositorio.ObtenerGeneros();
             return generos.ConvertAll(GeneroDtoExtensions.ToDto);
         }
     }

@@ -13,6 +13,8 @@ public class EliminadorCine : IServicioAplicacion
 
     public async Task Ejecutar(int id)
     {
-        await this._repositorio.Eliminar(id).ConfigureAwait(false);
+        Cine cine = await _repositorio.ObtenerPorId(id);
+
+        await this._repositorio.Eliminar(cine).ConfigureAwait(false);
     }
 }

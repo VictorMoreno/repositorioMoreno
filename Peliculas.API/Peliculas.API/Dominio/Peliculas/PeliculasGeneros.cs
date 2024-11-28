@@ -2,7 +2,7 @@
 
 namespace Peliculas.API.Dominio.Peliculas
 {
-    public class PeliculasGeneros
+    public partial class PeliculasGeneros
     {
         public int PeliculaId { get; set; }
         public int GeneroId { get; set; }

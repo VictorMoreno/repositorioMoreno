@@ -28,7 +28,7 @@ namespace Peliculas.API.App.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CineCreacionDto input, [FromServices] CreadorCine creador)
         {
-            await creador.Ejecutar(input);
+            await creador.Ejecutar(input.Nombre, input.Latitud, input.Longitud);
             return NoContent();
         }
 

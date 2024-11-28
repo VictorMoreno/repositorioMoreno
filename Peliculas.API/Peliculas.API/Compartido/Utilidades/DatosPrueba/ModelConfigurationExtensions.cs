@@ -193,116 +193,105 @@ public static class ModelConfigurationExtensions
     private static void RellenarPeliculas(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Pelicula>().HasData(
+            new Pelicula(
+                IdPeliculaBabylon,
+                "Babylon",
+                "Ambientada en Los Ángeles durante los años 20, cuenta una historia de ambición y excesos desmesurados que recorre la ascensión y caída de múltiples personajes durante una época de desenfrenada decadencia y depravación en los albores de Hollywood.",
+                "https://www.youtube.com/watch?v=gBil8RpweBE&pp=ygUYYmFieWxvbiB0cmFpbGVyIGVzcGHDsW9s",
+                true,
+                new DateTime(2022, 12, 23),
+                "https://localhost:7290/peliculas/ea9fd07a-1fb5-4eb7-a01a-1c27266c2309.png"
+            ),
             new Pelicula
-            {
-                Id = IdPeliculaBabylon,
-                Titulo = "Babylon",
-                EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=gBil8RpweBE&pp=ygUYYmFieWxvbiB0cmFpbGVyIGVzcGHDsW9s",
-                FechaLanzamiento = new DateTime(2022, 12, 23),
-                Poster = "https://localhost:7290/peliculas/ea9fd07a-1fb5-4eb7-a01a-1c27266c2309.png",
-                Resumen =
-                    "Ambientada en Los Ángeles durante los años 20, cuenta una historia de ambición y excesos desmesurados que recorre la ascensión y caída de múltiples personajes durante una época de desenfrenada decadencia y depravación en los albores de Hollywood."
-            },
+            (
+                IdPeliculaHollywood,
+                "Érase una vez en… Hollywood",
+                "Hollywood, años 60. La estrella de un western televisivo, Rick Dalton (DiCaprio), intenta amoldarse a los cambios del medio al mismo tiempo que su doble (Pitt). La vida de Dalton está ligada completamente a Hollywood, y es vecino de la joven y prometedora actriz y modelo Sharon Tate (Robbie) que acaba de casarse con el prestigioso director Roman Polanski.",
+                "https://www.youtube.com/watch?v=J0rFGJV3cYw",
+                true,
+                new DateTime(2019, 7, 26),
+                "https://localhost:7290/peliculas/14a89f1e-d997-46ec-ae77-37b43118b00c.jpg"
+            ),
             new Pelicula
-            {
-                Id = IdPeliculaHollywood,
-                Titulo = "Érase una vez en… Hollywood",
-                EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=J0rFGJV3cYw",
-                FechaLanzamiento = new DateTime(2019, 7, 26),
-                Poster = "https://localhost:7290/peliculas/14a89f1e-d997-46ec-ae77-37b43118b00c.jpg",
-                Resumen =
-                    "Hollywood, años 60. La estrella de un western televisivo, Rick Dalton (DiCaprio), intenta amoldarse a los cambios del medio al mismo tiempo que su doble (Pitt). La vida de Dalton está ligada completamente a Hollywood, y es vecino de la joven y prometedora actriz y modelo Sharon Tate (Robbie) que acaba de casarse con el prestigioso director Roman Polanski."
-            },
+            (
+                IdPeliculaAdAstra,
+                "Ad Astra",
+                "El astronauta Roy McBride (Brad Pitt) viaja a los límites exteriores del sistema solar para encontrar a su padre perdido y desentrañar un misterio que amenaza la supervivencia de nuestro planeta. Su viaje desvelará secretos que desafían la naturaleza de la existencia humana y nuestro lugar en el cosmos.",
+                "https://www.youtube.com/watch?v=2hy4clp3IMM",
+                true,
+                new DateTime(2019, 9, 20),
+                "https://localhost:7290/peliculas/eecfa05e-7968-474a-93c4-3f5b24e5cb66.jpg"
+            ),
             new Pelicula
-            {
-                Id = IdPeliculaAdAstra,
-                Titulo = "Ad Astra",
-                EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=2hy4clp3IMM",
-                FechaLanzamiento = new DateTime(2019, 9, 20),
-                Poster = "https://localhost:7290/peliculas/eecfa05e-7968-474a-93c4-3f5b24e5cb66.jpg",
-                Resumen =
-                    "El astronauta Roy McBride (Brad Pitt) viaja a los límites exteriores del sistema solar para encontrar a su padre perdido y desentrañar un misterio que amenaza la supervivencia de nuestro planeta. Su viaje desvelará secretos que desafían la naturaleza de la existencia humana y nuestro lugar en el cosmos."
-            },
+            (
+                IdPeliculaCiudadPerdida,
+                "La ciudad perdida",
+                "La carrera literaria de la brillante y algo huraña escritora de novelas Loretta Sage (Sandra Bullock) ha girado en torno a las novelas románticas de aventuras que, ambientadas en lugares exóticos, protagoniza un atractivo galán cuya imagen aparece reproducida en todas las portadas, y que en la vida real corresponde a Alan (Channing Tatum), un modelo que ha centrado su carrera en personificar al novelesco aventurero. Durante una gira para promocionar su nuevo libro junto a Alan, Loretta es raptada por un excéntrico multimillonario (Daniel Radcliffe), con la intención de que la autora le guíe hasta el tesoro de la antigua ciudad perdida sobre el que gira su último relato. Deseoso de demostrar que puede ser un héroe en la vida real, y no simplemente en las páginas de sus obras de ficción, Alan se lanza al rescate de la novelista.",
+                "https://www.youtube.com/watch?v=DWq5cjkxEQQ",
+                true,
+                new DateTime(2022, 3, 25),
+                "https://localhost:7290/peliculas/0acee9d1-94df-4229-aab0-bf7c308e2933.jpg"
+            ),
             new Pelicula
-            {
-                Id = IdPeliculaCiudadPerdida,
-                Titulo = "La ciudad perdida",
-                EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=DWq5cjkxEQQ",
-                FechaLanzamiento = new DateTime(2022, 3, 25),
-                Poster = "https://localhost:7290/peliculas/0acee9d1-94df-4229-aab0-bf7c308e2933.jpg",
-                Resumen =
-                    "La carrera literaria de la brillante y algo huraña escritora de novelas Loretta Sage (Sandra Bullock) ha girado en torno a las novelas románticas de aventuras que, ambientadas en lugares exóticos, protagoniza un atractivo galán cuya imagen aparece reproducida en todas las portadas, y que en la vida real corresponde a Alan (Channing Tatum), un modelo que ha centrado su carrera en personificar al novelesco aventurero. Durante una gira para promocionar su nuevo libro junto a Alan, Loretta es raptada por un excéntrico multimillonario (Daniel Radcliffe), con la intención de que la autora le guíe hasta el tesoro de la antigua ciudad perdida sobre el que gira su último relato. Deseoso de demostrar que puede ser un héroe en la vida real, y no simplemente en las páginas de sus obras de ficción, Alan se lanza al rescate de la novelista.",
-            },
+            (
+                IdPeliculaWolves,
+                "Wolves",
+                "Dos solitarios se ven involucrados en el mismo trabajo, que pronto se convierte en una carrera por la supervivencia.",
+                "https://www.youtube.com/watch?v=Ti_7suoHmRQ",
+                false,
+                new DateTime(2025, 6, 15),
+                string.Empty
+            ),
             new Pelicula
-            {
-                Id = IdPeliculaWolves,
-                Titulo = "Wolves",
-                EnCines = false,
-                Trailer = "https://www.youtube.com/watch?v=Ti_7suoHmRQ",
-                FechaLanzamiento = new DateTime(2025, 6, 15),
-                Poster = "",
-                Resumen =
-                    "Dos solitarios se ven involucrados en el mismo trabajo, que pronto se convierte en una carrera por la supervivencia.",
-            },
+            (
+                IdPeliculaDune,
+                "Dune: Parte dos",
+                "Tras los sucesos de la primera parte acontecidos en el planeta Arrakis, el joven Paul Atreides se une a la tribu de los Fremen y comienza un viaje espiritual y marcial para convertirse en mesías, mientras intenta evitar el horrible pero inevitable futuro que ha presenciado: una Guerra Santa en su nombre, que se extiende por todo el universo conocido... Secuela de 'Dune' (2021).",
+                "https://www.youtube.com/watch?v=6OmJF6VjKMA",
+                true,
+                new DateTime(2024, 3, 15),
+                "https://localhost:7290/peliculas/98e8356c-3214-454f-b6c5-81f82de778ff.jpg"
+            ),
             new Pelicula
-            {
-                Id = IdPeliculaDune,
-                Titulo = "Dune: Parte dos",
-                EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=6OmJF6VjKMA",
-                FechaLanzamiento = new DateTime(2024, 3, 15),
-                Poster = "https://localhost:7290/peliculas/98e8356c-3214-454f-b6c5-81f82de778ff.jpg",
-                Resumen =
-                    "Tras los sucesos de la primera parte acontecidos en el planeta Arrakis, el joven Paul Atreides se une a la tribu de los Fremen y comienza un viaje espiritual y marcial para convertirse en mesías, mientras intenta evitar el horrible pero inevitable futuro que ha presenciado: una Guerra Santa en su nombre, que se extiende por todo el universo conocido... Secuela de 'Dune' (2021).",
-            },
+            (
+                IdPeliculaAvatar,
+                "Avatar 3",
+                "La tercera entrega de la saga \"Avatar\", presenta al Pueblo de las Cenizas, un clan Na'vi no tan pacífico que utilizará la violencia si lo necesita para conseguir sus objetivos, aunque sea contra otros clanes.",
+                "https://www.youtube.com/watch?v=YXtWPVFk5TQ",
+                false,
+                new DateTime(2025, 12, 19),
+                "https://localhost:7290/peliculas/aad70b69-1dd1-4b5a-8e4a-1941c00fe96f.jpg"
+            ),
             new Pelicula
-            {
-                Id = IdPeliculaAvatar,
-                Titulo = "Avatar 3",
-                EnCines = false,
-                Trailer = "https://www.youtube.com/watch?v=YXtWPVFk5TQ",
-                FechaLanzamiento = new DateTime(2025, 12, 19),
-                Poster = "https://localhost:7290/peliculas/aad70b69-1dd1-4b5a-8e4a-1941c00fe96f.jpg",
-                Resumen =
-                    "La tercera entrega de la saga \"Avatar\", presenta al Pueblo de las Cenizas, un clan Na'vi no tan pacífico que utilizará la violencia si lo necesita para conseguir sus objetivos, aunque sea contra otros clanes.",
-            },
+            (
+                IdPeliculaMisionImposible,
+                "Misión: Imposible - Sentencia Mortal Parte Dos",
+                "Ethan Hunt continúa su lucha contra una nueva amenaza global en la segunda parte de esta entrega de alta tensión y acción.",
+                "https://www.youtube.com/watch?v=8jRMVhGwy0M",
+                true,
+                new DateTime(2024, 6, 28),
+                "https://localhost:7290/peliculas/ec9ebb58-73f3-4a0e-ae57-2e7de11da751.jpg"
+            ),
             new Pelicula
-            {
-                Id = IdPeliculaMisionImposible,
-                Titulo = "Misión: Imposible - Sentencia Mortal Parte Dos",
-                EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=8jRMVhGwy0M",
-                FechaLanzamiento = new DateTime(2024, 6, 28),
-                Poster = "https://localhost:7290/peliculas/ec9ebb58-73f3-4a0e-ae57-2e7de11da751.jpg",
-                Resumen =
-                    "Ethan Hunt continúa su lucha contra una nueva amenaza global en la segunda parte de esta entrega de alta tensión y acción.",
-            },
+            (
+                IdPeliculaMarvels,
+                "The Marvels",
+                "Carol Danvers, alias Capitana Marvel, ha recuperado la identidad que le arrebataron los tiránicos Kree y se ha cobrado su venganza contra la Inteligencia Suprema. Pero una serie de consecuencias imprevistas la obligan a cargar con el peso de un universo desestabilizado. Cuando el deber la lleva hasta un anómalo agujero de gusano vinculado a una revolucionaria Kree, sus poderes se conectan con los de su superfán de Nueva Jersey Kamala Khan, también conocida como Ms. Marvel, y con los de su sobrina, con la que está distanciada y es ahora astronauta en S.A.B.E.R., la capitana Monica Rambeau. Juntas, las integrantes de este insólito trío tendrán que unir fuerzas y aprender a trabajar en equipo como 'The Marvels' para salvar el universo.",
+                "https://www.youtube.com/watch?v=gdSGIf8kbhg",
+                true,
+                new DateTime(2024, 11, 8),
+                "https://localhost:7290/peliculas/c2eb8dbc-9a1f-4bbe-a8d5-346999a51022.jpg"
+            ),
             new Pelicula
-            {
-                Id = IdPeliculaMarvels,
-                Titulo = "The Marvels",
-                EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=gdSGIf8kbhg",
-                FechaLanzamiento = new DateTime(2024, 11, 8),
-                Poster = "https://localhost:7290/peliculas/c2eb8dbc-9a1f-4bbe-a8d5-346999a51022.jpg",
-                Resumen =
-                    "Carol Danvers, alias Capitana Marvel, ha recuperado la identidad que le arrebataron los tiránicos Kree y se ha cobrado su venganza contra la Inteligencia Suprema. Pero una serie de consecuencias imprevistas la obligan a cargar con el peso de un universo desestabilizado. Cuando el deber la lleva hasta un anómalo agujero de gusano vinculado a una revolucionaria Kree, sus poderes se conectan con los de su superfán de Nueva Jersey Kamala Khan, también conocida como Ms. Marvel, y con los de su sobrina, con la que está distanciada y es ahora astronauta en S.A.B.E.R., la capitana Monica Rambeau. Juntas, las integrantes de este insólito trío tendrán que unir fuerzas y aprender a trabajar en equipo como 'The Marvels' para salvar el universo.",
-            },
-            new Pelicula
-            {
-                Id = IdPeliculaJoker,
-                Titulo = "Joker: locura de a dos",
-                EnCines = true,
-                Trailer = "https://www.youtube.com/watch?v=7SZfThvjt5I",
-                FechaLanzamiento = new DateTime(2024, 10, 4),
-                Poster = "https://localhost:7290/peliculas/c900cffe-1828-46f1-9893-99b86ec064ab.png",
-                Resumen =
-                    "Tras crear el caos, Arthur Fleck ha sido internado en Arkham a la espera de juicio por sus crímenes como Joker. Mientras lidia con su doble identidad, Arthur no sólo se topa con el amor verdadero, sino que también descubre la música que siempre ha estado dentro de él. Secuela de 'Joker' (2019)."
-            }
+            (
+                IdPeliculaJoker,
+                "Joker: locura de a dos",
+                "Tras crear el caos, Arthur Fleck ha sido internado en Arkham a la espera de juicio por sus crímenes como Joker. Mientras lidia con su doble identidad, Arthur no sólo se topa con el amor verdadero, sino que también descubre la música que siempre ha estado dentro de él. Secuela de 'Joker' (2019).",
+                "https://www.youtube.com/watch?v=7SZfThvjt5I",
+                true,
+                new DateTime(2024, 10, 4),
+                "https://localhost:7290/peliculas/c900cffe-1828-46f1-9893-99b86ec064ab.png"
+            )
         );
     }
 

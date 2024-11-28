@@ -29,7 +29,7 @@ public class BaseDatosUsuarioRepositorio : IUsuarioRepositorio
 
         return (numeroTotal, usuarios);
     }
-    
+
     public async Task<IdentityUser> Obtener(string id)
     {
         return await this._context.Users.FirstAsync(usuario => usuario.Id == id).ConfigureAwait(false);
@@ -37,13 +37,21 @@ public class BaseDatosUsuarioRepositorio : IUsuarioRepositorio
 
     public async Task HacerAdministrador(string idUsuario)
     {
-        var usuario = await this._userManager.FindByIdAsync(idUsuario);
-        await this._userManager.AddClaimAsync(usuario, new Claim("role", "admin"));
+        IdentityUser? usuario = await this._userManager.FindByIdAsync(idUsuario);
+
+        if (usuario != null)
+        {
+            await this._userManager.AddClaimAsync(usuario, new Claim("role", "admin"));
+        }
     }
 
     public async Task QuitarAdministrador(string idUsuario)
     {
-        var usuario = await this._userManager.FindByIdAsync(idUsuario);
-        await this._userManager.RemoveClaimAsync(usuario, new Claim("role", "admin"));
+        IdentityUser? usuario = await this._userManager.FindByIdAsync(idUsuario);
+
+        if (usuario != null)
+        {
+            await this._userManager.RemoveClaimAsync(usuario, new Claim("role", "admin"));
+        }
     }
 }

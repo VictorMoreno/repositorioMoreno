@@ -48,7 +48,8 @@ namespace Peliculas.API.App.Controllers
         public async Task<ActionResult> Post([FromForm] PeliculaCreacionDto pelicula,
             [FromServices] CreadorPelicula creadorPelicula)
         {
-            await creadorPelicula.Ejecutar(pelicula);
+            await creadorPelicula.Ejecutar(pelicula.Titulo, pelicula.Resumen, pelicula.Trailer, pelicula.EnCines,
+                pelicula.FechaLanzamiento, pelicula.Poster, pelicula.GenerosIds, pelicula.CinesIds, pelicula.Actores);
             return NoContent();
         }
 

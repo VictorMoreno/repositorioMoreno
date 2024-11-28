@@ -13,7 +13,7 @@ public class ModificadorCuenta : IServicioAplicacion
 
     public async Task Ejecutar(string id, string nuevoEmail)
     {
-        var usuario = await _userManager.FindByIdAsync(id).ConfigureAwait(false);
+        IdentityUser? usuario = await _userManager.FindByIdAsync(id).ConfigureAwait(false);
 
         if (usuario == null)
         {
@@ -23,7 +23,7 @@ public class ModificadorCuenta : IServicioAplicacion
         usuario.Email = nuevoEmail;
         usuario.UserName = nuevoEmail;
 
-        var resultado = await _userManager.UpdateAsync(usuario);
+        IdentityResult resultado = await _userManager.UpdateAsync(usuario);
 
         if (!resultado.Succeeded)
         {

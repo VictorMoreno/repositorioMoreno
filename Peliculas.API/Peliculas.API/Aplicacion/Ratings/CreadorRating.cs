@@ -16,10 +16,10 @@ public class CreadorRating : IServicioAplicacion
 
     public async Task Ejecutar(string email, int idPelicula, int puntuacion)
     {
-        var usuario = await _userManager.FindByEmailAsync(email);
-        var idUsuario = usuario.Id;
+        IdentityUser? usuario = await _userManager.FindByEmailAsync(email);
+        string idUsuario = usuario.Id;
 
-        var ratingActual = await this._repositorio.ObtenerRatingUsuario(idUsuario, idPelicula);
+        Rating? ratingActual = await this._repositorio.ObtenerRatingUsuario(idUsuario, idPelicula);
         
         if (ratingActual == null)
         {

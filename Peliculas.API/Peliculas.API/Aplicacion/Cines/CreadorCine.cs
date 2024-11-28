@@ -1,5 +1,4 @@
 ﻿using NetTopologySuite.Geometries;
-using Peliculas.API.Aplicacion.Cines.Dtos;
 using Peliculas.API.Dominio.Cines;
 
 namespace Peliculas.API.Aplicacion.Cines
@@ -15,9 +14,12 @@ namespace Peliculas.API.Aplicacion.Cines
             this._geometryFactory = geometryFactory;
         }
 
-        public async Task Ejecutar(CineCreacionDto input)
+        public async Task Ejecutar(string nombre, double latitud, double longitud)
         {
-            await this._repository.Guardar(input.ToEntity(this._geometryFactory));
+            Point? puntoGeografico = this._geometryFactory.CreatePoint(new Coordinate(longitud, latitud));
+            Cine cine = Cine.Crear(nombre, puntoGeografico);
+
+            await this._repository.Guardar(cine);
         }
     }
 }

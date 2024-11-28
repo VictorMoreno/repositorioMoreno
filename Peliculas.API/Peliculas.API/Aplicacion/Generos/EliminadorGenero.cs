@@ -13,7 +13,9 @@ namespace Peliculas.API.Aplicacion.Generos
 
         public async Task Ejecutar(int id)
         {
-            await this._repositorio.Eliminar(id);
+            Genero genero = await this._repositorio.ObtenerPorId(id);
+
+            await this._repositorio.Eliminar(genero);
         }
     }
 }

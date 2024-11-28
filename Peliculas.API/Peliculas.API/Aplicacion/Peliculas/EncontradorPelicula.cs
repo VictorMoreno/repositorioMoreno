@@ -28,7 +28,8 @@ namespace Peliculas.API.Aplicacion.Peliculas
                 throw new FileNotFoundException();
             }
 
-            var datosRating = await this.GestionarVoto(estaAutenticado, email, pelicula.Id);
+            (double votoPromedio, int votoUsuario) datosRating =
+                await this.GestionarVoto(estaAutenticado, email, pelicula.Id);
 
             return pelicula.ToDto(datosRating);
         }
@@ -44,12 +45,11 @@ namespace Peliculas.API.Aplicacion.Peliculas
                 return ratingVacio;
             }
 
-            var votoPromedio = await this._ratingRepositorio.ObtenerMediaRatings(idPelicula);
-            var votoUsuario = 0;
+            double votoPromedio = await this._ratingRepositorio.ObtenerMediaRatings(idPelicula);
+            int votoUsuario = 0;
 
             if (estaAutenticado)
             {
-
                 var usuario = await this._userManager.FindByEmailAsync(email);
                 var idUsuario = usuario.Id;
 

@@ -20,7 +20,7 @@ namespace Peliculas.API.Aplicacion.Cuentas
 
         public async Task<RespuestaAutenticacion> Ejecutar(string email, string password)
         {
-            var resultado =
+            SignInResult resultado =
                 await _signInManager.PasswordSignInAsync(email, password, isPersistent: false, lockoutOnFailure: false);
 
             if (!resultado.Succeeded)

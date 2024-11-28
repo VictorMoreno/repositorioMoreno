@@ -48,15 +48,10 @@ namespace Peliculas.API.Infraestructura.Cines
                 .ToListAsync();
         }
 
-        public async Task Eliminar(int id)
+        public async Task Eliminar(Cine cine)
         {
-            var cine = await this._context.Cines.FirstOrDefaultAsync(cine => cine.Id == id);
-
-            if (cine != null)
-            {
-                this._context.Cines.Remove(cine);
-                await this._context.SaveChangesAsync();
-            }
+            this._context.Cines.Remove(cine);
+            await this._context.SaveChangesAsync();
         }
 
         public async Task Actualizar(Cine cine)
