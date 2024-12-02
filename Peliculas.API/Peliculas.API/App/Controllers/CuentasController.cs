@@ -50,14 +50,7 @@ namespace Peliculas.API.App.Controllers
         public async Task<ActionResult<RespuestaAutenticacion>> Crear([FromBody] CredencialesUsuario credenciales,
             [FromServices] CreadorCuenta creadorUsuario)
         {
-            try
-            {
-                return await creadorUsuario.Ejecutar(credenciales.Email, credenciales.Password);
-            }
-            catch (CreacionUsuarioException error)
-            {
-                return BadRequest(error.Errores);
-            }
+            return await creadorUsuario.Ejecutar(credenciales.Email, credenciales.Password);
         }
 
         [HttpPost("login")]
@@ -92,7 +85,7 @@ namespace Peliculas.API.App.Controllers
             await eliminadorCuenta.Ejecutar(id);
             return NoContent();
         }
-        
+
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(string id, [FromBody] UsuarioEdicionDto usuario,
             [FromServices] ModificadorCuenta modificador)

@@ -31,6 +31,8 @@ export function configurarInterceptor() {
             text: error.response.data.message,
             icon: "error",
           });
+
+          return Promise.reject(error);
         }
       } else {
         window.location.href = "/error";

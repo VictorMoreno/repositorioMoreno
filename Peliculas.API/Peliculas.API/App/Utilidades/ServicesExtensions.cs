@@ -53,7 +53,7 @@ namespace Peliculas.API.App.Utilidades
         {
             services.AddTransient<IProveedorContenedor, ProveedorManualContenedor>();
             services.AddSingleton<IEmailSender, SmtpEmailSender>();
-
+            
             return services;
         }
     }

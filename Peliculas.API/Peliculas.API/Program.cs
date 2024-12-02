@@ -71,7 +71,7 @@ builder.Services.AddAuthorization(opciones =>
 
 builder.Services.AddControllers(options =>
 {
-    options.Filters.Add<ParsearBadRequest>();
+    // options.Filters.Add<ParsearBadRequest>();
 }).ConfigureApiBehaviorOptions(BehaviorBadRequest.Parsear);
 
 builder.Services.AddSwaggerGen(options =>

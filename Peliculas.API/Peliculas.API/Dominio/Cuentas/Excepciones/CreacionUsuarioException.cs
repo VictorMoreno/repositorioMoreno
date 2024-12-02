@@ -4,12 +4,10 @@ namespace Peliculas.API.Dominio.Cuentas.Excepciones
 {
     public class CreacionUsuarioException : DomainError
     {
-        private IEnumerable<IdentityError> _errores;
-        public IEnumerable<IdentityError> Errores => this._errores;
-        public CreacionUsuarioException(IEnumerable<IdentityError> errores) 
-            : base("Error durante la creación del usuario")
+        public CreacionUsuarioException(IEnumerable<IdentityError> errores)
+            : base(
+                "Las contraseñas deben tener al menos 6 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula, un número y un símbolo.")
         {
-            this._errores = errores;
         }
     }
 }

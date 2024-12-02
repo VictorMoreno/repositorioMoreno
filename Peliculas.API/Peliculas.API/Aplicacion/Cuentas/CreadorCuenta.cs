@@ -24,6 +24,8 @@ namespace Peliculas.API.Aplicacion.Cuentas
                 Email = email
             };
 
+            this.ComprobarUsuarioExistente(usuario);
+
             IdentityResult resultado = await this._userManager.CreateAsync(usuario, password);
 
             if (!resultado.Succeeded)
@@ -32,6 +34,16 @@ namespace Peliculas.API.Aplicacion.Cuentas
             }
 
             return await this._creadorToken.Generar(email);
-        }    
+        }
+
+        private void ComprobarUsuarioExistente(IdentityUser nuevoUsuario)
+        {
+            var existe = this._userManager.Users.Any(usuario => usuario.Email == nuevoUsuario.Email);
+
+            if (existe)
+            {
+                throw new UsuarioYaRegistradoException();
+            }
+        }
     }
 }
