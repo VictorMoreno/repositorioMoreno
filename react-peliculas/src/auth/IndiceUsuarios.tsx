@@ -25,9 +25,9 @@ export default function IndiceUsuarios() {
       title: "Éxito",
       text: "Operación realizada con éxito.",
       icon: "success",
+    }).then((result) => {
+      window.location.reload();
     });
-
-    navigate("/usuarios");
   }
 
   async function realizarPeticion(url: string, id: string) {
@@ -59,12 +59,9 @@ export default function IndiceUsuarios() {
             {usuarios?.map((usuario) => (
               <tr key={usuario.id}>
                 <td>
-                  <Link
-                    className="btn btn-success"
-                    to={`editar/${usuario.id}`}
-                  >
+                  <Link className="btn btn-success" to={`editar/${usuario.id}`}>
                     Editar
-                  </Link>                  
+                  </Link>
                   <Boton
                     className="btn btn-danger"
                     style={null}
