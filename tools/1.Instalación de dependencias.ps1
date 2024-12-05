@@ -17,8 +17,13 @@ function Install-NodeJS {
 
 # Función para instalar .NET SDK 8
 function Install-DotNetSDK {
+	
     Write-Host "Iniciando la instalacion del .NET SDK 8..." -ForegroundColor Cyan
-    $dotnetInstallerPath = "./dotnet-8-x64.exe"
+	$dotnetInstallerUrl = "https://download.visualstudio.microsoft.com/download/pr/ba3a1364-27d8-472e-a33b-5ce0937728aa/6f9495e5a587406c85af6f93b1c89295/dotnet-sdk-8.0.404-win-x64.exe"
+    $dotnetInstallerPath = "$env:TEMP\dotnet-8-x64.exe"
+	
+	# Descargar .NET SDK
+    Invoke-WebRequest -Uri $dotnetInstallerUrl -OutFile $dotnetInstallerPath
 
     # Instalar .NET SDK
     Start-Process -FilePath $dotnetInstallerPath -ArgumentList "/quiet /norestart" -Wait
