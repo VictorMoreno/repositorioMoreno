@@ -16,6 +16,7 @@ project.fragment.lock.json
 
 # Archivos generados por el compilador y depurador
 *.dll
+*.exe
 *.pdb
 *.mdb
 
