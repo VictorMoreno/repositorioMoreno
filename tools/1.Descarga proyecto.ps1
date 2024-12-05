@@ -1,6 +1,6 @@
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 
-$repoUrl = "https://github.com/VictorMoreno/piranha.core.templates.git"
+$repoUrl = "https://github.com/VictorMoreno/repositorioMoreno.git"
 
 $desktopPath = [Environment]::GetFolderPath("Desktop")
 
