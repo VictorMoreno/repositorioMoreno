@@ -55,13 +55,16 @@ export default function FormularioAuth(props: FormularioAuthProps) {
                 )}
               </div>
               <p></p>
-              {props.esLogin ?
-              <div className="text-center">
-              <Link to="/usuarios/solicitudRestablecimiento" className="text-decoration-none">
-                ¿Has olvidado la contraseña?
-              </Link>
-            </div> : null}
-              
+              {props.esLogin ? (
+                <div className="text-center">
+                  <Link
+                    to="/usuarios/solicitudRestablecimiento"
+                    className="text-decoration-none"
+                  >
+                    ¿Has olvidado la contraseña?
+                  </Link>
+                </div>
+              ) : null}
             </Form>
           </div>
         </div>
