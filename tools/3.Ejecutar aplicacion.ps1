@@ -57,7 +57,9 @@ $dotnetApiPath = "./../Peliculas.API"
 # Navegar a la carpeta de la API y aplicar las migraciones de Entity Framework
 Write-Host "Aplicando migraciones de Entity Framework..."
 cd $dotnetApiPath
-dotnet ef database update --configuration Debug
+# dotnet ef database update --configuration Debug
+dotnet build
+dotnet ef database update --project Peliculas.API.csproj --startup-project Peliculas.API.csproj --context Peliculas.API.Infraestructura.ApplicationDbContext --configuration Debug "20241127151213_Datos Sinopsis"
 
 # Iniciar la API en .NET 8 en segundo plano
 Write-Host "Iniciando la API en .NET 8..."
