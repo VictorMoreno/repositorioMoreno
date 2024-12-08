@@ -10,6 +10,7 @@ import {
   faRightFromBracket,
   faSignInAlt,
   faUserPlus,
+  faIdBadge
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Menu() {
@@ -133,6 +134,9 @@ export default function Menu() {
               }
               noAutorizado={
                 <>
+                  <Link to="/sobreMi" className="btn btn-link">
+                    <FontAwesomeIcon icon={faIdBadge} title="Sobre Mi" className="fa-lg"/>
+                  </Link>
                   <Link to="/registro" className="btn btn-link">
                     <FontAwesomeIcon icon={faUserPlus} title="Registro" className="fa-lg"/>
                   </Link>

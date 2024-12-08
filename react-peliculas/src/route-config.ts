@@ -18,6 +18,7 @@ import CrearPeliculas from "./peliculas/CrearPeliculas";
 import DetallePelicula from "./peliculas/DetallePelicula";
 import EditarPeliculas from "./peliculas/EditarPeliculas";
 import FiltroPeliculas from "./peliculas/FiltroPeliculas";
+import SobreMi from "./SobreMi";
 import FormularioError from "./utilidades/FormularioError";
 import FormularioSinPermiso from "./utilidades/FormularioSinPermiso";
 import RedireccionarPaginaPrincipal from "./utilidades/RedireccionPaginaPrincipal";
@@ -49,6 +50,7 @@ const rutas = [
 
   { path: "/sesion", componente: FormularioSinPermiso},
   { path: "/error", componente: FormularioError},
+  { path: "/sobreMi", componente: SobreMi},
 
   { path: "/", componente: PaginaPrincipal },
 
