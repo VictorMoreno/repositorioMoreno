@@ -1,3 +1,19 @@
+## Usuarios DEMO
+
+Credenciales Admin:
+
+```
+admin@ejemplo.com
+Admin123*
+```
+
+Credenciales usuario:
+
+```
+usuario@ejemplo.com
+User123*
+```
+
 # Herramientas necesarias
 - .NET 8
 - React
